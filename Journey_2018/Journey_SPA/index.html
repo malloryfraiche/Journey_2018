@@ -15,21 +15,26 @@
 
 <body ng-app="app">
 
-    <div ng-controller="login">
+    <!--This angular controller will have its own html view called login.html-->
+    <!--All the views (angular controllers) will be routed in the app.js-->
+    <div ng-controller="login" class="loginStyle">
         
-        <form>
-            <div class="form-group loginContainer">
-                <h2>{{login}}</h2>
-                <label><b>Username:</b></label><br />
-                <input type="text" placeholder="Username" class="form-control" value="" required />
-                <label><b>Password:</b></label><br />
-                <input type="text" placeholder="Password" class="form-control" value="" required /><br />
-                <button class="btn btn-primary">Login</button><br />
-                <small><a href="#">Forgot Password?</a></small>
-            </div>
-        </form>
+        <div class="loginHeadingStyle">
+            <h1>Journey</h1>
+            <form>
+                <div class="form-group loginContainerStyle">
+                    <h3>{{login}}</h3>
+                    <label><b>Username:</b></label><br />
+                    <input type="text" placeholder="Username" class="form-control" value="" required />
+                    <label><b>Password:</b></label><br />
+                    <input type="text" placeholder="Password" class="form-control" value="" required /><br />
+                    <button class="btn btn-primary btn-block">Login</button><br />
+                    <small><a href="#">Forgot Password?</a></small>
+                </div>
+            </form>
+        </div>
 
-    </div>
+    </div> <!--end login controller div-->
 
     <div ng-controller="start">
         {{start}}

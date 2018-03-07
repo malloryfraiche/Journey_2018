@@ -1,3 +1,20 @@
-﻿.loginContainer {
-    padding: 50px;
+﻿.loginStyle {
+    margin: 100px;
+    position: absolute;
+}
+
+.loginHeadingStyle {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loginContainerStyle {
+    text-align: left;
+    margin: 20px 20px;
+    border: solid;
+    padding: 20px;
+    position: relative;
 }
