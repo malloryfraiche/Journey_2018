@@ -9,20 +9,20 @@
     <script src="../Scripts/angular-route.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="JourneyStyle/style.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
     <script src="JourneyScripts/app.js"></script>
 </head>
 
-<body ng-app="app">
+<body ng-app="app" class="spaBody">
 
     <!--This angular controller will have its own html view called login.html-->
     <!--All the views (angular controllers) will be routed in the app.js-->
-    <div ng-controller="login" class="loginStyle">
+    <div ng-controller="login" class="loginControllerStyle">
         
         <div class="loginHeadingStyle">
             <h1>Journey</h1>
             <form>
-                <div class="form-group loginContainerStyle">
+                <div class="form-group loginFormStyle">
                     <h3>{{login}}</h3>
                     <label><b>Username:</b></label><br />
                     <input type="text" placeholder="Username" class="form-control" value="" required />
