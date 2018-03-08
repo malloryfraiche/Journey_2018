@@ -10,13 +10,13 @@ angular.module('app').config(
     function ($routeProvider) {
         $routeProvider
             .when("/", {
-                templateUrl: "main.html",
-                controller: "main"
-            })
-            .when("/login", {
                 templateUrl: "login.html",
                 controller: "login"
             })
+            //.when("/login", {
+            //    templateUrl: "login.html",
+            //    controller: "login"
+            //})
             .when("/start", {
                 templateUrl: "start.html",
                 controller: "start"

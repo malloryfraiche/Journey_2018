@@ -118,13 +118,18 @@
     </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Journey_SPA\customStyle.css">
+      <DependentUpon>customStyle.less</DependentUpon>
+    </Content>
+    <Content Include="Journey_SPA\customStyle.min.css">
+      <DependentUpon>customStyle.css</DependentUpon>
+    </Content>
     <Content Include="Journey_SPA\JourneyScripts\app.js" />
     <Content Include="Journey_SPA\JourneyScripts\login.js" />
     <Content Include="Journey_SPA\JourneyScripts\start.js" />
     <Content Include="Journey_SPA\login.html" />
     <Content Include="Journey_SPA\main.html" />
     <Content Include="Journey_SPA\start.html" />
-    <Content Include="Journey_SPA\style.css" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -992,6 +997,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Journey_SPA\customStyle.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

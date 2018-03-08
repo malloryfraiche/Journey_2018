@@ -1,18 +1,23 @@
-﻿<div ng-controller="login" class="loginControllerStyle">
+﻿<div ng-controller="login">
 
-    <div class="loginHeadingStyle">
-        <h1>Journey</h1>
-        <form>
-            <div class="form-group loginFormStyle">
-                <h3>{{login}}</h3>
-                <label><b>Username:</b></label><br />
-                <input type="text" placeholder="Username" class="form-control" value="" required />
-                <label><b>Password:</b></label><br />
-                <input type="text" placeholder="Password" class="form-control" value="" required /><br />
-                <button class="btn btn-primary btn-block">Login</button><br />
-                <small><a href="#">Forgot Password?</a></small>
-            </div>
-        </form>
-    </div>
+    <h1>Journey</h1>
+    <h3>{{login}}</h3>
+
+    <form id="loginForm">
+        <div class="form-group">
+
+            <!-- Hidden login form 'counter' -->
+            <input type="hidden" name="loginId" value="0"/><br />
+
+            <label><b>Username:</b></label><br />
+            <input type="email" placeholder="username@email.com" class="form-control" value="" required oninvalid="this.setCustomValidity('Please enter username in e-mail format')"/><br />
+            <label><b>Password:</b></label><br />
+            <input type="text" placeholder="Password" class="form-control" value="" required /><br />
+            <button type="submit" id="loginButton" class="btn btn-primary btn-block">Login</button><br />
+            <small><a href="#">Forgot Password?</a></small>
+
+        </div>
+    </form>
 
 </div>
+

@@ -1,24 +1,38 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Journey</title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/angular.min.js"></script>
     <script src="../Scripts/angular-route.min.js"></script>
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
-    <link href="style.css" rel="stylesheet" />
+    <link href="customStyle.min.css" rel="stylesheet" />
     <script src="JourneyScripts/app.js"></script>
     <script src="JourneyScripts/login.js"></script>
     <script src="JourneyScripts/start.js"></script>
+
 </head>
 
 <body ng-app="app" class="spaBody">
 
-    <ng-view></ng-view>
+    <div class="container"><br />
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 viewColStyle">
+
+                <ng-view></ng-view>
+
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
 
 </body>
 
 </html>
+
+
