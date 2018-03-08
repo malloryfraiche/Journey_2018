@@ -11,6 +11,7 @@
 .loginHeadingStyle {
     background-color: white;
     border-radius: 25px;
+    padding: 20px 20px;
     text-align: center;
     position: fixed;
     top: 50%;

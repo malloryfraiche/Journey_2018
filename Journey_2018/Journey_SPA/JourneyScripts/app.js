@@ -3,17 +3,31 @@
 // 2. routing
 // 3. logging
 
-angular.module('app', []);
+angular.module('app', ['ngRoute']);
 
-angular.module('app').controller('login', function ($scope) {
+angular.module('app').config(
 
-    $scope.login = "Login";
+    function ($routeProvider) {
+        $routeProvider
+            .when("/", {
+                templateUrl: "main.html",
+                controller: "main"
+            })
+            .when("/login", {
+                templateUrl: "login.html",
+                controller: "login"
+            })
+            .when("/start", {
+                templateUrl: "start.html",
+                controller: "start"
+            })
+            .otherwise({ redirectTo: "/" });
 
-});
+    });
 
-angular.module('app').controller('start', function ($scope) {
+angular.module('app').controller('main', function ($scope) {
 
-    $scope.start = "This is a div in start controller";
+    $scope.main = "Main";
 
 });
 
