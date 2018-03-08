@@ -13,10 +13,6 @@ angular.module('app').config(
                 templateUrl: "login.html",
                 controller: "login"
             })
-            //.when("/login", {
-            //    templateUrl: "login.html",
-            //    controller: "login"
-            //})
             .when("/start", {
                 templateUrl: "start.html",
                 controller: "start"
@@ -25,9 +21,9 @@ angular.module('app').config(
 
     });
 
-angular.module('app').controller('main', function ($scope) {
+//angular.module('app').controller('main', function ($scope) {
 
-    $scope.main = "Main";
+//    $scope.main = "Main";
 
-});
+//});
 

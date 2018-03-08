@@ -10,10 +10,11 @@
             <input type="hidden" name="loginId" value="0"/><br />
 
             <label><b>Username:</b></label><br />
-            <input type="email" placeholder="username@email.com" class="form-control" value="" required oninvalid="this.setCustomValidity('Please enter username in e-mail format')"/><br />
+            <input type="email" placeholder="username@email.com" class="form-control" value=""  
+                   oninvalid="this.setCustomValidity('Please enter username in e-mail format.')" required /><br />
             <label><b>Password:</b></label><br />
-            <input type="text" placeholder="Password" class="form-control" value="" required /><br />
-            <button type="submit" id="loginButton" class="btn btn-primary btn-block">Login</button><br />
+            <input type="password" placeholder="Password" class="form-control" value="" required /><br />
+            <button type="submit" id="loginButton" class="btn btn-primary btn-block" ng-click="go('/start')">Login</button><br />
             <small><a href="#">Forgot Password?</a></small>
 
         </div>
