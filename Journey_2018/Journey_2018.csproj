@@ -126,9 +126,11 @@
     </Content>
     <Content Include="Journey_SPA\JourneyScripts\app.js" />
     <Content Include="Journey_SPA\JourneyScripts\login.js" />
+    <Content Include="Journey_SPA\JourneyScripts\myTrips.js" />
     <Content Include="Journey_SPA\JourneyScripts\start.js" />
     <Content Include="Journey_SPA\login.html" />
     <Content Include="Journey_SPA\main.html" />
+    <Content Include="Journey_SPA\myTrips.html" />
     <Content Include="Journey_SPA\start.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
