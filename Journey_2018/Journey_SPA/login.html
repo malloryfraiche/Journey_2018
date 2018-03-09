@@ -7,18 +7,30 @@
         <div class="form-group">
 
             <!-- Hidden login form 'counter' -->
-            <input type="hidden" name="loginId" value="0"/><br />
+            <input type="hidden" name="loginId" value="0" /><br />
 
             <label><b>Username:</b></label><br />
-            <input type="email" placeholder="username@email.com" class="form-control" value=""  
-                   oninvalid="this.setCustomValidity('Please enter username in e-mail format.')" required /><br />
+            <input type="email" placeholder="username@email.com" class="form-control" value=""
+                   name="inputEmail" required /><br />
+
             <label><b>Password:</b></label><br />
-            <input type="password" placeholder="Password" class="form-control" value="" required /><br />
+            <input type="password" placeholder="Password" class="form-control" value=""
+                   name="inputPassword" required /><br />
+
+            <!-- need to check that user has account in database and the password matches -->
             <button type="submit" id="loginButton" class="btn btn-primary btn-block" ng-click="go('/start')">Login</button><br />
-            <small><a href="#">Forgot Password?</a></small>
+            <small><a>Forgot Password?</a></small>
 
         </div>
     </form>
 
 </div>
 
+
+
+
+
+
+
+<!--oninvalid="this.setCustomValidity('Please enter username in e-mail format.')"-->
+<!--<span ng-show="loginForm.inputEmail.$valid">{{emailErrorMessage}}</span>-->

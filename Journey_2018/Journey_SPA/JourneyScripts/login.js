@@ -2,6 +2,8 @@
 
     $scope.login = "Login";
 
+    //$scope.emailErrorMessage = "Please enter username in e-mail format.";
+
     // on loginButton click you are redirected to start view.
     // have this location change happen in the $ajax sumbit later after the login is allowed.
     $scope.go = function (path) {

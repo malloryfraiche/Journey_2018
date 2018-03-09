@@ -5,21 +5,19 @@
 
 angular.module('app', ['ngRoute']);
 
-angular.module('app').config(
+angular.module('app').config(function ($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl: "login.html",
+            controller: "login"
+        })
+        .when("/start", {
+            templateUrl: "start.html",
+            controller: "start"
+        })
+        .otherwise({ redirectTo: "/" });
 
-    function ($routeProvider) {
-        $routeProvider
-            .when("/", {
-                templateUrl: "login.html",
-                controller: "login"
-            })
-            .when("/start", {
-                templateUrl: "start.html",
-                controller: "start"
-            })
-            .otherwise({ redirectTo: "/" });
-
-    });
+});
 
 //angular.module('app').controller('main', function ($scope) {
 
