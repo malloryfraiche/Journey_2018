@@ -8,6 +8,7 @@
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/angular.min.js"></script>
     <script src="../Scripts/angular-route.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
 
     <link href="customStyle.min.css" rel="stylesheet" />
@@ -27,34 +28,39 @@
             <div class="col-lg-4 viewColStyle">
 
 
-
-                <div id="navigationBar">
+                <div ng-controller="navigationBar" id="navigationBar">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                         <div class="container">
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <!-- have a href="" here to link this to the start.html view -->
-                                <a class="navbar-brand navigation menu-link">Journey</a>
+                                <a class="navbar-brand" href="/Journey_SPA/index.html#!/start">Journey</a>
                             </div> <!-- end navbar-header div -->
                             <div>
-                                <div class="collapse navbar-collapse">
-                                    <ul class="nav navbar-nav">
-                                        <li><a></a></li>
+                                <div id="navbar" class="collapse navbar-collapse">
+                                    <ul class="nav navbar-nav" ng-click="hamburgerCollapse()">
+                                        <li class="active"><a class="navigation" href="/Journey_SPA/index.html#!/start">Start</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/myTrips">My Trips</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/regNewTrip">Register New Trip</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/rapport">Rapport</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/manageVehicles">Manage Vehicles</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/support">Support</a></li>
+                                        <li><a class="navigation" href="/Journey_SPA/index.html#!/">Logout</a></li>
                                     </ul>
                                 </div>
-                            </div><!-- -->
+                            </div><!-- end navbar div -->
                         </div>
                     </nav>
                 </div><br />
 
 
-
+                <!-- routing link to all the angular views -->
                 <data-ng-view></data-ng-view>
+
 
             </div>
             <div class="col-lg-4"></div>

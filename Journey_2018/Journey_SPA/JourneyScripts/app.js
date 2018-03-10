@@ -11,8 +11,20 @@ angular.module('app').config(function ($routeProvider) {
         .when("/start", { templateUrl: "start.html", controller: "start" })
         .when("/myTrips", { templateUrl: "myTrips.html", controller: "myTrips" })
         .otherwise({ redirectTo: "/" });
+});
+
+
+
+angular.module('app').controller('navigationBar', function ($scope) {
+
+    $scope.hamburgerCollapse = function () {
+        // hide the hamburger menu options when clicked...
+    };
+
+    // have code here to "highlight" or make the different navbar options "active" when clicked...
 
 });
+
 
 //angular.module('app').controller('main', function ($scope) {
 
