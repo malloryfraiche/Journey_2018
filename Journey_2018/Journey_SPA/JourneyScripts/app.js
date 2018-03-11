@@ -2,6 +2,7 @@
 // 1. angularJS app information
 // 2. routing
 // 3. logging
+// 4. navbar functionality
 
 angular.module('app', ['ngRoute']);
 
@@ -15,20 +16,15 @@ angular.module('app').config(function ($routeProvider) {
 
 
 
-angular.module('app').controller('navigationBar', function ($scope) {
+angular.module('app').controller('navigationBar', function ($scope, $location) {
 
-    $scope.hamburgerCollapse = function () {
-        // hide the hamburger menu options when clicked...
+
+    // make the different navbar options "active" when clicked
+    $scope.isActive = function (highlighted) {
+        return highlighted === $location.path();
     };
-
-    // have code here to "highlight" or make the different navbar options "active" when clicked...
 
 });
 
 
-//angular.module('app').controller('main', function ($scope) {
-
-//    $scope.main = "Main";
-
-//});
 
