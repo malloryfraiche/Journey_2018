@@ -2,5 +2,27 @@
 
     <h3>{{message}}</h3>
 
+    <form id="createNewAccountForm">
+        <div class="form-group">
+
+            <!-- to keep track of the new accounts created -->
+            <input type="hidden" name="createNewAccountId" value="0"/>
+
+            <label><b>Enter username:</b></label>
+            <small>(Username must be a valid e-mail address)</small><br />
+            <input type="text" placeholder="username@email.com" class="form-control" value="" required /><br />
+
+            <label><b>Enter a password:</b></label><br />
+            <input type="password" placeholder="password" class="form-control" value="" required /><br />
+
+            <label><b>Re-enter password:</b></label><br />
+            <input type="password" placeholder="password" class="form-control" value="" required /><br />
+
+            <button type="submit" id="createNewAccountButton" class="btn btn-primary">Create Account</button>
+
+        </div>
+    </form>
+
+
 </div>
 

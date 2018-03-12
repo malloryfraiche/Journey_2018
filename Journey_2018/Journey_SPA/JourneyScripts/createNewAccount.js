@@ -1,6 +1,6 @@
-﻿angular.module('app').controller('createNewAccount', function ($scope) {
+﻿angular.module('app').controller('createNewAccount', function ($scope, $location) {
 
-    $scope.message = "In the Create New Account view/controller";
+    $scope.message = "Create New Account";
 
     $scope.go = function (path) {
         $location.path(path);
