@@ -24,6 +24,8 @@ angular.module('app').controller('navigationBar', function ($scope, $location) {
         return highlighted === $location.path();
     };
 
+    // hamburger menu toggle back up after an option is chosen...
+
 });
 
 
