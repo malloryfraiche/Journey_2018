@@ -5,8 +5,8 @@
 .viewColStyle {
   padding: 50px 50px;
 }
-/* styling in login.html */
-.loginStyle {
+/* style to center text (login.html, createNewAccount.html) */
+.centerStyle {
   text-align: center;
 }
 /* start.html styling */

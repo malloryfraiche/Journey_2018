@@ -1,6 +1,6 @@
 ﻿<div>
 
-    <h3>{{message}}</h3>
+    <h3 class="centerStyle"><b>{{message}}</b></h3><br />
 
     <form id="createNewAccountForm">
         <div class="form-group">
@@ -18,7 +18,9 @@
             <label><b>Re-enter password:</b></label><br />
             <input type="password" placeholder="password" class="form-control" value="" required /><br />
 
-            <button type="submit" id="createNewAccountButton" class="btn btn-primary">Create Account</button>
+            <!-- need to add account to database and send you to the login page again -->
+            <!-- "account created successfully" div will show in login.html (need to login with new account info) -->
+            <button type="submit" id="createNewAccountButton" class="btn btn-primary" ng-click="go('/')">Create Account</button>
 
         </div>
     </form>
