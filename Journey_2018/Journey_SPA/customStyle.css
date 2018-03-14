@@ -5,7 +5,10 @@
 .viewColStyle {
   padding: 50px 50px;
 }
-/* to center the "don't have a password?" in login.html */
+/* styling in login.html */
+.loginStyle {
+  text-align: center;
+}
 /* start.html styling */
 /*.boxes {
     width: 100%;
