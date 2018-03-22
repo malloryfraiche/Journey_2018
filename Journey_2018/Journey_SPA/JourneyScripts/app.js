@@ -12,6 +12,8 @@ angular.module('app').config(function ($routeProvider) {
         .when("/createNewAccount", { templateUrl: "createNewAccount.html", controller: "createNewAccount" })
         .when("/start", { templateUrl: "start.html", controller: "start" })
         .when("/myTrips", { templateUrl: "myTrips.html", controller: "myTrips" })
+        .when("/registerNewTrip", { templateUrl: "registerNewTrip.html", controller: "registerNewTrip" })
+
         .otherwise({ redirectTo: "/" });
 });
 
