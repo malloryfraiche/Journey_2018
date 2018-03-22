@@ -1,10 +1,45 @@
-﻿<div class="centerStyle">
+﻿<div>
 
-    {{message}}
+    <h3 class="centerStyle"><b>Register A New Trip:</b></h3>
 
+    <form id="registerNewTripForm">
+        <div class="form-group">
 
+            <!-- Hidden login form 'counter' -->
+            <input type="hidden" name="registerNewTripId" value="0" /><br />
+
+            <select class="form-control" name="licensePlateNumber">
+                <option value="TEST123">TEST123</option>
+                <option value="TEST234">TEST234</option>
+                <option value="TEST345">TEST345</option>
+            </select><br />
+
+            <label><b>Date:</b></label><input type="text" class="form-control" />
+            <!-- add the datepicker JQuery widget -->
+            <br />
+
+            <input type="text" placeholder="Kilometer Reading (start)" class="form-control" value=""
+                   name="kilometerReadingStart" required /><br />
+
+            <input type="text" placeholder="Kilometer Reading (stop)" class="form-control" value=""
+                   name="kilometerReadingStop" required /><br />
+
+            <input type="text" placeholder="Total Trip Length (km)" class="form-control" value=""
+                   name="totalTripLength" required /><br />
+
+            <input type="text" placeholder="Start Address" class="form-control" value=""
+                   name="startAddress" required /><br />
+
+            <input type="text" placeholder="Destination Address" class="form-control" value=""
+                   name="destinationAddress" required /><br />
+
+            <label><b>Notes:</b></label>
+            <textarea class="form-control"></textarea>
+
+        </div>
+    </form>
+
+    <br /><br />
+    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
 
 </div>
-
-<br /><br />
-<button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>

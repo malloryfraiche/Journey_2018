@@ -5,9 +5,14 @@
 .viewColStyle {
   padding: 50px 50px;
 }
-/* style to center text (login.html, createNewAccount.html) */
+/* style to center text */
 .centerStyle {
   text-align: center;
+}
+/* style in myTrips.html */
+.tripInProgressDiv {
+  border: solid thin;
+  padding: 10px;
 }
 /* start.html styling */
 /*.boxes {
