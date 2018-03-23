@@ -1,6 +1,14 @@
-﻿angular.module('app').controller('login', function ($scope, $location) {
+﻿angular.module('app').controller('login', function ($scope, $location, $timeout) {
 
     $scope.login = "Login";
+
+    $scope.test = 5;
+
+    $timeout(function () {
+
+        $scope.test = 4;
+
+    }, 3000);
 
     //$scope.emailErrorMessage = "Please enter username in e-mail format.";
 

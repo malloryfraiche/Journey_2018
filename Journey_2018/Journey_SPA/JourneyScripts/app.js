@@ -17,6 +17,9 @@ angular.module('app').config(function ($routeProvider) {
         .when("/manageVehicles", { templateUrl: "manageVehicles.html", controller: "manageVehicles" })
         .when("/support", { templateUrl: "support.html", controller: "support" })
         .otherwise({ redirectTo: "/" });
+
+    // have a route to a newTrip with an id number...check the angular powerpoints...
+
 });
 
 
