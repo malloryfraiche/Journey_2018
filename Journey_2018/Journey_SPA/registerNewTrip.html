@@ -5,16 +5,18 @@
     <form id="registerNewTripForm">
         <div class="form-group">
 
-            <!-- Hidden login form 'counter' -->
+            <!-- Hidden registerNewTrip form 'counter' -->
             <input type="hidden" name="registerNewTripId" value="0" /><br />
 
+            <!-- this name="licensePlateNumber" needs to be connected to the select-box in report.html... -->
             <select class="form-control" name="licensePlateNumber">
+                <option value="chooseVehicle">Choose Vehicle</option>
                 <option value="TEST123">TEST123</option>
                 <option value="TEST234">TEST234</option>
                 <option value="TEST345">TEST345</option>
             </select><br />
 
-            <label><b>Date:</b></label>
+            <label><b>Date:</b></label><!-- add the AngularJs datepicker directive here -->
             <br /><br />
 
             <input type="text" placeholder="Kilometer Reading (start)" class="form-control" value=""
@@ -38,8 +40,10 @@
             <label><b>Notes:</b>&nbsp;<small>(optional)</small></label>
             <textarea class="form-control" rows="3" value="" name="notes"></textarea><br /><br />
 
-            <button type="submit" id="registerNewTripButton" class="btn btn-primary btn-block" 
-                    ng-click="go('/start')">Save</button><br />
+            <button type="submit" id="registerNewTripButton" class="btn btn-primary btn-block"
+                    ng-click="go('/start')">
+                Save
+            </button><br />
 
         </div>
     </form>

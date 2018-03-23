@@ -1,0 +1,29 @@
+﻿<div>
+
+    <h3><b>Report:</b></h3>
+
+    <form id="reportForm">
+        <div class="form-group">
+
+            <!-- Hidden report form 'counter' -->
+            <input type="hidden" name="reportId" value="0" /><br />
+
+            <!-- same "name" as in registerNewTrip.html???? -->
+            <select class="form-control" name="licensePlateNumber">
+                <option value="chooseVehicle">Choose Vehicle</option>
+                <option value="TEST123">TEST123</option>
+                <option value="TEST234">TEST234</option>
+                <option value="TEST345">TEST345</option>
+            </select><br />
+
+            <label><b>Choose Date Span:</b></label><br />
+            <span><input type="date" /> - <input type="date" /></span>
+
+
+        </div>
+    </form>
+
+    <br /><br />
+    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
+
+</div>

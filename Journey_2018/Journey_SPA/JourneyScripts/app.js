@@ -13,6 +13,7 @@ angular.module('app').config(function ($routeProvider) {
         .when("/start", { templateUrl: "start.html", controller: "start" })
         .when("/myTrips", { templateUrl: "myTrips.html", controller: "myTrips" })
         .when("/registerNewTrip", { templateUrl: "registerNewTrip.html", controller: "registerNewTrip" })
+        .when("/report", { templateUrl: "report.html", controller: "report" })
 
         .otherwise({ redirectTo: "/" });
 });

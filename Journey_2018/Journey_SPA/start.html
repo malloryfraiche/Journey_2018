@@ -8,11 +8,14 @@
     <button type="button" id="registerNewTripButton" class="btn btn-primary btn-group-justified btn-lg"
              ng-click="go('/registerNewTrip')">Register New Trip</button><br />
 
-    <button type="button" id="reportButton" class="btn btn-primary btn-group-justified btn-lg">Report</button><br />
+    <button type="button" id="reportButton" class="btn btn-primary btn-group-justified btn-lg"
+            ng-click="go('/report')">Report</button><br />
 
-    <button type="button" id="manageVehiclesButton" class="btn btn-primary btn-group-justified btn-lg">Manage Vehicles</button><br />
+    <button type="button" id="manageVehiclesButton" class="btn btn-primary btn-group-justified btn-lg"
+            ng-click="go('/manageVehicles')">Manage Vehicles</button><br />
 
-    <button type="button" id="supportButton" class="btn btn-primary btn-group-justified btn-lg">Support</button><br />
+    <button type="button" id="supportButton" class="btn btn-primary btn-group-justified btn-lg"
+            ng-click="go('/support')">Support</button><br />
 
     <button type="button" id="logoutButton" class="btn btn-danger btn-sm" ng-click="go('/login')">Logout</button>
 

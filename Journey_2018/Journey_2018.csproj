@@ -136,6 +136,8 @@
     <Content Include="Journey_SPA\myTrips.html" />
     <Content Include="Journey_SPA\nintendo_remote_favicon.png" />
     <Content Include="Journey_SPA\registerNewTrip.html" />
+    <Content Include="Journey_SPA\report.html" />
+    <Content Include="Journey_SPA\JourneyScripts\report.js" />
     <Content Include="Journey_SPA\start.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
