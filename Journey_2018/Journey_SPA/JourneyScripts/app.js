@@ -14,7 +14,8 @@ angular.module('app').config(function ($routeProvider) {
         .when("/myTrips", { templateUrl: "myTrips.html", controller: "myTrips" })
         .when("/registerNewTrip", { templateUrl: "registerNewTrip.html", controller: "registerNewTrip" })
         .when("/report", { templateUrl: "report.html", controller: "report" })
-
+        .when("/manageVehicles", { templateUrl: "manageVehicles.html", controller: "manageVehicles" })
+        .when("/support", { templateUrl: "support.html", controller: "support" })
         .otherwise({ redirectTo: "/" });
 });
 
