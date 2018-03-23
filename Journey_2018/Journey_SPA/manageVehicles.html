@@ -1,9 +1,27 @@
 ﻿<div>
 
-    <h3><b>Manage Vehicles:</b></h3>
+    <h3><b>Manage Vehicles:</b></h3><br />
 
-    
-
+    <div>
+        <table id="myVehicles" class="table">
+            <thead>
+                <tr>
+                    <th>Vehicle</th>
+                    <th>Edit</th>
+                    <th>Activate/Inactivate</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TEST123</td>
+                    <td><button type="submit" class="btn btn-primary btn-sm">Edit</button></td>
+                    <td><button type="submit" class="btn btn-success btn-sm">Activate</button></td>
+                    <td><button type="submit" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <br /><br />
     <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
