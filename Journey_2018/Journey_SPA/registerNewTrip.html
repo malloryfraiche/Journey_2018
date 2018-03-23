@@ -14,9 +14,8 @@
                 <option value="TEST345">TEST345</option>
             </select><br />
 
-            <label><b>Date:</b></label><input type="text" class="form-control" />
-            <!-- add the datepicker JQuery widget -->
-            <br />
+            <label><b>Date:</b></label>
+            <br /><br />
 
             <input type="text" placeholder="Kilometer Reading (start)" class="form-control" value=""
                    name="kilometerReadingStart" required /><br />
@@ -33,8 +32,14 @@
             <input type="text" placeholder="Destination Address" class="form-control" value=""
                    name="destinationAddress" required /><br />
 
-            <label><b>Notes:</b></label>
-            <textarea class="form-control" rows="4" value="" name="notes"></textarea>
+            <label><b>Errand:</b></label>
+            <textarea class="form-control" rows="4" value="" name="errand" required></textarea><br />
+
+            <label><b>Notes:</b>&nbsp;<small>(optional)</small></label>
+            <textarea class="form-control" rows="3" value="" name="notes"></textarea><br /><br />
+
+            <button type="submit" id="registerNewTripButton" class="btn btn-primary btn-block" 
+                    ng-click="go('/start')">Save</button><br />
 
         </div>
     </form>
