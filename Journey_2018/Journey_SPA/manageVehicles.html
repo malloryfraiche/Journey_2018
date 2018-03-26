@@ -2,22 +2,22 @@
 
     <h3><b>Manage Vehicles:</b></h3><br />
 
-    <div>
-        <table id="myVehicles" class="table">
+    <div class="table-responsive">
+        <table id="myVehicles" class="table table-dark">
             <thead>
                 <tr>
-                    <th>Vehicle</th>
-                    <th>Edit</th>
-                    <th>Activate/Inactivate</th>
-                    <th>Delete</th>
+                    <th>Vehicle Number</th>
+                    <th></th>
+                    <th>Active</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>TEST123</td>
                     <td><button type="submit" class="btn btn-primary btn-sm">Edit</button></td>
-                    <td><button type="submit" class="btn btn-success btn-sm">Activate</button></td>
-                    <td><button type="submit" class="btn btn-danger btn-sm">Delete</button></td>
+                    <td><input type="checkbox" /></td>
+                    <!-- code for the bootstrap custom toggle switch -->
+                    <!--checked data-toggle="toggle" data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger"-->
                 </tr>
             </tbody>
         </table>
@@ -27,3 +27,8 @@
     <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
 
 </div>
+
+
+
+
+<!--<td><button type="submit" class="btn btn-danger btn-sm">Delete</button></td>-->

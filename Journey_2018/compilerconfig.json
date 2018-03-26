@@ -6,5 +6,9 @@
   {
     "outputFile": "Journey_SPA/customStyle.css",
     "inputFile": "Journey_SPA/customStyle.less"
+  },
+  {
+    "outputFile": "Content/bootstrap-toggle.css",
+    "inputFile": "Content/bootstrap-toggle.less"
   }
 ]
