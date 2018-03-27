@@ -14,6 +14,10 @@
   border: solid thin;
   padding: 10px;
 }
+/* style for the AngularJs Material forms */
+md-content {
+  border-radius: 5px;
+}
 /* start.html styling */
 /*.boxes {
     width: 100%;

@@ -1,36 +1,48 @@
-﻿<div>
+﻿<div layout="column" ng-cloak>
 
-    <h1 class="centerStyle"><b>Welcome to Journey</b></h1>
+    <h1 class="centerStyle">Welcome to Journey</h1><br />
 
-    <form id="loginForm">
-        <div class="form-group">
+    <md-content layout-padding>
+        <form id="loginForm">
 
-            <!-- Hidden login form 'counter' -->
-            <!--<input type="hidden" name="loginId" value="0" /><br />-->
-            
-            <div ng-show="test==5">Detta ska synas</div>
 
-            <label><b>Username:</b></label><br />
-            <input type="email" placeholder="username@email.com" class="form-control" value=""
-                   name="inputEmail" required /><br />
+            <md-input-container class="md-block">
+                <!-- Hidden login form 'counter' -->
+                <!--<input type="hidden" name="loginId" value="0" /><br />-->
+                <!--<div ng-show="test==5">Detta ska synas</div>-->
 
-            <label><b>Password:</b></label><br />
-            <input type="password" placeholder="Password" class="form-control" value=""
-                   name="inputPassword" required /><br />
+                <label>Username:</label>
+                <!-- insert ng-icon here... -->
+                <input type="email" name="username" required /><br />
 
-            <!-- need to check that user has account in database and the password matches -->
-            <button type="submit" id="loginButton" class="btn btn-primary btn-block" ng-click="go('/start')">Login</button><br />
+                <!-- have ng-messages div here for input errors... -->
+            </md-input-container>
+
+
+            <md-input-container class="md-block">
+                <label>Password:</label>
+                <input type="password" name="inputPassword" required />
+
+                <!-- have ng-messages div here for input errors... -->
+            </md-input-container>
+
+            <div>
+                <!-- need to check that user has account in database and the password matches -->
+                <md-button type="submit" id="loginButton" ng-click="go('/start')">Login</md-button><br />
+            </div>
+
             <small><a>Forgot Password?</a></small>
 
-        </div>
-    </form>
+
+        </form>
+    </md-content>
 
     <div class="centerStyle">
         <br />
         <p><b>Don't have an account?</b></p>
         <button type="button" id="createNewAccountButton" class="btn btn-info btn-sm" ng-click="go('/createNewAccount')">Create new account</button>
     </div>
-    
+
 
 </div>
 

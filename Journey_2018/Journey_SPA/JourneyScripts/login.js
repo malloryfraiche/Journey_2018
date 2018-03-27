@@ -2,13 +2,13 @@
 
     $scope.login = "Login";
 
-    $scope.test = 5;
+    //$scope.test = 5;
 
-    $timeout(function () {
+    //$timeout(function () {
 
-        $scope.test = 4;
+    //    $scope.test = 4;
 
-    }, 3000);
+    //}, 3000);
 
     //$scope.emailErrorMessage = "Please enter username in e-mail format.";
 

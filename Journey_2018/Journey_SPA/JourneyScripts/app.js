@@ -4,7 +4,7 @@
 // 3. logging
 // 4. navbar functionality
 
-angular.module('app', ['ngRoute']);
+angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 angular.module('app').config(function ($routeProvider) {
     $routeProvider
@@ -35,6 +35,8 @@ angular.module('app').controller('navigationBar', function ($scope, $location) {
     // hamburger menu toggle back up after an option is chosen...
 
 });
+
+
 
 
 
