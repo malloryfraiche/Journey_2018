@@ -1,4 +1,4 @@
-﻿<div layout="column" ng-cloak>
+﻿<div ng-cloak>
 
     <h1 class="centerStyle">Welcome to Journey</h1><br />
 
@@ -7,9 +7,9 @@
         <md-input-container class="md-block">
             <!--<div ng-show="test==5">Detta ska synas</div>-->
 
-            <label>Username:</label>
+            <label>Username (E-mail):</label>
             <!-- insert ng-icon here...if have the time -->
-            <input type="email" name="username" required /><br />
+            <input type="email" required />
 
             <!-- have ng-messages div here for input errors... -->
         </md-input-container>
@@ -18,7 +18,7 @@
         <md-input-container class="md-block">
             <label>Password:</label>
             <!-- insert ng-icon here...if have the time -->
-            <input type="password" name="inputPassword" required />
+            <input type="password" required />
 
             <!-- have ng-messages div here for input errors... -->        
         </md-input-container>
@@ -26,7 +26,7 @@
 
         <div>
             <!-- need to check that user has account in database and the password matches -->
-            <md-button type="submit" class="md-raised md-primary" id="loginButton" ng-click="go('/start')">Login</md-button> 
+            <md-button type="submit" class="md-raised md-primary" ng-click="go('/start')">Login</md-button> 
         </div>
 
         <small style="float: left"><input type="checkbox" />&nbsp;&nbsp;Remember me!</small><br />

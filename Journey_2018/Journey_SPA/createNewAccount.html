@@ -1,29 +1,30 @@
-﻿<div>
+﻿<div ng-cloak>
 
-    <h3 class="centerStyle"><b>{{message}}</b></h3><br />
+    <h3 class="centerStyle">{{message}}</h3><br />
 
-    <form id="createNewAccountForm">
-        <div class="form-group">
+    <md-content layout-padding>
 
-            <!-- to keep track of the new accounts created -->
-            <input type="hidden" name="createNewAccountId" value="0"/>
+        <md-input-container class="md-block">
+            <label>Enter username:</label>
+            <input type="email" required />
+        </md-input-container>
 
-            <label><b>Enter username:</b></label>
-            <small>(Username must be a valid e-mail address)</small><br />
-            <input type="text" placeholder="username@email.com" class="form-control" value="" required /><br />
+        <md-input-container class="md-block">
+            <label>Enter a password:</label>
+            <input type="password" required /><br />
+        </md-input-container>
 
-            <label><b>Enter a password:</b></label><br />
-            <input type="password" placeholder="password" class="form-control" value="" required /><br />
+        <md-input-container class="md-block">
+            <label>Confirm password:</label>
+            <input type="password" required />
+        </md-input-container>
 
-            <label><b>Re-enter password:</b></label><br />
-            <input type="password" placeholder="password" class="form-control" value="" required /><br />
-
-            <!-- need to add account to database and send you to the login page again -->
-            <!-- "account created successfully" div will show in login.html (need to login with new account info) -->
-            <button type="submit" id="createNewAccountButton" class="btn btn-primary" ng-click="go('/')">Create Account</button>
-
+        <div class="centerStyle">
+            <md-button type="submit" class="md-raised md-primary" ng-click="go('/')">Create Account</md-button>
         </div>
-    </form>
+
+    </md-content>
+
 
 
 </div>
