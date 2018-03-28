@@ -1,65 +1,19 @@
 ﻿<div ng-cloak>
 
-    <br />
+    <div class="centerStyle">
+        <md-button id="myTripsButton" class="md-primary md-raised" ng-click="go('/myTrips')">My Trips</md-button><br />
 
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
+        <md-button id="registerNewTripButton" class="md-primary md-raised" ng-click="go('/registerNewTrip')">Register New Trip</md-button><br />
 
+        <md-button id="reportButton" class="md-primary md-raised" ng-click="go('/report')">Report</md-button><br />
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text class="centerStyle">Test card 1</md-card-title-text>
-                </md-card-title>
-            </md-card>
+        <md-button id="manageVehiclesButton" class="md-primary md-raised" ng-click="go('/manageVehicles')">Manage Vehicles</md-button><br />
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>Test card 2</md-card-title-text>
-                </md-card-title>
-            </md-card>
+        <md-button id="supportButton" class="md-primary md-raised" ng-click="go('/support')">Support</md-button><br /><br /><br />
 
-            <md-card>
-                <md-card-title>
-                    <md-card-title-text>Test card 3</md-card-title-text>
-                </md-card-title>
-            </md-card>
-
-
-        </div>
-    </md-content>
+        <md-button id="logoutButton" class="md-raised" ng-click="go('/login')">Logout</md-button>
+    </div>
 
 </div>
 
 
-
-
-
-
-
-
-<!--<button type="button" id="myTripsButton" class="btn btn-primary btn-group-justified btn-lg"
-        ng-click="go('/myTrips')">
-    My Trips
-</button><br />
-
-<button type="button" id="registerNewTripButton" class="btn btn-primary btn-group-justified btn-lg"
-        ng-click="go('/registerNewTrip')">
-    Register New Trip
-</button><br />
-
-<button type="button" id="reportButton" class="btn btn-primary btn-group-justified btn-lg"
-        ng-click="go('/report')">
-    Report
-</button><br />
-
-<button type="button" id="manageVehiclesButton" class="btn btn-primary btn-group-justified btn-lg"
-        ng-click="go('/manageVehicles')">
-    Manage Vehicles
-</button><br />
-
-<button type="button" id="supportButton" class="btn btn-primary btn-group-justified btn-lg"
-        ng-click="go('/support')">
-    Support
-</button><br />
-
-<button type="button" id="logoutButton" class="btn btn-danger btn-sm" ng-click="go('/login')">Logout</button>-->

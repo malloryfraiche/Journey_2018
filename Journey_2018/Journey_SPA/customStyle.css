@@ -1,5 +1,7 @@
 ﻿.spaBody {
   background-color: lightgrey;
+  display: table;
+  width: 100%;
 }
 /* index.html container */
 .viewColStyle {

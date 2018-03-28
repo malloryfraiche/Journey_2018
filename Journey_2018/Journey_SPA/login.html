@@ -3,43 +3,42 @@
     <h1 class="centerStyle">Welcome to Journey</h1><br />
 
     <md-content layout-padding>
-        <form id="loginForm">
 
-            <md-input-container class="md-block">
-                <!-- Hidden login form 'counter' -->
-                <!--<input type="hidden" name="loginId" value="0" /><br />-->
-                <!--<div ng-show="test==5">Detta ska synas</div>-->
+        <md-input-container class="md-block">
+            <!--<div ng-show="test==5">Detta ska synas</div>-->
 
-                <label>Username:</label>
-                <!-- insert ng-icon here...if have the time -->
-                <input type="email" name="username" required /><br />
+            <label>Username:</label>
+            <!-- insert ng-icon here...if have the time -->
+            <input type="email" name="username" required /><br />
 
-                <!-- have ng-messages div here for input errors... -->
-            </md-input-container>
+            <!-- have ng-messages div here for input errors... -->
+        </md-input-container>
 
 
-            <md-input-container class="md-block">
-                <label>Password:</label>
-                <!-- insert ng-icon here...if have the time -->
-                <input type="password" name="inputPassword" required />
+        <md-input-container class="md-block">
+            <label>Password:</label>
+            <!-- insert ng-icon here...if have the time -->
+            <input type="password" name="inputPassword" required />
 
-                <!-- have ng-messages div here for input errors... -->
-            </md-input-container>
+            <!-- have ng-messages div here for input errors... -->        
+        </md-input-container>
 
-            <div>
-                <!-- need to check that user has account in database and the password matches -->
-                <md-button type="submit" class="md-raised md-primary" id="loginButton" ng-click="go('/start')">Login</md-button>
-                <md-button class="md-primary md-small" style="float: right">Forgot Password?</md-button>
-            </div>
 
-           
-        </form>
+        <div>
+            <!-- need to check that user has account in database and the password matches -->
+            <md-button type="submit" class="md-raised md-primary" id="loginButton" ng-click="go('/start')">Login</md-button> 
+        </div>
+
+        <small style="float: left"><input type="checkbox" />&nbsp;&nbsp;Remember me!</small><br />
+        <small style="float: right"><a>Forgot Password?</a></small><br />
+        
+        
     </md-content>
 
-    <br /><br />
+    <br />
 
     <div class="centerStyle">
-        <p>Don't have an account?</p>
+        <!--<p>Don't have an account?</p>-->
         <md-button type="button" id="createNewAccountButton" class="md-primary" ng-click="go('/createNewAccount')">Create new account</md-button>
     </div>
 
