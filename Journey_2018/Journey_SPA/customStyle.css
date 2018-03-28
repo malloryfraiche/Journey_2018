@@ -3,7 +3,7 @@
 }
 /* index.html container */
 .viewColStyle {
-  padding: 50px 50px;
+  padding: 25px 25px;
 }
 /* style to center text */
 .centerStyle {
@@ -17,6 +17,9 @@
 /* style for the AngularJs Material forms */
 md-content {
   border-radius: 5px;
+}
+small {
+  float: right;
 }
 /* start.html styling */
 /*.boxes {

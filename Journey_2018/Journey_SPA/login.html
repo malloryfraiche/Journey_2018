@@ -5,14 +5,13 @@
     <md-content layout-padding>
         <form id="loginForm">
 
-
             <md-input-container class="md-block">
                 <!-- Hidden login form 'counter' -->
                 <!--<input type="hidden" name="loginId" value="0" /><br />-->
                 <!--<div ng-show="test==5">Detta ska synas</div>-->
 
                 <label>Username:</label>
-                <!-- insert ng-icon here... -->
+                <!-- insert ng-icon here...if have the time -->
                 <input type="email" name="username" required /><br />
 
                 <!-- have ng-messages div here for input errors... -->
@@ -21,6 +20,7 @@
 
             <md-input-container class="md-block">
                 <label>Password:</label>
+                <!-- insert ng-icon here...if have the time -->
                 <input type="password" name="inputPassword" required />
 
                 <!-- have ng-messages div here for input errors... -->
@@ -28,19 +28,19 @@
 
             <div>
                 <!-- need to check that user has account in database and the password matches -->
-                <md-button type="submit" id="loginButton" ng-click="go('/start')">Login</md-button><br />
+                <md-button type="submit" class="md-raised md-primary" id="loginButton" ng-click="go('/start')">Login</md-button>
+                <md-button class="md-primary md-small" style="float: right">Forgot Password?</md-button>
             </div>
 
-            <small><a>Forgot Password?</a></small>
-
-
+           
         </form>
     </md-content>
 
+    <br /><br />
+
     <div class="centerStyle">
-        <br />
-        <p><b>Don't have an account?</b></p>
-        <button type="button" id="createNewAccountButton" class="btn btn-info btn-sm" ng-click="go('/createNewAccount')">Create new account</button>
+        <p>Don't have an account?</p>
+        <md-button type="button" id="createNewAccountButton" class="md-primary" ng-click="go('/createNewAccount')">Create new account</md-button>
     </div>
 
 
