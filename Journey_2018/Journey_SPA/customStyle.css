@@ -1,7 +1,12 @@
 ﻿.spaBody {
-  background-color: lightgrey;
+  background-color: wheat;
   display: table;
   width: 100%;
+}
+h1,
+h3,
+small {
+  color: grey;
 }
 .centerStyle {
   text-align: center;
@@ -48,7 +53,4 @@ md-icon {
 /* rounded edges on all md-content */
 md-content {
   border-radius: 5px;
-}
-small {
-  float: right;
 }

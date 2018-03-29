@@ -23,5 +23,6 @@
         .iconSet("social", "../Content/angular-material-icons/social.svg")
         .iconSet("communication", "../Content/angular-material-icons/communication.svg")
         .iconSet("action", "../Content/angular-material-icons/action.svg")
-        .iconSet("notification", "../Content/angular-material-icons/notification.svg");
+        .iconSet("notification", "../Content/angular-material-icons/notification.svg")
+        .iconSet("av", "../Content/angular-material-icons/av.svg");
 });
