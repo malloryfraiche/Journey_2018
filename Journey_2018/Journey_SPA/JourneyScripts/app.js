@@ -1,8 +1,10 @@
-﻿// app.js includes the following:
-// 1. angularJS app information
-// 2. routing
-// 3. logging
-// 4. navbar functionality
+﻿/*
+    app.js includes the following:
+    1. angularJS app information
+    2. routing configuration
+    3. navbar functionality
+    4. loggning
+*/
 
 angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
@@ -24,17 +26,22 @@ angular.module('app').config(function ($routeProvider) {
 
 
 
-angular.module('app').controller('navigationBar', function ($scope, $location) {
+angular.module('app')
+    .config(function ($mdIconProvider) {
+        $mdIconProvider
+            .iconSet("social", "../Content/angular-material-icons/social.svg")
+            .iconSet("navigation", "../Content/angular-material-icons/navigation.svg");
+    })
+    .controller('navigationBar', function () {
 
+        // Navbar menu functionality.
+        var originEvent;
+        this.openMainMenu = function ($mdMenu, event) {
+            originEvent = event;
+            $mdMenu.open(event);
+        };
 
-    // make the different navbar options "active" when clicked
-    $scope.isActive = function (highlighted) {
-        return highlighted === $location.path();
-    };
-
-    // hamburger menu toggle back up after an option is chosen...
-
-});
+    });
 
 
 
