@@ -1,6 +1,6 @@
 ﻿<div ng-cloak>
 
-    
+
     <h1 class="centerStyle">JOURNEY</h1><br />
 
 
@@ -30,8 +30,11 @@
         </div>
 
         <div style="display: inline-block;">
-            <small style="float: left"><input type="checkbox" />&nbsp;&nbsp;<label>Remember me!</label></small><br />
+            <label class="checkbox-inline">
+                <small><input type="checkbox" />Remember me!</small>
+            </label>
         </div>
+
         <small style="float: right"><a>Forgot Password?</a></small><br />
 
 
@@ -40,8 +43,7 @@
     <br />
 
     <div class="centerStyle">
-        <!--<p>Don't have an account?</p>-->
-        <md-button type="button" id="createNewAccountButton" class="md-primary" ng-click="go('/createNewAccount')">Create new account</md-button>
+        <md-button type="button" class="md-primary" ng-click="go('/createNewAccount')">Create new account</md-button>
     </div>
 
 
@@ -55,7 +57,6 @@
 <!--oninvalid="this.setCustomValidity('Please enter username in e-mail format.')"-->
 <!--<span ng-show="loginForm.inputEmail.$valid">{{emailErrorMessage}}</span>-->
 <!--<md-icon style="fill: lightgrey;" md-svg-icon="av:repeat"></md-icon>-->
-
 <!--<div style="display: inline-block;">
     <small style="float: left"><input type="checkbox" />&nbsp;&nbsp;<label>Remember me!</label></small><br />
 </div>-->

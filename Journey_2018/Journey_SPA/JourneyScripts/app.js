@@ -8,6 +8,8 @@
 
 angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
+
+
 angular.module('app').config(function ($routeProvider) {
     $routeProvider
         .when("/", { templateUrl: "login.html", controller: "login" })
@@ -32,13 +34,19 @@ angular.module('app')
             .iconSet("social", "../Content/angular-material-icons/social.svg")
             .iconSet("navigation", "../Content/angular-material-icons/navigation.svg");
     })
-    .controller('navigationBar', function () {
+    .controller('navigationBar', function ($location) {
+
+        // to hide the toolbar on the first load..
+        $("#toolbar").hide();
 
         // Navbar menu functionality.
-        var originEvent;
+        var originalEvent;
         this.openMainMenu = function ($mdMenu, event) {
-            originEvent = event;
+            originalEvent = event;
             $mdMenu.open(event);
+        };
+        this.go = function (path) {
+            $location.path(path);
         };
 
     });
