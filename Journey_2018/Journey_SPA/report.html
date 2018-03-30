@@ -1,4 +1,6 @@
-﻿<div>
+﻿<div ng-include="'navigationToolbar.html'"></div>
+
+<div ng-cloak class="withToolbarViewStyle">
 
     <h3><b>Report:</b></h3>
 
@@ -7,7 +9,6 @@
 
             <!-- Hidden report form 'counter' -->
             <!--<input type="hidden" name="reportId" value="0" /><br />-->
-
             <!-- same "name" as in registerNewTrip.html???? -->
             <select class="form-control" name="licensePlateNumber">
                 <option value="chooseVehicle">Choose Vehicle</option>

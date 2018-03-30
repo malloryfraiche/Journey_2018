@@ -25,64 +25,7 @@
 
 <body ng-app="app" class="spaBody">
 
-
-    <!-- Navigation toolbar start -->
-    <md-toolbar id="toolbar" layout="row" md-whiteframe="20">
-        <div class="md-toolbar-tools" ng-controller="navigationBar as navBar" ng-cloak>
-            <h4 md-title>Journey</h4>
-            <md-menu>
-
-                <md-button aria-label="Open Main Menu" class="md-icon-button" ng-click="navBar.openMainMenu($mdMenu, $event)" ng-mouseenter="$mdMenu.open()">
-                    <md-icon md-menu-origin md-svg-icon="navigation:menu"></md-icon>
-                </md-button>
-
-                <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/start')">Start</md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/myTrips')">My Trips</md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/registerNewTrip')">Register New Trip</md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/report')">Report</md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/manageVehicles')">Manage Vehicles</md-button>
-                    </md-menu-item>
-
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/support')">Support</md-button>
-                    </md-menu-item>
-
-                    <md-menu-divider></md-menu-divider>
-                    <md-menu-item>
-                        <md-button ng-click="navBar.go('/')">Logout</md-button>
-                    </md-menu-item>
-
-                </md-menu-content>
-            </md-menu>
-        </div>
-    </md-toolbar><!-- Navigation toolbar end -->
-
-    <!-- SPA view container -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 viewColStyle">
-                <!-- routing link to all the angular views -->
-                <data-ng-view></data-ng-view>
-            </div>
-            <div class="col-lg-4"></div>
-        </div>
-    </div>
+    <data-ng-view></data-ng-view>
 
     <!-- for the AngularJs Material functionality...needs to be in the ng-app div -->
     <link href="../Content/angular-material.min.css" rel="stylesheet" />

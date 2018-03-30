@@ -159,6 +159,7 @@
     <Content Include="Journey_SPA\main.html" />
     <Content Include="Journey_SPA\manageVehicles.html" />
     <Content Include="Journey_SPA\myTrips.html" />
+    <Content Include="Journey_SPA\navigationToolbar.html" />
     <Content Include="Journey_SPA\nintendo_remote_favicon.png" />
     <Content Include="Journey_SPA\registerNewTrip.html" />
     <Content Include="Journey_SPA\report.html" />

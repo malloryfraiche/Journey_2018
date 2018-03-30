@@ -27,7 +27,6 @@ angular.module('app').config(function ($routeProvider) {
 });
 
 
-
 angular.module('app')
     .config(function ($mdIconProvider) {
         $mdIconProvider
@@ -37,7 +36,7 @@ angular.module('app')
     .controller('navigationBar', function ($location) {
 
         // to hide the toolbar on the first load..
-        $("#toolbar").hide();
+        //$("#toolbar").hide();
 
         // Navbar menu functionality.
         var originalEvent;
