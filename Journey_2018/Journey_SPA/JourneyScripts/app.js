@@ -2,13 +2,12 @@
     app.js includes the following:
     1. angularJS app information
     2. routing configuration
-    3. navbar functionality
-    4. loggning
+    3. mdIconProvider
+    4. navbar controller
+    5. loggning
 */
 
 angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages']);
-
-
 
 angular.module('app').config(function ($routeProvider) {
     $routeProvider
@@ -27,28 +26,31 @@ angular.module('app').config(function ($routeProvider) {
 });
 
 
-angular.module('app')
-    .config(function ($mdIconProvider) {
-        $mdIconProvider
-            .iconSet("social", "../Content/angular-material-icons/social.svg")
-            .iconSet("navigation", "../Content/angular-material-icons/navigation.svg");
-    })
-    .controller('navigationBar', function ($location) {
+angular.module('app').config(function ($mdIconProvider) {
+    $mdIconProvider
+        .iconSet("social", "../Content/angular-material-icons/social.svg")
+        .iconSet("communication", "../Content/angular-material-icons/communication.svg")
+        .iconSet("action", "../Content/angular-material-icons/action.svg")
+        .iconSet("notification", "../Content/angular-material-icons/notification.svg")
+        .iconSet("av", "../Content/angular-material-icons/av.svg")
+        .iconSet("navigation", "../Content/angular-material-icons/navigation.svg")
+        .iconSet("maps", "../Content/angular-material-icons/maps.svg");
+});
 
-        // to hide the toolbar on the first load..
-        //$("#toolbar").hide();
 
-        // Navbar menu functionality.
-        var originalEvent;
-        this.openMainMenu = function ($mdMenu, event) {
-            originalEvent = event;
-            $mdMenu.open(event);
-        };
-        this.go = function (path) {
-            $location.path(path);
-        };
+angular.module('app').controller('navigationBar', function ($location) {
 
-    });
+    // Navbar menu functionality.
+    var originalEvent;
+    this.openMainMenu = function ($mdMenu, event) {
+        originalEvent = event;
+        $mdMenu.open(event);
+    };
+    this.go = function (path) {
+        $location.path(path);
+    };
+
+});
 
 
 

@@ -2,59 +2,68 @@
 
 <div ng-cloak class="withToolbarViewStyle">
 
-    <h3 class="centerStyle"><b>Register A New Trip:</b></h3>
+    <h3 class="centerStyle">Register New Trip</h3><br />
 
-    <form id="registerNewTripForm">
-        <div class="form-group">
+    <md-content md-whiteframe="20" layout-padding>
 
-            <!-- Hidden registerNewTrip form 'counter' -->
-            <!--<input type="hidden" name="registerNewTripId" value="0" /><br />-->
-            <!-- this name="licensePlateNumber" needs to be connected to the select-box in report.html... -->
-            <select class="form-control" name="licensePlateNumber">
-                <option value="chooseVehicle">Choose Vehicle</option>
-                <option value="TEST123">TEST123</option>
-                <option value="TEST234">TEST234</option>
-                <option value="TEST345">TEST345</option>
-            </select><br />
+        <md-input-container class="md-block">
+            <label>Choose Vehicle</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <!-- work here to get it to work and to understand it -->
+            <md-select ng-model="selectVehicle">
+                <md-option ng-repeat="vehicle in vehicles">{{vehicles[0]}}</md-option>
+            </md-select>
+        </md-input-container>
 
-            <div class="form-control">
-                <label><b>Date:</b></label>
-                <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-            </div>
+        <label>Date:</label>
+        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 
+        <md-input-container class="md-block">
+            <label>Kilometer reading (start)</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <input type="text" required />
+        </md-input-container>
 
-            <br /><br />
+        <md-input-container class="md-block">
+            <label>Kilometer reading (stop)</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <input type="text" required />
+        </md-input-container>
 
-            <input type="text" placeholder="Kilometer Reading (start)" class="form-control" value=""
-                   name="kilometerReadingStart" required /><br />
+        <md-input-container class="md-block">
+            <label>Total trip length (km)</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <input type="text" placeholder="" />
+        </md-input-container>
 
-            <input type="text" placeholder="Kilometer Reading (stop)" class="form-control" value=""
-                   name="kilometerReadingStop" required /><br />
+        <md-input-container class="md-block">
+            <label>Start address</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <input type="text" required />
+        </md-input-container>
 
-            <input type="text" placeholder="Total Trip Length (km)" class="form-control" value=""
-                   name="totalTripLength" required /><br />
+        <md-input-container class="md-block">
+            <label>Destination address</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <input type="text" required />
+        </md-input-container>
 
-            <input type="text" placeholder="Start Address" class="form-control" value=""
-                   name="startAddress" required /><br />
+        <md-input-container class="md-block">
+            <label>Errand</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <textarea type="text" required />
+        </md-input-container>
 
-            <input type="text" placeholder="Destination Address" class="form-control" value=""
-                   name="destinationAddress" required /><br />
+        <md-input-container class="md-block">
+            <label>Notes</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <textarea type="text" />
+        </md-input-container>
 
-            <label><b>Errand:</b></label>
-            <textarea class="form-control" rows="4" value="" name="errand" required></textarea><br />
+        <md-button type="submit" class="md-raised md-primary" ng-click="go('/start')">Save</md-button>
 
-            <label><b>Notes:</b>&nbsp;<small>(optional)</small></label>
-            <textarea class="form-control" rows="3" value="" name="notes"></textarea><br /><br />
+    </md-content>
 
-            <button type="submit" id="registerNewTripButton" class="btn btn-primary btn-block"
-                    ng-click="go('/start')">
-                Save
-            </button><br />
-
-        </div>
-    </form>
-
-    <br /><br />
-    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
-
+    <br />
+    <md-button class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>

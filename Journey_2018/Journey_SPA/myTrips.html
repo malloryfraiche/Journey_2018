@@ -2,17 +2,25 @@
 
 <div ng-cloak class="withToolbarViewStyle">
 
-    <!-- have this button "un-clickable" if there is a trip that is currently in progress... -->
-    <div class="centerStyle">
-        <md-button type="button" class="md-raised md-primary" ng-click="go('/registerNewTrip')">Create New Trip</md-button>
-    </div><br /><br />
+    <h3 class="centerStyle">My Trips</h3><br />
 
-    <p>Trip currently in progress:</p>
-    <div class="tripInProgressDiv">
-        <p><a>((have a link here to the current trip in progess if not completed))</a></p>
+    <div class="md-padding">
+        <md-content layout-padding md-whiteframe="20">
+            <h4>Current trip:</h4>
+            <p>{{tripProgress()}}</p>
+        </md-content>
     </div>
 
+    <!-- to disable the card to be clicked and shows a message 'need to complete ongoing trip before beginning a new one'... -->
+    <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="cardClicked || go('/registerNewTrip')" ng-disabled="cardClicked">
+        <md-card-title>
+            <md-card-title-text layout-align="center center" class="md-headline">Create New Trip</md-card-title-text>
+        </md-card-title>
+    </md-card>
+
+
+
     <br /><br />
-    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
+    <md-button class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 
 </div>
