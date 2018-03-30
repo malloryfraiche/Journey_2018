@@ -1,56 +1,88 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
 
-
 <div ng-cloak class="withToolbarViewStyle">
 
-    <md-card md-theme="dark-grey" md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">My Trips</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+    <div class="md-padding" layout-xs="column" layout="row">
 
-    <md-card md-theme="dark-grey" md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">Register New Trip</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/myTrips')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">MY TRIPS</md-card-title-text>
+                </md-card-title>
+            </md-card>
 
-    <md-card md-theme="dark-grey" md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">Report</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/registerNewTrip')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">REGISTER NEW TRIP</md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
 
-    <md-card md-theme="dark-grey" md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">Manage Vehicles</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/report')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">REPORT</md-card-title-text>
+                </md-card-title>
+            </md-card>
 
-    <md-card md-theme="dark-grey" md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">Support</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/manageVehicles')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">MANAGE VEHICLES</md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
 
-    <md-card md-whiteframe="20">
-        <md-card-title layout-align="center center">
-            <md-button><md-card-title-text class="md-headline">Logout</md-card-title-text></md-button>
-        </md-card-title>
-    </md-card>
+
+    </div>
+
+    <div class="md-padding" flex-xs layout="column">
+        <md-card md-theme="dark-grey" md-whiteframe="20">
+            <md-card-actions layout="row" layout-align="center">
+                <md-button style="color: grey;" ng-click="go('/support')">Support</md-button>
+                <md-button class="md-primary" ng-click="go('/')">Logout</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+
+
+
+
+
+    <!--<div class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/support')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">SUPPORT</md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+    </div>
+
+    <br />-->
+    <!--<div class="md-padding">
+        <md-button md-whiteframe="20" ng-click="go('/')">
+            Logout
+        </md-button>
+    </div>-->
+    <!--<div class="md-padding" layout-xs="column" layout="row">
+
+        <div layout-align="center" flex-xs flex-gt-xs="50" layout="row">
+            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/support')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">SUPPORT</md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+
+        <div layout-align="center" flex-xs flex-gt-xs="50" layout="row">
+            <md-card md-theme="backOrLogout" md-whiteframe="20" ng-click="go('/')">
+                <md-card-title>
+                    <md-card-title-text layout-align="center center" class="md-headline">LOGOUT</md-card-title-text>
+                </md-card-title>
+            </md-card>
+        </div>
+
+    </div>-->
 
 </div>
-
-<!--<div class="centerStyle">
-    <md-button id="myTripsButton" class="md-primary md-raised" ng-click="go('/myTrips')">My Trips</md-button><br />
-
-    <md-button id="registerNewTripButton" class="md-primary md-raised" ng-click="go('/registerNewTrip')">Register New Trip</md-button><br />
-
-    <md-button id="reportButton" class="md-primary md-raised" ng-click="go('/report')">Report</md-button><br />
-
-    <md-button id="manageVehiclesButton" class="md-primary md-raised" ng-click="go('/manageVehicles')">Manage Vehicles</md-button><br />
-
-    <md-button id="supportButton" class="md-primary md-raised" ng-click="go('/support')">Support</md-button><br /><br /><br />
-
-    <md-button id="logoutButton" class="md-raised" ng-click="go('/login')">Logout</md-button>
-</div>-->

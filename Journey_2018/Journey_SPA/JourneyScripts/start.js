@@ -10,5 +10,6 @@
     .config(function ($mdThemingProvider) {
 
         $mdThemingProvider.theme('dark-grey').backgroundPalette('blue-grey');
+        $mdThemingProvider.theme('backOrLogout').backgroundPalette('blue-grey').dark();
 
     });

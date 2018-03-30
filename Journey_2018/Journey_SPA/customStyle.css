@@ -5,7 +5,8 @@
 }
 h1,
 h3,
-small {
+small,
+md-card-title {
   color: grey;
 }
 .centerStyle {
