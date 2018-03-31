@@ -36,7 +36,8 @@ angular.module('app').config(function ($mdIconProvider) {
         .iconSet("navigation", "../Content/angular-material-icons/navigation.svg")
         .iconSet("maps", "../Content/angular-material-icons/maps.svg")
         .iconSet("image", "../Content/angular-material-icons/image.svg")
-        .iconSet("pdf", "../Content/angular-material-icons/ic_picture_as_pdf_black_48px.svg");
+        .iconSet("pdf", "../Content/angular-material-icons/ic_picture_as_pdf_black_48px.svg")
+        .iconSet("editor", "../Content/angular-material-icons/editor.svg");
 });
 
 

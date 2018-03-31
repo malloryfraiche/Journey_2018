@@ -1,21 +1,14 @@
 ﻿angular.module('app').controller('manageVehicles', function ($scope, $location) {
 
-    $scope.listOfVehicles = [
-        {
-            firstKey: 'mallory',
-            secondKey: 'fraiche',
-            thirdKey: 'test'
-        },
-        {
-            firstKey: 'sara',
-            secondKey: 'fraiche',
-            thirdKey: 'test2'
-        }
+    $scope.vehicles = [
+        { registrationNumber: 'LOL123' },
+        { registrationNumber: 'TES238' },
+        { registrationNumber: 'MUG586' }
     ];
 
 
     $scope.go = function (path) {
         $location.path(path);
     };
-    
+
 });
