@@ -2,30 +2,48 @@
 
 <div ng-cloak class="withToolbarViewStyle">
 
-    <h3><b>Manage Vehicles:</b></h3><br />
 
-    <div class="table-responsive">
-        <table id="myVehicles" class="table table-dark">
-            <thead>
-                <tr>
-                    <th>Vehicle Number</th>
-                    <th></th>
-                    <th>Active</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>TEST123</td>
-                    <td><button type="submit" class="btn btn-primary btn-sm">Edit</button></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h3 class="centerStyle">Manage Vehicles</h3><br />
 
-    <br /><br />
-    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
+    <md-content md-whiteframe="20" layout-padding>
 
+        <mdt-table 
+                   table-card="{ title: 'Vehicles' }" 
+                   mdt-row="{ data: listOfVehicles, 
+                   'column-keys': ['firstKey', 'secondKey', 'thirdKey'] }">
+
+            <mdt-header-row>
+                <mdt-column align-rule="left">First Name</mdt-column>
+                <mdt-column align-rule="right">Last Name</mdt-column>
+                <mdt-column align-rule="right">Message</mdt-column>
+            </mdt-header-row>
+
+        </mdt-table>
+
+
+            <!--<table id="myVehicles" class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Vehicle Number</th>
+                        <th></th>
+                        <th>Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TEST123</td>
+                        <td><button type="submit" class="btn btn-primary btn-sm">Edit</button></td>
+                        <td><input type="checkbox" /></td>
+                    </tr>
+                </tbody>
+            </table>-->
+
+    </md-content>
+
+
+
+    <br />
+    <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>
 
 
