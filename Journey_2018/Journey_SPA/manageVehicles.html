@@ -1,9 +1,30 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
 
 <div ng-cloak class="withToolbarViewStyle">
-
-
     <h3 class="centerStyle">Manage Vehicles</h3><br />
+
+
+    <div ng-show="vehicleToBeEdited">
+        <md-content md-whiteframe="20" layout-padding>
+
+            <md-input-container class="md-block">
+                <label>Vehicle registration number</label>
+                <input type="text" />
+            </md-input-container>
+
+            <md-input-container class="md-block"></md-input-container>
+
+            <div class="centerStyle">
+                <md-button type="submit" id="updateButton" class="md-primary md-raised">Update</md-button>
+                <md-button type="submit" id="addVehicleButton" class="md-primary md-raised">Add vehicle</md-button>
+                <md-button type="submit">Delete</md-button>
+            </div>
+
+        </md-content>
+        <br />
+    </div>
+
+
 
     <md-content md-whiteframe="20" layout-padding>
 
@@ -12,43 +33,16 @@
 
             <md-list-item ng-repeat="test in vehicles">
                 <p>{{ test.registrationNumber }}</p>
-                <md-button class="md-primary">Edit</md-button>
+                <md-button class="md-primary" id="editButton" ng-click="showEditDivContents()">Edit</md-button>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>
 
-
-        
     </md-content>
 
-
+    <br />
+    <div class="centerStyle"><md-button type="button" class="md-primary md-raised" ng-click="showEditDivContents()">Add new vehicle</md-button></div>
 
     <br />
     <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>
-
-
-
-
-<!--<td><button type="submit" class="btn btn-danger btn-sm">Delete</button></td>-->
-
-
-
-
-
-<!--<table class="table">
-    <thead>
-        <tr>
-            <th>Vehicle number</th>
-            <th></th>
-            <th>Active</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><md-input>TEST123</md-input></td>
-            <td><md-button type="submit" class="md-primary">Edit</md-button></td>
-            <td><md-switch class="md-primary" aria-label="table_row_id"></md-switch></td>
-        </tr>
-    </tbody>
-</table>-->
