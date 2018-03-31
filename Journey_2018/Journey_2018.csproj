@@ -113,6 +113,7 @@
     <Content Include="Content\angular-material-icons\editor.svg" />
     <Content Include="Content\angular-material-icons\file.svg" />
     <Content Include="Content\angular-material-icons\hardware.svg" />
+    <Content Include="Content\angular-material-icons\ic_picture_as_pdf_black_48px.svg" />
     <Content Include="Content\angular-material-icons\image.svg" />
     <Content Include="Content\angular-material-icons\maps.svg" />
     <Content Include="Content\angular-material-icons\navigation.svg" />

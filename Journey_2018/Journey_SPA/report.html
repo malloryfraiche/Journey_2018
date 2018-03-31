@@ -2,35 +2,58 @@
 
 <div ng-cloak class="withToolbarViewStyle">
 
-    <h3><b>Report:</b></h3>
+    <div class="centerStyle"><h3>Report</h3></div>
 
-    <form id="reportForm">
+    <md-content md-whiteframe="20" layout-padding>
+
+        <md-input-container class="md-block">
+            <label>Choose Vehicle</label>
+            <md-icon md-svg-icon="maps:directions_car"></md-icon>
+            <!-- work here to get it to work and to understand it -->
+            <md-select ng-model="selectVehicle">
+                <md-option ng-repeat="vehicle in vehicles">{{vehicles[0]}}</md-option>
+            </md-select>
+        </md-input-container>
+
+        <div layout-xs="column" layout="row">
+            <div flex-xs flex-gt-xs="50" layout="column">
+                <div>
+                    <label style="color: grey;">From:</label>
+                    <md-datepicker ng-model="fromDateValue" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+            <div flex-xs flex-gt-xs="50" layout="column">
+                <div>
+                    <label style="color: grey;">To:</label>
+                    <md-datepicker ng-model="toDateValue" md-placeholder="Enter date"></md-datepicker>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="centerStyle">
+            <md-button type="submit" class="md-raised md-primary">Create&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
+        </div>
+    </md-content>
+
+
+
+    <!--<form id="reportForm">
         <div class="form-group">
 
-            <!-- Hidden report form 'counter' -->
-            <!--<input type="hidden" name="reportId" value="0" /><br />-->
-            <!-- same "name" as in registerNewTrip.html???? -->
-            <select class="form-control" name="licensePlateNumber">
-                <option value="chooseVehicle">Choose Vehicle</option>
-                <option value="TEST123">TEST123</option>
-                <option value="TEST234">TEST234</option>
-                <option value="TEST345">TEST345</option>
-            </select><br />
-
-            <label><b>Choose Date Span:</b></label><br /><!-- add the AngularJs datepicker directive here??? -->
-            <input type="date" required /> - <input type="date" required />
-
-
-            <!-- insert here the doughut-chart and bar graph with the information -->
 
 
             <br /><br /><br />
             <button type="submit" class="btn btn-primary">Create PDF</button>
 
         </div>
-    </form>
+    </form>-->
 
-    <br /><br />
-    <button type="button" class="btn btn-warning btn-sm" ng-click="go('/start')">Back to Start Page</button>
 
+
+    <br />
+    <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>

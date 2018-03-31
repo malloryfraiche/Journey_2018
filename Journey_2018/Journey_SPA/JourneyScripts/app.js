@@ -34,7 +34,9 @@ angular.module('app').config(function ($mdIconProvider) {
         .iconSet("notification", "../Content/angular-material-icons/notification.svg")
         .iconSet("av", "../Content/angular-material-icons/av.svg")
         .iconSet("navigation", "../Content/angular-material-icons/navigation.svg")
-        .iconSet("maps", "../Content/angular-material-icons/maps.svg");
+        .iconSet("maps", "../Content/angular-material-icons/maps.svg")
+        .iconSet("image", "../Content/angular-material-icons/image.svg")
+        .iconSet("pdf", "../Content/angular-material-icons/ic_picture_as_pdf_black_48px.svg");
 });
 
 
