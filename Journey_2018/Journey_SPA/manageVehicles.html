@@ -11,7 +11,6 @@
 
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
-
             <md-list-item ng-repeat="test in vehicles">
                 <p>{{ test.registrationNumber }}</p>
                 <md-button class="md-primary" ng-click="showEditPromtDialog($event)">Edit</md-button>
@@ -22,7 +21,9 @@
     </md-content>
 
     <br />
-    <div class="centerStyle"><md-button type="button" class="md-primary md-raised" ng-click="showEditDivContents()">Add new vehicle</md-button></div>
+    <div class="centerStyle">
+        <md-button type="button" class="md-primary md-raised" ng-click="showAddVehicleDialog($event)">Add new vehicle</md-button>
+    </div>
 
     <br />
     <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
