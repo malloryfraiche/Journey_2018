@@ -1,9 +1,5 @@
-﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog) {
+﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout) {
 
-    //$scope.vehicleToBeEdited = false;
-    //$scope.showEditDivContents = function () {
-    //    $scope.vehicleToBeEdited = true;
-    //};
 
     $scope.showEditPromtDialog = function (ev) {
 
@@ -15,11 +11,19 @@
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: false
+            })
+            // controls the action after clicking 'update' in the edit dialog box.
+            .then(
+            $scope.message = function () {
+                $scope.info = 'This is a simple message.';
+                $timeout(function () { $scope.info = false; }, 3000);
             });
-            //.then(function () { }, function () { });
 
     };
-    
+
+
+
+
     $scope.vehicles =
         [
             { registrationNumber: 'LOL123' },
@@ -34,20 +38,17 @@
 
 });
 
-function DialogController($scope, $mdDialog) {
 
+// to control the dialog boxes.
+function DialogController($scope, $mdDialog, $timeout) {
     $scope.hide = function () {
         $mdDialog.hide();
     };
-
     $scope.cancel = function () {
         $mdDialog.cancel();
     };
+    $scope.message = function (message) {
+        $mdDialog.hide(message);
+    };
+}
 
-};
-
-//function dialogController($scope, $mdDialog) {
-//    $scope.hide = function () {
-//        $mdDialog.hide();
-//    };
-//};

@@ -3,39 +3,18 @@
 <div ng-cloak class="withToolbarViewStyle">
     <h3 class="centerStyle">Manage Vehicles</h3><br />
 
-    <!--<div ng-show="vehicleToBeEdited">
-        <md-content md-whiteframe="20" layout-padding>
-
-            <md-input-container class="md-block">
-                <label>Vehicle registration number</label>
-                <input type="text" />
-            </md-input-container>
-
-            <md-input-container class="md-block"></md-input-container>
-
-            <div class="centerStyle">
-                <md-button type="submit" id="updateButton" class="md-primary md-raised">Update</md-button>
-                <md-button type="submit" id="addVehicleButton" class="md-primary md-raised">Add vehicle</md-button>
-                <md-button type="submit">Delete</md-button>
-            </div>
-
-        </md-content>
-        <br />
-    </div>-->
-
-
-
-
-
-
     <md-content md-whiteframe="20" layout-padding>
+
+        <div ng-show="info">
+            <b layout="row" layout-align="center center" class="md-padding">{{info}}</b>
+        </div>
 
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
 
             <md-list-item ng-repeat="test in vehicles">
                 <p>{{ test.registrationNumber }}</p>
-                <md-button class="md-primary" id="editButton" ng-click="showEditPromtDialog($event)">Edit</md-button>
+                <md-button class="md-primary" ng-click="showEditPromtDialog($event)">Edit</md-button>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>

@@ -13,14 +13,21 @@
 
         <md-dialog-content>
             <div class="md-dialog-content">
-                <h2>test content</h2>
+
+                <md-input-container class="md-block">
+                    <label>Vehicle registration number</label>
+                    <input type="text" />
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-checkbox class="md-primary">Set as default vehicle</md-checkbox>
+                </md-input-container>
+
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button>test 1</md-button>
-            <span flex></span>
-            <md-button>test 2</md-button>
+            <md-button class="md-primary" ng-click="message()">Update</md-button>
         </md-dialog-actions>
 
     </form>
