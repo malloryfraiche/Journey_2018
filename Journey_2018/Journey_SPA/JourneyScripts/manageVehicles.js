@@ -1,23 +1,31 @@
-﻿angular.module('app').controller('manageVehicles', function ($scope, $location) {
+﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog) {
 
-    $scope.vehicleToBeEdited = false;
+    //$scope.vehicleToBeEdited = false;
+    //$scope.showEditDivContents = function () {
+    //    $scope.vehicleToBeEdited = true;
+    //};
 
-    $scope.showEditDivContents = function () {
+    $scope.showEditPromtDialog = function (ev) {
 
-        // build logic to disable/hide the appropriate button in the div that shows...
-        //if () {
-        //    $('#addVehicleButton').hide();
-        //};
+        $mdDialog
+            .show({
+                controller: DialogController,
+                templateUrl: 'Dialogs/editVehiclesDialog.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: false,
+                fullscreen: false
+            });
+            //.then(function () { }, function () { });
 
-        $scope.vehicleToBeEdited = true;
     };
-
-
-    $scope.vehicles = [
-        { registrationNumber: 'LOL123' },
-        { registrationNumber: 'TES238' },
-        { registrationNumber: 'MUG586' }
-    ];
+    
+    $scope.vehicles =
+        [
+            { registrationNumber: 'LOL123' },
+            { registrationNumber: 'TES238' },
+            { registrationNumber: 'MUG586' }
+        ];
 
 
     $scope.go = function (path) {
@@ -25,3 +33,21 @@
     };
 
 });
+
+function DialogController($scope, $mdDialog) {
+
+    $scope.hide = function () {
+        $mdDialog.hide();
+    };
+
+    $scope.cancel = function () {
+        $mdDialog.cancel();
+    };
+
+};
+
+//function dialogController($scope, $mdDialog) {
+//    $scope.hide = function () {
+//        $mdDialog.hide();
+//    };
+//};

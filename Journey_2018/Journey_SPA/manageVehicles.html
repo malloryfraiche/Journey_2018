@@ -3,8 +3,7 @@
 <div ng-cloak class="withToolbarViewStyle">
     <h3 class="centerStyle">Manage Vehicles</h3><br />
 
-
-    <div ng-show="vehicleToBeEdited">
+    <!--<div ng-show="vehicleToBeEdited">
         <md-content md-whiteframe="20" layout-padding>
 
             <md-input-container class="md-block">
@@ -22,7 +21,10 @@
 
         </md-content>
         <br />
-    </div>
+    </div>-->
+
+
+
 
 
 
@@ -33,7 +35,7 @@
 
             <md-list-item ng-repeat="test in vehicles">
                 <p>{{ test.registrationNumber }}</p>
-                <md-button class="md-primary" id="editButton" ng-click="showEditDivContents()">Edit</md-button>
+                <md-button class="md-primary" id="editButton" ng-click="showEditPromtDialog($event)">Edit</md-button>
                 <md-divider></md-divider>
             </md-list-item>
         </md-list>

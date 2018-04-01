@@ -148,6 +148,7 @@
     <Content Include="Journey_SPA\customStyle.min.css">
       <DependentUpon>customStyle.css</DependentUpon>
     </Content>
+    <Content Include="Journey_SPA\Dialogs\editVehiclesDialog.tmpl.html" />
     <Content Include="Journey_SPA\JourneyScripts\app.js" />
     <Content Include="Journey_SPA\JourneyScripts\createNewAccount.js" />
     <Content Include="Journey_SPA\JourneyScripts\login.js" />
