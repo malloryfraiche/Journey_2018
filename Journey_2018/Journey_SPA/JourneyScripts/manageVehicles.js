@@ -28,13 +28,13 @@
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: false
+            })
+            // controls the action after clicking 'save' in the addVehicle dialog box.
+            .then(
+            $scope.message = function () {
+                $scope.info = 'This is a simple message.';
+                $timeout(function () { $scope.info = false; }, 3000);
             });
-            // controls the action after clicking '' in the addVehicle dialog box.
-            //.then(
-            //$scope.message = function () {
-            //    $scope.info = 'This is a simple message.';
-            //    $timeout(function () { $scope.info = false; }, 3000);
-            //});
     };
 
 
