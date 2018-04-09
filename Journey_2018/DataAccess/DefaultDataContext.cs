@@ -9,7 +9,7 @@ using System.Web;
 
 namespace Journey_2018.DataAccess
 {
-    public class DefaultDataContext : DbContext 
+    public class DefaultDataContext : DbContext
     {
         // Configuring the Entity Framework connection.
         public DefaultDataContext() : base() { }
@@ -23,7 +23,7 @@ namespace Journey_2018.DataAccess
         public DbSet<UserVehicleHelper> UserVehicleHelpers { get; set; }
 
 
-        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // Turn off Entity Frameworks pluralizing table name conventions.
@@ -31,8 +31,8 @@ namespace Journey_2018.DataAccess
 
             base.OnModelCreating(modelBuilder);
 
-            
-           Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultDataContext, Configuration>());
+            // to update DB to latest version from "code-first".
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultDataContext, Configuration>());
         }
     }
 }
