@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,13 +10,14 @@ namespace Journey_2018.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public User UserId { get; set; }
 
+        [Required]
         public Vehicle VehicleId { get; set; }
-        
-        public bool UserDefaultVehicle { get; set; }
 
-        //public enum DefaultVehicleStatus { Inactive = 0, Active = 1 }
-         
+        [Required]
+        public bool UserDefaultVehicle { get; set; }
+        
     }
 }

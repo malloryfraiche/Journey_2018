@@ -9,6 +9,7 @@ namespace Journey_2018.Migrations
     {
         public Configuration()
         {
+            //AutomaticMigrationsEnabled = false;
             AutomaticMigrationsEnabled = true;
             ContextKey = "Journey_2018.DataAccess.DefaultDataContext";
         }

@@ -12,7 +12,7 @@ namespace Journey_2018.DataAccess
     public class DefaultDataContext : DbContext 
     {
         // Configuring the Entity Framework connection.
-        public DefaultDataContext() : base("Journey") { }
+        public DefaultDataContext() : base() { }
 
         public DbSet<User> Users { get; set; }
 
@@ -20,15 +20,19 @@ namespace Journey_2018.DataAccess
 
         public DbSet<Trip> Trips { get; set; }
 
+        public DbSet<UserVehicleHelper> UserVehicleHelpers { get; set; }
 
-        // Turn off Entity Frameworks pluralizing table name conventions.
+
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            // Turn off Entity Frameworks pluralizing table name conventions.
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
             base.OnModelCreating(modelBuilder);
 
-            //
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultDataContext, Configuration>());
+            
+           Database.SetInitializer(new MigrateDatabaseToLatestVersion<DefaultDataContext, Configuration>());
         }
     }
 }
