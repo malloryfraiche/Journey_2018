@@ -70,7 +70,13 @@ namespace Journey_2018.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
+
+
         }
+
+
+
+
 
         // POST: api/Users
         [ResponseType(typeof(User))]
@@ -86,6 +92,27 @@ namespace Journey_2018.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
         }
+
+        //[HttpPost]
+        //[Route("api/PostUser")]
+        //public string PostUser(User user)
+        //{
+        //    if (user.Id > 0)
+        //    {
+        //        db.Entry(user).State = EntityState.Modified;
+        //    }
+        //    else
+        //    {
+        //        db.Users.Add(user);
+        //    }
+        //    db.SaveChanges();
+        //    return string.Format("{0} {1}", user.FirstName, user.LastName);
+        //}
+
+
+
+
+
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
