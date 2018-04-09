@@ -23,6 +23,5 @@ namespace Journey_2018.Models
         {
             Trips = new List<Trip>();
         }
-
     }
 }

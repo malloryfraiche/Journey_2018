@@ -18,7 +18,6 @@ namespace Journey_2018.Models
         public Vehicle()
         {
             Trips = new List<Trip>();
-        }
-        
+        }     
     }
 }
