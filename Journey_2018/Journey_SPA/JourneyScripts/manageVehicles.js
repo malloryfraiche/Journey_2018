@@ -37,7 +37,7 @@
             });
     };
 
-    
+
     // data for testing.
     $scope.vehicles =
         [
@@ -47,6 +47,8 @@
         ];
 
 
+
+
     $scope.go = function (path) {
         $location.path(path);
     };
@@ -54,9 +56,9 @@
 });
 
 
-// to control the dialog boxes.
+// to control the 'Edit' and 'Add New Vehicle' dialog boxes.
 function DialogController($scope, $mdDialog) {
-    
+
     $scope.hide = function () {
         $mdDialog.hide();
     };
@@ -67,35 +69,66 @@ function DialogController($scope, $mdDialog) {
         $mdDialog.hide(message);
     };
 
-    // Activate and inactive vehicle.
-    $scope.activationData = true;
-    $scope.activationStatus = 'Vehicle is ACTIVE';
+
+    
+    // Activate and inactivate vehicle.
+    $scope.activationDataInput = true;
+    $scope.activationStatus = 'ACTIVE';
+    console.log($scope.activationDataInput);
     $scope.onActivationChange = function () {
-        if ($scope.activationData === true)
-        {
-            $scope.activationStatus = 'Vehicle is ACTIVE';
-        } else
-        {
-            $scope.activationData = false;
-            $scope.activationStatus = 'Vehicle is INACTIVE';
+        if ($scope.activationDataInput === true) {
+            $scope.activationStatus = 'ACTIVE';
+        } else {
+            $scope.activationDataInput = false;
+            $scope.activationStatus = 'INACTIVE';
+            // if vehicle is inactive, it cannot be your default. 
+            $scope.defaultDataInput = false;
+            $scope.defaultStatus = 'Standard';
         }
+        console.log($scope.activationDataInput);
     };
 
+
+
+    
     // Set vehicle as Default.
-    $scope.defaultData = false;
-    $scope.defaultStatus = '(not your default vehicle)';
+    $scope.defaultDataInput = false;
+    $scope.defaultStatus = 'Standard';
     $scope.onDefaultChange = function () {
-        if ($scope.defaultData === false) {
-            $scope.defaultStatus = '(not your default vehicle)';
-        } else 
-        {
-            $scope.defaultData = true;
-            $scope.defaultStatus = 'Default vehicle';
+        if ($scope.defaultDataInput === false) {
+            $scope.defaultStatus = 'Standard';
+        } else {
+            $scope.defaultDataInput = true;
+            $scope.defaultStatus = 'DEFAULT';
             // if vehicle is your default, it must also be active.
-            $scope.activationData = true;
-            $scope.activationStatus = 'Vehicle is ACTIVE';
+            $scope.activationDataInput = true;
+            $scope.activationStatus = 'ACTIVE';
         }
+        console.log($scope.defaultDataInput);
     };
+
+
+
+    //var vehicleApi = "http://localhost:54542/api/Vehicles";
+
+    //$scope.registrationNumberInput = '';
+    //$scope.activationDataInput = '';
+    //$scope.defaultDataInput = '';
+
+    //$scope.addNewVehicle = function () {
+    //    $http({
+    //        method: 'POST',
+    //        url: vehicleApi,
+    //        data: $.param($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
+    //        headers: {
+    //            'Accept': 'application/json; charset=utf-8',
+    //            'Content-Type': 'application/json; charset=utf-8'
+    //        }
+    //    }).then(function (data) {
+    //        console.log(data);
+    //        //$scope.addVehicleInput.trigger("reset");
+    //    });
+    //};
 
 }
 

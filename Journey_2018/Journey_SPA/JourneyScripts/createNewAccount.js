@@ -21,7 +21,7 @@
             }
         }).then(function (data) {
             console.log(data);
-            //createAccountData.trigger("reset");
+            //$scope.createAccountInput.trigger("reset");
         });
     };
 

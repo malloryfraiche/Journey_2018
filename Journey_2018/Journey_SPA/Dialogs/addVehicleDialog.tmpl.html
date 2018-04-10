@@ -16,22 +16,24 @@
 
                 <md-input-container class="md-block">
                     <label>Registration number</label>
-                    <input type="text" required />
+                    <input type="text" ng-model="registrationNumberInput" required />
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" ng-model="activationData" ng-change="onActivationChange()">{{ activationStatus }}</md-switch>
+                    <small style="color: grey;">Activation status:</small>
+                    <md-switch class="md-primary" ng-model="activationDataInput" ng-change="onActivationChange()">{{ activationStatus }}</md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" ng-model="defaultData" ng-change="onDefaultChange()">{{ defaultStatus }}</md-switch>
+                    <small style="color: grey;">Set as default vehicle:</small>
+                    <md-switch class="md-primary" ng-model="defaultDataInput" ng-change="onDefaultChange()">{{ defaultStatus }}</md-switch>
                 </md-input-container>
 
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button class="md-primary" ng-click="message()">Save</md-button>
+            <md-button type="submit" class="md-primary" ng-click="addNewVehicle()">Save</md-button>
         </md-dialog-actions>
 
     </form>
