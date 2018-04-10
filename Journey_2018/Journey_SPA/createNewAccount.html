@@ -1,8 +1,8 @@
 ﻿<div ng-cloak class="createNewAccountViewStyle">
 
-    <h3 class="centerStyle">{{message}}</h3><br />
+    <h3 class="centerStyle">Create New Account</h3><br />
 
-    <md-content md-whiteframe="20" layout-padding>
+    <md-content md-whiteframe="20" layout-padding ng-model="createAccountForm">
 
         <md-input-container class="md-block">
             <label>Enter username (e-mail):</label>
@@ -23,7 +23,7 @@
         </md-input-container>
 
         <div class="centerStyle">
-            <md-button type="submit" class="md-raised md-primary" ng-click="go('/')">Create Account</md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="createAccount()">Create Account</md-button>
         </div>
 
     </md-content>

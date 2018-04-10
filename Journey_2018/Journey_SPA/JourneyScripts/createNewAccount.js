@@ -1,6 +1,21 @@
-﻿angular.module('app').controller('createNewAccount', function ($scope, $location) {
+﻿angular.module('app').controller('createNewAccount', function ($scope, $location, $http) {
 
-    $scope.message = "Create New Account";
+    var addUserApi = "http://localhost:54542/api/Users";
+
+    $scope.createAccount = function () {
+        $http({
+            headers: {
+                'Accept': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            method: 'POST',
+            url: addUserApi,
+            data: $httpParamSerializer($scope.createAccountForm)
+        }).then(function (data) {
+            console.log(data);
+        });
+    };
+
 
     $scope.go = function (path) {
 
