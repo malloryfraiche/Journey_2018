@@ -2,24 +2,36 @@
 
     <h3 class="centerStyle">Create New Account</h3><br />
 
-    <md-content md-whiteframe="20" layout-padding ng-model="createAccountForm">
+    <md-content md-whiteframe="20" layout-padding>
+
+        <md-input-container class="md-block">
+            <label>Frist Name:</label>
+            <md-icon md-svg-icon="action:account_circle"></md-icon>
+            <input type="text" ng-model="createAccountInput.firstName" required />
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Last Name:</label>
+            <md-icon md-svg-icon="action:account_circle"></md-icon>
+            <input type="text" ng-model="createAccountInput.lastName" required />
+        </md-input-container>
 
         <md-input-container class="md-block">
             <label>Enter username (e-mail):</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
-            <input type="email" required />
+            <input type="email" ng-model="createAccountInput.email" required />
         </md-input-container>
 
         <md-input-container class="md-block">
-            <label>Enter a password:</label>
+            <label>Password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
-            <input type="password" required /><br />
+            <input type="password" ng-model="createAccountInput.password" required /><br />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Confirm password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
-            <input type="password" required />
+            <input type="password" ng-model="createAccountInput.confirmPassword" required />
         </md-input-container>
 
         <div class="centerStyle">

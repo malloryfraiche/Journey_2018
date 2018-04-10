@@ -16,11 +16,15 @@
 
                 <md-input-container class="md-block">
                     <label>Registration number</label>
-                    <input type="text" required/>
+                    <input type="text" required />
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-checkbox class="md-primary">Set as default vehicle</md-checkbox>
+                    <md-switch class="md-primary" ng-model="activationData" ng-change="onActivationChange()">{{ activationStatus }}</md-switch>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-switch class="md-primary" ng-model="defaultData" ng-change="onDefaultChange()">{{ defaultStatus }}</md-switch>
                 </md-input-container>
 
             </div>

@@ -74,6 +74,8 @@ namespace Journey_2018.Controllers
 
         // POST: api/Vehicles
         [ResponseType(typeof(Vehicle))]
+        [HttpPost]
+        [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
             if (!ModelState.IsValid)

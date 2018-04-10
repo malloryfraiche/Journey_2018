@@ -80,6 +80,8 @@ namespace Journey_2018.Controllers
 
         // POST: api/Users
         [ResponseType(typeof(User))]
+        [HttpPost]
+        [Route("api/Users")]
         public async Task<IHttpActionResult> PostUser(User user)
         {
             if (!ModelState.IsValid)
@@ -94,7 +96,7 @@ namespace Journey_2018.Controllers
         }
 
         //[HttpPost]
-        //[Route("api/PostUser")]
+        //[Route("api/Users")]
         //public string PostUser(User user)
         //{
         //    if (user.Id > 0)
