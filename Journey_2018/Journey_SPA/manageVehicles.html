@@ -18,6 +18,7 @@
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
             <md-list-item ng-repeat="test in vehicles">
                 <p>{{ test.registrationNumber }}</p>
+                <span id="dot" class="dot"></span> <!-- have green when active -->
                 <md-button class="md-primary" ng-click="showEditPromtDialog($event)">Edit</md-button>
                 <md-button class="md-icon-button"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
                 <md-divider></md-divider>

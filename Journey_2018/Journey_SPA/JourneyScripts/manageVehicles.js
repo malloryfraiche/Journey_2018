@@ -78,6 +78,7 @@ function DialogController($scope, $mdDialog) {
     $scope.onActivationChange = function () {
         if ($scope.activationDataInput === true) {
             $scope.activationStatus = 'ACTIVE';
+            //$("#dot").addClass("activeDot");
         } else {
             $scope.activationDataInput = false;
             $scope.activationStatus = 'INACTIVE';
@@ -88,8 +89,7 @@ function DialogController($scope, $mdDialog) {
         console.log($scope.activationDataInput);
     };
 
-
-
+    
     
     // Set vehicle as Default.
     $scope.defaultDataInput = false;
@@ -112,12 +112,25 @@ function DialogController($scope, $mdDialog) {
     //var vehicleApi = "http://localhost:54542/api/Vehicles";
 
     //$scope.registrationNumberInput = '';
-    //$scope.activationDataInput = '';
-    //$scope.defaultDataInput = '';
 
     //$scope.addNewVehicle = function () {
     //    $http({
     //        method: 'POST',
+    //        url: vehicleApi,
+    //        data: $.param($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
+    //        headers: {
+    //            'Accept': 'application/json; charset=utf-8',
+    //            'Content-Type': 'application/json; charset=utf-8'
+    //        }
+    //    }).then(function (data) {
+    //        console.log(data);
+    //        //$scope.addVehicleInput.trigger("reset");
+    //    });
+    //};
+
+    //$scope.updateVehicle = function () {
+    //    $http({
+    //        method: 'PUT',
     //        url: vehicleApi,
     //        data: $.param($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
     //        headers: {
