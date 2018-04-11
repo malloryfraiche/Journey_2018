@@ -74,11 +74,11 @@ function DialogController($scope, $mdDialog) {
     // Activate and inactivate vehicle.
     $scope.activationDataInput = true;
     $scope.activationStatus = 'ACTIVE';
-    console.log($scope.activationDataInput);
+    console.log("Activation switch: " + $scope.activationDataInput);
     $scope.onActivationChange = function () {
         if ($scope.activationDataInput === true) {
             $scope.activationStatus = 'ACTIVE';
-            //$("#dot").addClass("activeDot");
+            $("#dot").addClass("activeDot");
         } else {
             $scope.activationDataInput = false;
             $scope.activationStatus = 'INACTIVE';
@@ -86,7 +86,7 @@ function DialogController($scope, $mdDialog) {
             $scope.defaultDataInput = false;
             $scope.defaultStatus = 'Standard';
         }
-        console.log($scope.activationDataInput);
+        console.log("Activation switch: " + $scope.activationDataInput);
     };
 
     
@@ -94,6 +94,7 @@ function DialogController($scope, $mdDialog) {
     // Set vehicle as Default.
     $scope.defaultDataInput = false;
     $scope.defaultStatus = 'Standard';
+    console.log("Default switch: " + $scope.defaultDataInput);
     $scope.onDefaultChange = function () {
         if ($scope.defaultDataInput === false) {
             $scope.defaultStatus = 'Standard';
@@ -104,7 +105,7 @@ function DialogController($scope, $mdDialog) {
             $scope.activationDataInput = true;
             $scope.activationStatus = 'ACTIVE';
         }
-        console.log($scope.defaultDataInput);
+        console.log("Default switch: " + $scope.defaultDataInput);
     };
 
 

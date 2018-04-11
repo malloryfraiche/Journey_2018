@@ -19,6 +19,7 @@ namespace Journey_2018.SignalR
         public override Task OnConnected()
         {
             // trigger when someone connects to hub.
+            // can have a function that shows a list of the connected users..
             return base.OnConnected();
         }
 

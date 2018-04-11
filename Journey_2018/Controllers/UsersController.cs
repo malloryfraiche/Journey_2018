@@ -92,7 +92,8 @@ namespace Journey_2018.Controllers
             db.Users.Add(user);
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            //return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            return Ok(user);
         }
 
         //[HttpPost]

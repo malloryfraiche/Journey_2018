@@ -14,7 +14,7 @@
         $http({
             method: 'POST',
             url: userApi,
-            data: $.param($scope.createAccountInput),
+            data: $scope.createAccountInput,
             headers: {
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
