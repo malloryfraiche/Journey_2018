@@ -29,11 +29,12 @@
                 clickOutsideToClose: false,
                 fullscreen: false
             })
-            // controls the action after clicking 'save' in the addVehicle dialog box.
+            // controls what happens after clicking 'save' and closing addVehicle dialog box (and coming out of the DialogController).
             .then(
             $scope.message = function () {
                 $scope.info = 'This is a simple message.';
                 $timeout(function () { $scope.info = false; }, 3000);
+
             });
     };
 
@@ -70,7 +71,7 @@ function DialogController($scope, $mdDialog) {
     };
 
 
-    
+
     // Activate and inactivate vehicle.
     $scope.activationDataInput = true;
     $scope.activationStatus = 'ACTIVE';
@@ -89,8 +90,8 @@ function DialogController($scope, $mdDialog) {
         console.log("Activation switch: " + $scope.activationDataInput);
     };
 
-    
-    
+
+
     // Set vehicle as Default.
     $scope.defaultDataInput = false;
     $scope.defaultStatus = 'Standard';
@@ -106,6 +107,15 @@ function DialogController($scope, $mdDialog) {
             $scope.activationStatus = 'ACTIVE';
         }
         console.log("Default switch: " + $scope.defaultDataInput);
+    };
+
+
+
+    // controls the action after clicking 'save' in the addVehicle dialog box.
+    $scope.addNewVehicle = function () {
+         // have the POST the new vehicle code here.
+
+        $mdDialog.hide();
     };
 
 
