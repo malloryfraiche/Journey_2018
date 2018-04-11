@@ -1117,6 +1117,7 @@
     <Compile Include="Models\UserVehicleHelper.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalR\SupportHub.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
