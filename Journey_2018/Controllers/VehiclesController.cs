@@ -84,8 +84,13 @@ namespace Journey_2018.Controllers
             }
 
             db.Vehicles.Add(vehicle);
-            await db.SaveChangesAsync();
 
+            // here is where you can have for example: db.UserVehicleHelper.Add() so
+            // when you POST a new vehicle then it takes the users id who is logged on and
+            // the new created vehicle id and adds the info into the UserVehicleHelper DB table...
+
+            await db.SaveChangesAsync();
+            
             return CreatedAtRoute("DefaultApi", new { id = vehicle.Id }, vehicle);
         }
 
