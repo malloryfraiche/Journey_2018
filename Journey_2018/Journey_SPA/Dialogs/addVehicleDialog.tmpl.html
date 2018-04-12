@@ -20,13 +20,15 @@
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <small style="color: grey;">Activation status:</small>
-                    <md-switch class="md-primary" ng-model="activationDataInput" ng-change="onActivationChange()">{{ activationStatus }}</md-switch>
+                    <md-switch class="md-primary" aria-label="Activate Switch" ng-model="addNewVehicleInput.activationDataInput" ng-change="onActivationChange()">
+                        <small style="color: grey;">Activation status</small>
+                    </md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <small style="color: grey;">Set as default vehicle:</small>
-                    <md-switch class="md-primary" ng-model="defaultDataInput" ng-change="onDefaultChange()">{{ defaultStatus }}</md-switch>
+                    <md-switch class="md-primary" aria-label="Default Switch" ng-model="addNewVehicleInput.defaultDataInput" ng-change="onDefaultChange()">
+                        <small style="color: grey;">Set as default vehicle</small>
+                    </md-switch>
                 </md-input-container>
 
             </div>

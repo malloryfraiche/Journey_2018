@@ -88,13 +88,21 @@ namespace Journey_2018.Controllers
             // here is where you can have for example: db.UserVehicleHelper.Add() so
             // when you POST a new vehicle then it takes the users id who is logged on and
             // the new created vehicle id and adds the info into the UserVehicleHelper DB table...
+            //var infoToHelperClass = new UserVehicleHelper();
+            //infoToHelperClass.VehicleId = vehicle;
+            //db.UserVehicleHelpers.Add(infoToHelperClass);
+
+
 
             await db.SaveChangesAsync();
 
             return Ok(vehicle);
         }
 
-        
+
+
+
+
         // DELETE: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
         public async Task<IHttpActionResult> DeleteVehicle(int id)
@@ -139,7 +147,7 @@ namespace Journey_2018.Controllers
 
 //    if (vehicle.Id > 0)
 //    {
-//        // checks if the vehicle is already in the DB.
+//        
 //        vehicleToUpdate = db.Vehicles.Include(x => x.Trips).First(i => i.Id == vehicle.Id);
 //    }
 //    else
