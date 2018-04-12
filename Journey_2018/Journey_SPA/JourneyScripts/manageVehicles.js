@@ -32,9 +32,8 @@
             // controls what happens after clicking 'save' and closing addVehicle dialog box (and coming out of the DialogController).
             .then(
             $scope.message = function () {
-                $scope.info = 'This is a simple message.';
+                $scope.info = 'You have added a new vehicle.';
                 $timeout(function () { $scope.info = false; }, 3000);
-
             });
     };
 
@@ -47,9 +46,6 @@
             { registrationNumber: 'MUG586' }
         ];
 
-
-
-
     $scope.go = function (path) {
         $location.path(path);
     };
@@ -58,7 +54,12 @@
 
 
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.
-function DialogController($scope, $mdDialog) {
+function DialogController($scope, $mdDialog, $http) {
+
+    var vehicleApi = "http://localhost:54542/api/Vehicles";
+    $scope.addNewVehicleInput = {
+        registrationNumber: ''
+    };
 
     $scope.hide = function () {
         $mdDialog.hide();
@@ -66,11 +67,6 @@ function DialogController($scope, $mdDialog) {
     $scope.cancel = function () {
         $mdDialog.cancel();
     };
-    $scope.message = function (message) {
-        $mdDialog.hide(message);
-    };
-
-
 
     // Activate and inactivate vehicle.
     $scope.activationDataInput = true;
@@ -90,8 +86,6 @@ function DialogController($scope, $mdDialog) {
         console.log("Activation switch: " + $scope.activationDataInput);
     };
 
-
-
     // Set vehicle as Default.
     $scope.defaultDataInput = false;
     $scope.defaultStatus = 'Standard';
@@ -110,12 +104,26 @@ function DialogController($scope, $mdDialog) {
     };
 
 
-
+    // ADD NEW VEHICLE
     // controls the action after clicking 'save' in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
-         // have the POST the new vehicle code here.
 
-        $mdDialog.hide();
+        // $scope.activationDataInput, $scope.defaultDataInput)
+        
+
+        $http({
+            method: 'POST',
+            url: vehicleApi,
+            data: $scope.addNewVehicleInput,
+            headers: {
+                'Accept': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        }).then(function (data) {
+            console.log(data);
+            $mdDialog.hide();
+            //$scope.addVehicleInput.trigger("reset");
+        });
     };
 
 
@@ -124,26 +132,13 @@ function DialogController($scope, $mdDialog) {
 
     //$scope.registrationNumberInput = '';
 
-    //$scope.addNewVehicle = function () {
-    //    $http({
-    //        method: 'POST',
-    //        url: vehicleApi,
-    //        data: $.param($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
-    //        headers: {
-    //            'Accept': 'application/json; charset=utf-8',
-    //            'Content-Type': 'application/json; charset=utf-8'
-    //        }
-    //    }).then(function (data) {
-    //        console.log(data);
-    //        //$scope.addVehicleInput.trigger("reset");
-    //    });
-    //};
+    
 
     //$scope.updateVehicle = function () {
     //    $http({
     //        method: 'PUT',
     //        url: vehicleApi,
-    //        data: $.param($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
+    //        data: ($scope.registrationNumberInput, $scope.activationDataInput, $scope.defaultDataInput),
     //        headers: {
     //            'Accept': 'application/json; charset=utf-8',
     //            'Content-Type': 'application/json; charset=utf-8'

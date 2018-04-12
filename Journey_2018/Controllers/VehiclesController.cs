@@ -90,10 +90,11 @@ namespace Journey_2018.Controllers
             // the new created vehicle id and adds the info into the UserVehicleHelper DB table...
 
             await db.SaveChangesAsync();
-            
-            return CreatedAtRoute("DefaultApi", new { id = vehicle.Id }, vehicle);
+
+            return Ok(vehicle);
         }
 
+        
         // DELETE: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
         public async Task<IHttpActionResult> DeleteVehicle(int id)
@@ -125,3 +126,51 @@ namespace Journey_2018.Controllers
         }
     }
 }
+
+
+
+
+
+//[ResponseType(typeof(Vehicle))]
+//[Route("api/Vehicles")]
+//public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
+//{
+//    Vehicle vehicleToUpdate = null;
+
+//    if (vehicle.Id > 0)
+//    {
+//        // checks if the vehicle is already in the DB.
+//        vehicleToUpdate = db.Vehicles.Include(x => x.Trips).First(i => i.Id == vehicle.Id);
+//    }
+//    else
+//    {
+//        // if not creates a new Vehicle instance.
+//        vehicleToUpdate = new Vehicle();
+//    }
+
+//    // data to be filled into the Model from the new instance.
+//    vehicleToUpdate.RegistrationNumber = vehicle.RegistrationNumber;
+//    foreach (var trip in db.Trips)
+//    {
+//        if (!vehicle.Trips.Any(item => item.Id == trip.Id))
+//        {
+//            vehicleToUpdate.Trips.Remove(trip);
+//        }
+//        else
+//        {
+//            vehicleToUpdate.Trips.Add((trip));
+//        }
+//    }
+
+//    if (vehicle.Id > 0)
+//    {
+//        db.Entry(vehicleToUpdate).State = EntityState.Modified;
+//    }
+//    else
+//    {
+//        db.Vehicles.Add(vehicleToUpdate);
+//    }
+
+//    await db.SaveChangesAsync();
+//    return Ok(vehicle);
+//}

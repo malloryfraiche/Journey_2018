@@ -82,6 +82,7 @@ namespace Journey_2018.Controllers
             }
 
             db.Trips.Add(trip);
+            
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = trip.Id }, trip);
