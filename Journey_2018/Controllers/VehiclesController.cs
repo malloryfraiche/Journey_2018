@@ -78,22 +78,15 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
+            //Vehicle vehicleToAdd = null;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+           
             db.Vehicles.Add(vehicle);
-
-            // here is where you can have for example: db.UserVehicleHelper.Add() so
-            // when you POST a new vehicle then it takes the users id who is logged on and
-            // the new created vehicle id and adds the info into the UserVehicleHelper DB table...
-            //var infoToHelperClass = new UserVehicleHelper();
-            //infoToHelperClass.VehicleId = vehicle;
-            //db.UserVehicleHelpers.Add(infoToHelperClass);
-
-
-
+            
             await db.SaveChangesAsync();
 
             return Ok(vehicle);
