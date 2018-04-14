@@ -16,24 +16,26 @@
 
                 <md-input-container class="md-block">
                     <label>Vehicle registration number</label>
-                    <input type="text" ng-model="registrationNumberInput" />
+                    <input type="text" ng-model="vehicleModel.registrationNumber" />
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <small style="color: grey;">Activation status:</small>
-                    <md-switch class="md-primary" ng-model="activationDataInput" ng-change="onActivationChange()">{{ activationStatus }}</md-switch>
+                    <md-switch class="md-primary" aria-label="Activate Switch" value="" id="activationSwitchId" ng-model="vehicleModel.active" ng-change="onActivationChange()">
+                        <small style="color: grey;">Activation status</small>
+                    </md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <small style="color: grey;">Set as default vehicle:</small>
-                    <md-switch class="md-primary" ng-model="defaultDataInput" ng-change="onDefaultChange()">{{ defaultStatus }}</md-switch>
+                    <md-switch class="md-primary" aria-label="Default Switch" value="" id="defaultSwitchId" ng-model="vehicleModel.defaultVehicle" ng-change="onDefaultChange()">
+                        <small style="color: grey;">Set as default vehicle</small>
+                    </md-switch>
                 </md-input-container>
 
             </div>
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button class="md-primary" ng-click="updateVehicle()">Update</md-button>
+            <md-button type="submit" class="md-primary" ng-click="updateVehicle(vehicle)">Update</md-button>
         </md-dialog-actions>
 
     </form>

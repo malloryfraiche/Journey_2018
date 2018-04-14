@@ -12,12 +12,12 @@
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
 
-            <md-list-item ng-repeat="vehicle in vehicles | orderBy: '-Active'">
+            <md-list-item ng-repeat="vehicle in vehicles | orderBy: '-Active'" ng-value="vehicle.Id">
                 <p>{{ vehicle.RegistrationNumber }}</p>
                 <span ng-if="vehicle.Active" class="dot activeDot"></span>
                 <span ng-if="!vehicle.Active" class="dot"></span>
-                <md-button class="md-primary" ng-click="showEditPromtDialog($event)">Edit</md-button>
-                <md-button class="md-icon-button"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
+                <md-button class="md-primary" id="editButton" ng-click="showEditPromtDialog($event)">Edit</md-button>
+                <md-button class="md-icon-button" ng-click="deleteVehicle(vehicle)"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
                 <md-divider></md-divider>
             </md-list-item>
 
