@@ -1,5 +1,6 @@
-﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout) {
+﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout, $http) {
 
+    var vehicleApi = "http://localhost:54542/api/Vehicles";
 
     $scope.showEditPromtDialog = function (ev) {
         $mdDialog
@@ -29,22 +30,26 @@
                 clickOutsideToClose: false,
                 fullscreen: false
             })
-            // controls what happens after clicking 'save' and closing addVehicle dialog box (and coming out of the DialogController).
+            // controls what happens after clicking 'Save' and closing addVehicle dialog box (and coming out of the DialogController).
             .then(
             $scope.message = function () {
-                $scope.info = 'You have added a new vehicle.';
+                $scope.info = 'You have added a vehicle to the list.';
                 $timeout(function () { $scope.info = false; }, 3000);
             });
     };
 
+    $http.get(vehicleApi).then(function (response) {
+        $scope.vehicles = response.data;
 
-    // data for testing.
-    $scope.vehicles =
-        [
-            { registrationNumber: 'LOL123' },
-            { registrationNumber: 'TES238' },
-            { registrationNumber: 'MUG586' }
-        ];
+    });
+
+    //// data for testing.
+    //$scope.vehicles =
+    //    [
+    //        { registrationNumber: 'LOL123' },
+    //        { registrationNumber: 'TES238' },
+    //        { registrationNumber: 'MUG586' }
+    //    ];
 
     $scope.go = function (path) {
         $location.path(path);
@@ -65,65 +70,51 @@ function DialogController($scope, $mdDialog, $http) {
 
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
-
     var active = true;
     var defaultVehicle = false;
 
-    $scope.switchModel = {
+    $scope.vehicleModel = {
         registrationNumber: '',
-        // userId: /* have the Users GUID that is logged in be here to fill out this field in DB... */
+        // have the Users GUID that is logged in be here to fill out this field in DB...
+        // userId: 
         active: true,
         defaultVehicle: false
     };
 
-
-
     // Activate and inactivate vehicle with switch button.
     $scope.onActivationChange = function () {
-
         active = !active;
         if (active === false) {
-            $scope.switchModel.defaultVehicle = false;
+            $scope.vehicleModel.defaultVehicle = false;
             defaultVehicle = false;
-
         }
         console.log("Activation switch: " + active);
+        console.log("Default switch: " + defaultVehicle);
         return active;
     };
 
     // Set vehicle as Default (or not) with switch button.
     $scope.onDefaultChange = function () {
-
         defaultVehicle = !defaultVehicle;
         if (defaultVehicle === true) {
-            $scope.switchModel.active = true;
+            $scope.vehicleModel.active = true;
             active = true;
         }
         console.log("Default switch: " + defaultVehicle);
-        //console.log("Activation switch: " + activeVal);
+        console.log("Activation switch: " + active);
         return defaultVehicle;
     };
 
 
-    //$scope.addNewVehicleInput = {
-    //    registrationNumber: '',
-    //    active: activeVal,
-    //    defaultVehicle: defaultVal
-    //};
-
-    //console.log($scope.addNewVehicleInput.active);
-    //console.log($scope.addNewVehicleInput.defaultVehicle);
-
-    // ADD NEW VEHICLE
-    // controls the action after clicking 'save' in the addVehicle dialog box.
+    // ADD NEW VEHICLE - 'Save' button in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
 
-        console.log($scope.switchModel);
+        console.log($scope.vehicleModel);
 
         $http({
             method: 'POST',
             url: vehicleApi,
-            data: $scope.switchModel,
+            data: $scope.vehicleModel,
             headers: {
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
@@ -131,7 +122,6 @@ function DialogController($scope, $mdDialog, $http) {
         }).then(function (data) {
             console.log(data);
             $mdDialog.hide();
-            //$scope.addVehicleInput.trigger("reset");
         });
     };
 

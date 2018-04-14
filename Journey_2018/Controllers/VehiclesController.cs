@@ -19,6 +19,8 @@ namespace Journey_2018.Controllers
         private DefaultDataContext db = new DefaultDataContext();
 
         // GET: api/Vehicles
+        [HttpGet]
+        [Route("api/Vehicles")]
         public IQueryable<Vehicle> GetVehicles()
         {
             return db.Vehicles;

@@ -3,11 +3,6 @@
 <div ng-cloak class="withToolbarViewStyle">
     <h3 class="centerStyle">Manage Vehicles</h3><br />
 
-
-
-
-
-
     <md-content md-whiteframe="20" layout-padding>
 
         <div ng-show="info">
@@ -16,23 +11,18 @@
 
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
-            <md-list-item ng-repeat="test in vehicles">
-                <p>{{ test.registrationNumber }}</p>
-                <span id="dot" class="dot"></span> <!-- have green when active? -->
+
+            <md-list-item ng-repeat="vehicle in vehicles">
+                <p>{{ vehicle.RegistrationNumber }}</p>
+                <span id="dot" class="dot"></span>
                 <md-button class="md-primary" ng-click="showEditPromtDialog($event)">Edit</md-button>
                 <md-button class="md-icon-button"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
                 <md-divider></md-divider>
             </md-list-item>
+
         </md-list>
 
     </md-content>
-
-
-
-
-
-
-
 
     <br />
     <div class="centerStyle">
