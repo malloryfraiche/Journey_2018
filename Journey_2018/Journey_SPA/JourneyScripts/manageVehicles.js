@@ -35,22 +35,18 @@
             $scope.message = function () {
                 $scope.info = 'You have added a vehicle to the list.';
                 $timeout(function () { $scope.info = false; }, 3000);
+                ReloadPage();
             });
     };
 
-    $http.get(vehicleApi).then(function (response) {
-        $scope.vehicles = response.data;
+    function ReloadPage() {
+        $http.get(vehicleApi).then(function (response) {
+            $scope.vehicles = response.data;
+        });
+    }
+    ReloadPage();
 
-    });
-
-    //// data for testing.
-    //$scope.vehicles =
-    //    [
-    //        { registrationNumber: 'LOL123' },
-    //        { registrationNumber: 'TES238' },
-    //        { registrationNumber: 'MUG586' }
-    //    ];
-
+    
     $scope.go = function (path) {
         $location.path(path);
     };
@@ -122,6 +118,7 @@ function DialogController($scope, $mdDialog, $http) {
         }).then(function (data) {
             console.log(data);
             $mdDialog.hide();
+            
         });
     };
 
