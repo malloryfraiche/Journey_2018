@@ -64,61 +64,66 @@ function DialogController($scope, $mdDialog, $http) {
     };
 
     var vehicleApi = "http://localhost:54542/api/Vehicles";
-    
-    $scope.startSwitchModel = {
-        option1: true,
-        option2: false
+
+
+    var active = true;
+    var defaultVehicle = false;
+
+    $scope.switchModel = {
+        registrationNumber: '',
+        // userId: /* have the Users GUID that is logged in be here to fill out this field in DB... */
+        active: true,
+        defaultVehicle: false
     };
 
-    var activeVal;
-    var defaultVal;
-    
+
+
     // Activate and inactivate vehicle with switch button.
     $scope.onActivationChange = function () {
-        if ($scope.startSwitchModel.option1 === true) {
-            activeVal = true;
+
+        active = !active;
+        if (active === false) {
+            $scope.switchModel.defaultVehicle = false;
+            defaultVehicle = false;
+
         }
-        else  {
-            activeVal = false;
-            // if vehicle is inactive, it cannot be your default. 
-            defaultVal = false;
-        }
-        console.log("Activation switch: " + activeVal);
-        console.log("Default switch: " + defaultVal);
-        return activeVal, defaultVal;
+        console.log("Activation switch: " + active);
+        return active;
     };
 
     // Set vehicle as Default (or not) with switch button.
     $scope.onDefaultChange = function () {
-        if ($scope.startSwitchModel.option2) {
-            defaultVal = true;
+
+        defaultVehicle = !defaultVehicle;
+        if (defaultVehicle === true) {
+            $scope.switchModel.active = true;
+            active = true;
         }
-        else if (!$scope.startSwitchModel.option2) {
-            defaultVal = false;
-            // if vehicle is your default, it must also be active.
-        }
-        console.log("Default switch: " + defaultVal);
-        console.log("Activation switch: " + activeVal);
-        return defaultVal, activeVal;
+        console.log("Default switch: " + defaultVehicle);
+        //console.log("Activation switch: " + activeVal);
+        return defaultVehicle;
     };
 
 
-    $scope.addNewVehicleInput = {
-        registrationNumber: '',
-        active: activeVal,
-        defaultVehicle: defaultVal
-    };
+    //$scope.addNewVehicleInput = {
+    //    registrationNumber: '',
+    //    active: activeVal,
+    //    defaultVehicle: defaultVal
+    //};
 
-    console.log($scope.addNewVehicleInput.active);
-    console.log($scope.addNewVehicleInput.defaultVehicle);
+    //console.log($scope.addNewVehicleInput.active);
+    //console.log($scope.addNewVehicleInput.defaultVehicle);
 
     // ADD NEW VEHICLE
     // controls the action after clicking 'save' in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
+
+        console.log($scope.switchModel);
+
         $http({
             method: 'POST',
             url: vehicleApi,
-            data: $scope.addNewVehicleInput,
+            data: $scope.switchModel,
             headers: {
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'

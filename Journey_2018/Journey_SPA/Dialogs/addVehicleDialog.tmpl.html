@@ -16,17 +16,17 @@
 
                 <md-input-container class="md-block">
                     <label>Registration number</label>
-                    <input type="text" ng-model="addNewVehicleInput.registrationNumber" required />
+                    <input type="text" ng-model="switchModel.registrationNumber" required />
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" aria-label="Activate Switch" value="" id="activationSwitchId" ng-model="startSwitchModel.option1" ng-change="onActivationChange()">
+                    <md-switch class="md-primary" aria-label="Activate Switch" value="" id="activationSwitchId" ng-model="switchModel.active" ng-change="onActivationChange()">
                         <small style="color: grey;">Activation status</small>
                     </md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" aria-label="Default Switch" value="" id="defaultSwitchId" ng-model="startSwitchModel.option2" ng-change="onDefaultChange()">
+                    <md-switch class="md-primary" aria-label="Default Switch" value="" id="defaultSwitchId" ng-model="switchModel.defaultVehicle" ng-change="onDefaultChange()">
                         <small style="color: grey;">Set as default vehicle</small>
                     </md-switch>
                 </md-input-container>
