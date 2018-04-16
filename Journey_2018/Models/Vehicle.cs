@@ -13,13 +13,6 @@ namespace Journey_2018.Models
         [Required]
         public string RegistrationNumber { get; set; }
 
-        // will need to parse the Guid later.
-        //[Required]
-        //public Guid UserId { get; set; }
-
-        // can count out the kilometers from the different start and end addresses from the Trip model it is connected to?
-        //public int Kilometers { get; set; }
-
         [Required]
         public bool Active { get; set; }
 

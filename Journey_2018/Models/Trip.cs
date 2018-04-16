@@ -13,9 +13,11 @@ namespace Journey_2018.Models
         [Required]
         public DateTime TripDate { get; set; }
 
-        // TODO: start and stop egenskaper
-        //[Required]
-        //public double TotalTripLength { get; set; }
+        [Required]
+        public double StartKilometerReading { get; set; }
+
+        [Required]
+        public double StopKilometerReading { get; set; }
 
         [Required]
         public string StartAddress { get; set; }

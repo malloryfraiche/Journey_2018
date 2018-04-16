@@ -31,7 +31,8 @@ namespace Journey_2018.Controllers
         [Route("api/VehiclesByUser")]
         public IQueryable<Vehicle> GetVehiclesByUser()
         {
-            //TODO: Add filter for user
+            //TODO: Add filter for User
+            //so i can get a List of the vehicles that are connected to the User.
 
             return db.Vehicles;
         }
@@ -50,6 +51,7 @@ namespace Journey_2018.Controllers
         }
 
         // PUT: api/Vehicles/5
+        [HttpPut]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutVehicle(int id, Vehicle vehicle)
         {

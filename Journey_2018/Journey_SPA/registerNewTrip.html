@@ -10,7 +10,7 @@
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
             <md-select ng-model="selectVehicle">
-                <md-option ng-repeat="vehicle in vehicles">{{vehicle}}</md-option>
+                <md-option ng-repeat="vehicle in vehicles">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
 

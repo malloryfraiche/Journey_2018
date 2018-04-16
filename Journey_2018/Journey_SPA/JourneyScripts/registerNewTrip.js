@@ -1,12 +1,23 @@
 ﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http) {
 
-    tripApi = "http://localhost:54542/api/Trips";
+    var tripApi = "http://localhost:54542/api/Trips";
+    var vehicleApi = "http://localhost:54542/api/Vehicles";
 
     // maybe have this with $rootscope to reach it from report as well.
     //$scope.selectVehicle = "";
-    $scope.vehicles = ['test1', 'test2', 'test3'];
+    
+    $http.get(vehicleApi).then(function (response) {
+        $scope.vehicles = response.data;
+    });
+
+
 
     var dateVal = new Date();
+    var startKmVal = '';
+    var stopKmVal = '';
+    var startAddressVal = '';
+    var destinationAddressVal = '';
+
     $scope.onDateChange = function () {
 
     };
@@ -15,8 +26,10 @@
     // the JSON data.
     $scope.registerNewTrip = {
         tripDate: dateVal,
-        startAddress: '',
-        destinationAddress: '',
+        startKilometerReading: startKmVal,
+        stopKilometerReading: stopKmVal,
+        startAddress: startAddressVal,
+        destinationAddress: destinationAddressVal,
         errand: '',
         notes: ''
     };

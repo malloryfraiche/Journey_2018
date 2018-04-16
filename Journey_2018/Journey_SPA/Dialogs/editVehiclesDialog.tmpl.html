@@ -20,13 +20,13 @@
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" aria-label="Activate Switch" value="" id="activationSwitchId" ng-model="vehicleModel.active" ng-change="onActivationChange()">
+                    <md-switch class="md-primary" aria-label="Activate Switch" ng-model="vehicleModel.active" ng-change="onActivationChange()">
                         <small style="color: grey;">Activation status</small>
                     </md-switch>
                 </md-input-container>
 
                 <md-input-container class="md-block">
-                    <md-switch class="md-primary" aria-label="Default Switch" value="" id="defaultSwitchId" ng-model="vehicleModel.defaultVehicle" ng-change="onDefaultChange()">
+                    <md-switch class="md-primary" aria-label="Default Switch" ng-model="vehicleModel.defaultVehicle" ng-change="onDefaultChange()">
                         <small style="color: grey;">Set as default vehicle</small>
                     </md-switch>
                 </md-input-container>
@@ -35,7 +35,7 @@
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-            <md-button type="submit" class="md-primary" ng-click="updateVehicle(vehicle)">Update</md-button>
+            <md-button type="submit" class="md-primary" ng-click="updateVehicle()">Update</md-button>
         </md-dialog-actions>
 
     </form>

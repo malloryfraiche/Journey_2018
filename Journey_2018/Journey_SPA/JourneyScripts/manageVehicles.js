@@ -49,7 +49,9 @@
     }
     ReloadPage();
 
+    // DELETE VEHICLE - when you click the garbage bin icon.
     $scope.deleteVehicle = function (vehicle) {
+        //alert("Are you sure you want to delete?");
         $http.delete(vehicleApi + '/' + vehicle.Id).then(function (data) {
             console.log(data);
             ReloadPage();
@@ -80,16 +82,15 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
 
     $scope.vehicleModel = {
         registrationNumber: registrationNumber,
-        // have the Users GUID that is logged in be here to fill out this field in DB...
-        // userId: 
         active: active,
         defaultVehicle: defaultVehicle
     };
-
+    
     if (dataToPass) {
         $scope.vehicleModel.registrationNumber = dataToPass.RegistrationNumber;
         $scope.vehicleModel.active = dataToPass.Active;
         $scope.vehicleModel.defaultVehicle = dataToPass.DefaultVehicle;
+        $scope.vehicleModel.id = dataToPass.Id;
     }
 
     // Activate and inactivate vehicle with switch button.
@@ -99,11 +100,11 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
             $scope.vehicleModel.defaultVehicle = false;
             defaultVehicle = false;
         }
-        console.log("Activation switch: " + active);
-        console.log("Default switch: " + defaultVehicle);
+        //console.log("Activation switch: " + active);
+        //console.log("Default switch: " + defaultVehicle);
         return active;
     };
-
+    
     // Set vehicle as Default (or not) with switch button.
     $scope.onDefaultChange = function () {
         defaultVehicle = !defaultVehicle;
@@ -111,8 +112,8 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
             $scope.vehicleModel.active = true;
             active = true;
         }
-        console.log("Default switch: " + defaultVehicle);
-        console.log("Activation switch: " + active);
+        //console.log("Default switch: " + defaultVehicle);
+        //console.log("Activation switch: " + active);
         return defaultVehicle;
     };
 
@@ -135,11 +136,11 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
     };
 
     // UPDATE VEHICLE - 'Update' button in the editVehicle dialog box.
-    $scope.updateVehicle = function (vehicle) {
+    $scope.updateVehicle = function () {
         console.log($scope.vehicleModel);
         $http({
             method: 'PUT',
-            url: vehicleApi + '/' + vehicle.Id,
+            url: vehicleApi + '/' + $scope.vehicleModel.id,
             data: $scope.vehicleModel,
             headers: {
                 'Accept': 'application/json; charset=utf-8',
