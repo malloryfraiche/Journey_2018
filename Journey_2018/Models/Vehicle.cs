@@ -17,7 +17,7 @@ namespace Journey_2018.Models
         //[Required]
         //public Guid UserId { get; set; }
 
-        // because can count out the kilometers from the different start and end addresses from the Trip model it is connected to?
+        // can count out the kilometers from the different start and end addresses from the Trip model it is connected to?
         //public int Kilometers { get; set; }
 
         [Required]

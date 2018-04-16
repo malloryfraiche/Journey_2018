@@ -13,6 +13,9 @@ namespace Journey_2018.Models
         [Required]
         public DateTime TripDate { get; set; }
 
+        //[Required]
+        //public double TotalTripLength { get; set; }
+
         [Required]
         public string StartAddress { get; set; }
 

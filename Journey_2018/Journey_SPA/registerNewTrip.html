@@ -9,59 +9,58 @@
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <!-- work here to get it to work and to understand it -->
             <md-select ng-model="selectVehicle">
-                <md-option ng-repeat="vehicle in vehicles">{{vehicles[0]}}</md-option>
+                <md-option ng-repeat="vehicle in vehicles">{{vehicle}}</md-option>
             </md-select>
         </md-input-container>
 
         <label style="color: grey;">Date:</label>
-        <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+        <md-datepicker ng-model="registerNewTrip.tripDate" ng-change="onDateChange()"></md-datepicker>
 
         <md-input-container class="md-block">
             <label>Kilometer reading (start)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <input type="text" required />
+            <input type="text" ng-model="registerNewTrip.startKilometerReading" required />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Kilometer reading (stop)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <input type="text" required />
+            <input type="text" ng-model="registerNewTrip.stopKilometerReading" required />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Total trip length (km)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <input type="text" placeholder="" />
+            <input type="text" placeholder="" /><!-- in the placeholder have {{registerNewTrip.startKilometerReading - registerNewTrip.stopKilometerReading}}? -->
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Start address</label>
             <md-icon class="md-icon-button" md-svg-icon="maps:pin_drop"></md-icon>
-            <input type="text" required />
+            <input type="text" ng-model="registerNewTrip.startAddress" required />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Destination address</label>
             <md-icon class="md-icon-button" md-svg-icon="maps:pin_drop"></md-icon>
-            <input type="text" required />
+            <input type="text" ng-model="registerNewTrip.destinationAddress" required />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Errand</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <textarea type="text" required />
+            <textarea type="text" ng-model="registerNewTrip.errand" required />
         </md-input-container>
 
         <md-input-container class="md-block">
             <label>Notes</label>
             <md-icon md-svg-icon="action:assignment"></md-icon>
-            <textarea type="text" />
+            <textarea type="text" ng-model="registerNewTrip.notes" />
         </md-input-container>
 
         <div class="centerStyle">
-            <md-button type="submit" class="md-raised md-primary" ng-click="go('/start')">Save</md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="saveNewTrip()">Save</md-button>
         </div>
 
     </md-content>

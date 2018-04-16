@@ -85,7 +85,8 @@ namespace Journey_2018.Controllers
             
             await db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = trip.Id }, trip);
+            //return CreatedAtRoute("DefaultApi", new { id = trip.Id }, trip);
+            return Ok(trip);
         }
 
         // DELETE: api/Trips/5
