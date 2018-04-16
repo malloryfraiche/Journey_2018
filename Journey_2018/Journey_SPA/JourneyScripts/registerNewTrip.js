@@ -15,16 +15,7 @@
     var stopKmVal = '';
     var startAddressVal = '';
     var destinationAddressVal = '';
-
-    //$scope.onDateChange = function () {
-    //};
-
     
-
-    //$scope.totalTripLength = stopKmVal - startKmVal;
-
-    //console.log("total trip length " + $scope.totalTripLength);
-
     // the JSON data.
     $scope.registerNewTrip = {
         tripDate: dateVal,
