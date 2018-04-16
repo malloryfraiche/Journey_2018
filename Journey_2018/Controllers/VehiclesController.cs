@@ -26,6 +26,16 @@ namespace Journey_2018.Controllers
             return db.Vehicles;
         }
 
+        // GET: api/VehiclesByUser
+        [HttpGet]
+        [Route("api/VehiclesByUser")]
+        public IQueryable<Vehicle> GetVehiclesByUser()
+        {
+            //TODO: Add filter for user
+
+            return db.Vehicles;
+        }
+
         // GET: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
         public async Task<IHttpActionResult> GetVehicle(int id)

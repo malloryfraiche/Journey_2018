@@ -2,7 +2,7 @@
 
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
-    $scope.showEditPromtDialog = function (ev) {
+    $scope.showEditPromtDialog = function (ev, vehicle) {
         $mdDialog
             .show({
                 controller: DialogController,
@@ -10,7 +10,8 @@
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: false,
-                fullscreen: false
+                fullscreen: false,
+                locals: {dataToPass: vehicle}
             })
             // controls what happens after clicking 'Update' and closing editVehicle dialog box (and coming out of the DialogController).
             .then(
@@ -29,7 +30,8 @@
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: false,
-                fullscreen: false
+                fullscreen: false,
+                locals: { dataToPass: null }
             })
             // controls what happens after clicking 'Save' and closing addVehicle dialog box (and coming out of the DialogController).
             .then(
@@ -61,8 +63,8 @@
 
 
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.
-function DialogController($scope, $mdDialog, $http) {
-
+function DialogController($scope, $mdDialog, $http, dataToPass) {
+    
     $scope.hide = function () {
         $mdDialog.hide();
     };
@@ -83,7 +85,13 @@ function DialogController($scope, $mdDialog, $http) {
         active: active,
         defaultVehicle: defaultVehicle
     };
-    
+
+    if (dataToPass) {
+        $scope.vehicleModel.registrationNumber = dataToPass.RegistrationNumber;
+        $scope.vehicleModel.active = dataToPass.Active;
+        $scope.vehicleModel.defaultVehicle = dataToPass.DefaultVehicle;
+    }
+
     // Activate and inactivate vehicle with switch button.
     $scope.onActivationChange = function () {
         active = !active;
