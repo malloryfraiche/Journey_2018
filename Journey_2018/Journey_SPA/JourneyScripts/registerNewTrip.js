@@ -3,25 +3,27 @@
     var tripApi = "http://localhost:54542/api/Trips";
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
-    // maybe have this with $rootscope to reach it from report as well.
+    // maybe have this with $rootscope to reach it from report as well?
     //$scope.selectVehicle = "";
     
     $http.get(vehicleApi).then(function (response) {
         $scope.vehicles = response.data;
     });
-
-
-
+    
     var dateVal = new Date();
     var startKmVal = '';
     var stopKmVal = '';
     var startAddressVal = '';
     var destinationAddressVal = '';
 
-    $scope.onDateChange = function () {
+    //$scope.onDateChange = function () {
+    //};
 
-    };
+    
 
+    //$scope.totalTripLength = stopKmVal - startKmVal;
+
+    //console.log("total trip length " + $scope.totalTripLength);
 
     // the JSON data.
     $scope.registerNewTrip = {

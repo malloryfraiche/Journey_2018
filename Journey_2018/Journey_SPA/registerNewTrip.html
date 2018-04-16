@@ -32,7 +32,7 @@
         <md-input-container class="md-block">
             <label>Total trip length (km)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <input type="text" placeholder="" /><!-- in the placeholder have {{registerNewTrip.startKilometerReading - registerNewTrip.stopKilometerReading}}? -->
+            <input type="text" disabled ng-model="totalTripLength" placeholder="{{registerNewTrip.stopKilometerReading - registerNewTrip.startKilometerReading}}" />
         </md-input-container>
 
         <md-input-container class="md-block">
