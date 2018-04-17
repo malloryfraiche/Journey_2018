@@ -9,7 +9,7 @@
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <md-select ng-model="vehicles" ng-model-options="{trackBy: '$vehicles.DefaultVehicle'}">
+            <md-select ng-model="selectModel">
                 <md-option ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>

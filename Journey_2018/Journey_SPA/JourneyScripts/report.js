@@ -2,25 +2,20 @@
 
     // maybe have this with $rootscope to reach it from registerNewTrip as well.
 
-    //$scope.selectVehicle = "TEST";
-
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
     $http.get(vehicleApi).then(function (response) {
         $scope.vehicles = response.data;
-        // 'vehicle' here is the value - 'Active' and 'RegistrationNumber' are keys...
-        angular.forEach($scope.vehicles, function (vehicle) {
+
+        angular.forEach(response.data, function (vehicle) {
             if (vehicle.Active === true) {
                 console.log(vehicle.RegistrationNumber);
             }
+            if (vehicle.DefaultVehicle === true) {
+                console.log("the default vehicle: " + vehicle.RegistrationNumber);
+            }
         });
-
     });
-
-
-
-
-
 
 
 
