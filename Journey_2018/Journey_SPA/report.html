@@ -9,9 +9,8 @@
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <!-- work here to get it to work and to understand it -->
             <md-select ng-model="selectVehicle">
-                <md-option ng-repeat="vehicle in vehicles">{{vehicles[0]}}</md-option>
+                <md-option ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
 

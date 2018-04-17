@@ -5,17 +5,24 @@
 
     // maybe have this with $rootscope to reach it from report as well?
     //$scope.selectVehicle = "";
-    
+
     $http.get(vehicleApi).then(function (response) {
         $scope.vehicles = response.data;
+        // 'vehicle' here is the value - 'Active' and 'RegistrationNumber' are keys...
+        angular.forEach($scope.vehicles, function (vehicle) {
+            if (vehicle.Active === true) {
+                console.log(vehicle.RegistrationNumber);
+            }
+        });
+
     });
-    
+
     var dateVal = new Date();
     var startKmVal = '';
     var stopKmVal = '';
     var startAddressVal = '';
     var destinationAddressVal = '';
-    
+
     // the JSON data.
     $scope.registerNewTrip = {
         tripDate: dateVal,
