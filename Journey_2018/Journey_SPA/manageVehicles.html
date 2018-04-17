@@ -12,8 +12,9 @@
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
 
-            <md-list-item ng-repeat="vehicle in vehicles | orderBy: '-Active'">
-                <p>{{ vehicle.RegistrationNumber }}</p>
+            <md-list-item ng-repeat="vehicle in vehicles | orderBy: '-Active' | orderBy: '-DefaultVehicle'">
+                <p ng-if="vehicle.DefaultVehicle" class="defaultStyle">{{ vehicle.RegistrationNumber }}</p>
+                <p ng-if="!vehicle.DefaultVehicle">{{ vehicle.RegistrationNumber }}</p>
                 <span ng-if="vehicle.Active" class="dot activeDot"></span>
                 <span ng-if="!vehicle.Active" class="dot"></span>
                 <md-button class="md-primary" id="editButton" ng-click="showEditPromtDialog($event, vehicle)">Edit</md-button>
@@ -21,6 +22,8 @@
                 <md-divider></md-divider>
             </md-list-item>
 
+            <br />
+            <md-footer><small>*Default vehicle in bold.</small></md-footer>
         </md-list>
 
     </md-content>

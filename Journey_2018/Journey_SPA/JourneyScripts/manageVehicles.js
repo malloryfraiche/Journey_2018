@@ -11,7 +11,7 @@
                 targetEvent: ev,
                 clickOutsideToClose: false,
                 fullscreen: false,
-                locals: {dataToPass: vehicle}
+                locals: { dataToPass: vehicle }
             })
             // controls what happens after clicking 'Update' and closing editVehicle dialog box (and coming out of the DialogController).
             .then(
@@ -52,12 +52,13 @@
     // DELETE VEHICLE - when you click the garbage bin icon.
     $scope.deleteVehicle = function (vehicle) {
         //alert("Are you sure you want to delete?");
-        $http.delete(vehicleApi + '/' + vehicle.Id).then(function (data) {
-            console.log(data);
-            ReloadPage();
-        });
+        $http.delete(vehicleApi + '/' + vehicle.Id)
+            .then(function (data) {
+                console.log(data);
+                ReloadPage();
+            });
     };
-    
+
     $scope.go = function (path) {
         $location.path(path);
     };
@@ -66,7 +67,7 @@
 
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.
 function DialogController($scope, $mdDialog, $http, dataToPass) {
-    
+
     $scope.hide = function () {
         $mdDialog.hide();
     };
@@ -85,7 +86,7 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
         active: active,
         defaultVehicle: defaultVehicle
     };
-    
+
     if (dataToPass) {
         $scope.vehicleModel.registrationNumber = dataToPass.RegistrationNumber;
         $scope.vehicleModel.active = dataToPass.Active;
@@ -100,11 +101,9 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
             $scope.vehicleModel.defaultVehicle = false;
             defaultVehicle = false;
         }
-        //console.log("Activation switch: " + active);
-        //console.log("Default switch: " + defaultVehicle);
         return active;
     };
-    
+
     // Set vehicle as Default (or not) with switch button.
     $scope.onDefaultChange = function () {
         defaultVehicle = !defaultVehicle;
@@ -112,8 +111,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
             $scope.vehicleModel.active = true;
             active = true;
         }
-        //console.log("Default switch: " + defaultVehicle);
-        //console.log("Activation switch: " + active);
         return defaultVehicle;
     };
 
