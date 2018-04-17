@@ -1,7 +1,8 @@
 ﻿angular.module('app').controller('report', function ($scope, $location, $http) {
 
     // maybe have this with $rootscope to reach it from registerNewTrip as well.
-    //$scope.selectVehicle = "";
+
+    //$scope.selectVehicle = "TEST";
 
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
