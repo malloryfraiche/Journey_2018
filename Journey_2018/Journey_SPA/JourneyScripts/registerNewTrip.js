@@ -44,7 +44,7 @@
             var latLng = new google.maps.LatLng(
                 position.coords.latitude, position.coords.longitude);
             geocoder.geocode({
-                'latLng': latLng
+                'location': latLng
             }, function (results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
