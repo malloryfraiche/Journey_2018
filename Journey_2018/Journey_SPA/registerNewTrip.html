@@ -32,19 +32,49 @@
         <md-input-container class="md-block">
             <label>Total trip length (km)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <input type="text" disabled placeholder="{{registerNewTrip.stopKilometerReading - registerNewTrip.startKilometerReading}}"/>
+            <input type="text" disabled placeholder="{{registerNewTrip.stopKilometerReading - registerNewTrip.startKilometerReading}}" />
         </md-input-container>
 
-        <md-input-container class="md-block">
-            <label>Start address</label>
-            <md-icon class="md-icon-button" md-svg-icon="maps:pin_drop"></md-icon>
-            <input type="text" ng-model="registerNewTrip.startAddress" required />
+
+
+
+
+
+
+        <md-input-container layout layout-align="center" class="md-block">
+            <div layout="row" flex>
+                <div flex class="md-icon-float md-block">
+                    <label>Start address</label>
+                    <input type="text" ng-model="registerNewTrip.startAddress" required />
+                </div>
+                <div>
+                    <md-button class="md-fab md-mini md-primary" aria-label="Start location" ng-click="getLocation()">
+                        <md-icon md-svg-icon="maps:pin_drop"></md-icon>
+                    </md-button>
+                </div>
+            </div>
         </md-input-container>
 
-        <md-input-container class="md-block">
-            <label>Destination address</label>
-            <md-icon class="md-icon-button" md-svg-icon="maps:pin_drop"></md-icon>
-            <input type="text" ng-model="registerNewTrip.destinationAddress" required />
+
+
+
+
+
+
+
+
+        <md-input-container layout layout-align="center" class="md-block">
+            <div layout="row" flex>
+                <div flex class="md-icon-float md-block">
+                    <label>Destination address</label>
+                    <input type="text" ng-model="registerNewTrip.destinationAddress" required />
+                </div>
+                <div>
+                    <md-button class="md-fab md-mini md-primary" aria-label="Start location">
+                        <md-icon md-svg-icon="maps:pin_drop"></md-icon>
+                    </md-button>
+                </div>
+            </div>
         </md-input-container>
 
         <md-input-container class="md-block">
@@ -68,3 +98,4 @@
     <br />
     <md-button class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>
+
