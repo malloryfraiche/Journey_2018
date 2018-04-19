@@ -7,6 +7,7 @@
     
     // the JSON data.
     $scope.registerNewTrip = {
+        //vehicle_Id: $(".md-option [value='{{vehicle.Id}}']").val(),
         tripDate: dateVal,
         startKilometerReading: '',
         stopKilometerReading: '',
@@ -16,13 +17,14 @@
         notes: ''
     };
 
-    // to have active vehicles as drop-down option.
+    // To have active vehicles as drop-down option.
     $http.get(vehicleApi).then(function (response) {
         $scope.vehicles = response.data;
+
         // 'vehicle' here is the value - 'Active' and 'RegistrationNumber' are keys...
         angular.forEach($scope.vehicles, function (vehicle) {
             if (vehicle.Active === true) {
-                //console.log(vehicle.RegistrationNumber);
+                //
             }
         });
     });
