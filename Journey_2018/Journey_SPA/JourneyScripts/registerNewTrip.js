@@ -3,8 +3,18 @@
     var tripApi = "http://localhost:54542/api/Trips";
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
-    // maybe have this with $rootscope to reach it from report as well?
-    //$scope.selectVehicle = "";
+    var dateVal = new Date();
+    
+    // the JSON data.
+    $scope.registerNewTrip = {
+        tripDate: dateVal,
+        startKilometerReading: '',
+        stopKilometerReading: '',
+        startAddress: '',
+        destinationAddress: '',
+        errand: '',
+        notes: ''
+    };
 
     // to have active vehicles as drop-down option.
     $http.get(vehicleApi).then(function (response) {
@@ -15,38 +25,49 @@
                 //console.log(vehicle.RegistrationNumber);
             }
         });
-
     });
 
-    var dateVal = new Date();
-    var startKmVal = '';
-    var stopKmVal = '';
-    var startAddressVal = '';
-    var destinationAddressVal = '';
-    
-
-    $scope.getLocation = function () {
+ 
+    $scope.getStartLocation = function () {
         navigator.geolocation.getCurrentPosition(function (position, showError) {
             var geocoder = new google.maps.Geocoder();
             var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             geocoder.geocode({ 'location': latLng }, function (results, status) {
                 if (status === 'OK') {
                     if (results[0]) {
-                        //$scope.registerNewTrip.startAddress = results[0].formatted_address;
-                        startAddressVal = results[0].formatted_address;
-                        console.log(startAddressVal);
-                        //return startAddressVal;
+                        $scope.registerNewTrip.startAddress = results[0].formatted_address;
+                        $scope.$apply();
+                        console.log($scope.registerNewTrip.startAddress);
                     } else {
                         console.log("No results found.");
                     }
                 } else {
                     console.log("Geocoder failed due to: " + status);
                 }
-                //return startAddressVal;
             });
-        })/*.then(function () { $scope.locationsAddress = startAddressVal; })*/;
-        //return startAddressVal;
+        });
     };
+
+    $scope.getStopLocation = function () {
+        navigator.geolocation.getCurrentPosition(function (position, showError) {
+            var geocoder = new google.maps.Geocoder();
+            var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            geocoder.geocode({ 'location': latLng }, function (results, status) {
+                if (status === 'OK') {
+                    if (results[0]) {
+                        $scope.registerNewTrip.destinationAddress = results[0].formatted_address;
+                        $scope.$apply();
+                        console.log($scope.registerNewTrip.destinationAddress);
+                    } else {
+                        console.log("No results found.");
+                    }
+                } else {
+                    console.log("Geocoder failed due to: " + status);
+                }
+            });
+        });
+    };
+
 
     // Geocoding error messages if can't find current position.
     function showError(error) {
@@ -66,19 +87,7 @@
         }
     }
 
-
-
-    // the JSON data.
-    $scope.registerNewTrip = {
-        tripDate: dateVal,
-        startKilometerReading: startKmVal,
-        stopKilometerReading: stopKmVal,
-        startAddress: startAddressVal,
-        destinationAddress: destinationAddressVal,
-        errand: '',
-        notes: ''
-    };
-
+    
     // POST NEW TRIP - clicking the 'Save' button.
     $scope.saveNewTrip = function () {
         console.log($scope.registerNewTrip);
@@ -102,5 +111,4 @@
         $location.path(path);
     };
 });
-
 

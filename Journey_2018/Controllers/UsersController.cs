@@ -74,10 +74,7 @@ namespace Journey_2018.Controllers
 
         }
 
-
-
-
-
+        
         // POST: api/Users
         [ResponseType(typeof(User))]
         [HttpPost]

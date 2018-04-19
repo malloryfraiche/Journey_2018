@@ -36,31 +36,19 @@
         </md-input-container>
 
 
-
-
-
-
-
         <md-input-container layout layout-align="center" class="md-block">
             <div layout="row" flex>
                 <div flex class="md-icon-float md-block">
                     <label>Start address</label>
-                    <input type="text" ng-model="registerNewTrip.startAddress" ng-bind="locationsAddress" required />
+                    <input type="text" ng-model="registerNewTrip.startAddress" required />
                 </div>
                 <div>
-                    <md-button class="md-fab md-mini md-primary" aria-label="Start location" ng-click="getLocation()">
+                    <md-button class="md-fab md-mini md-primary" aria-label="Start location" ng-click="getStartLocation()">
                         <md-icon md-svg-icon="maps:pin_drop"></md-icon>
                     </md-button>
                 </div>
             </div>
         </md-input-container>
-
-
-
-
-
-
-
 
 
         <md-input-container layout layout-align="center" class="md-block">
@@ -70,7 +58,7 @@
                     <input type="text" ng-model="registerNewTrip.destinationAddress" required />
                 </div>
                 <div>
-                    <md-button class="md-fab md-mini md-primary" aria-label="Start location">
+                    <md-button class="md-fab md-mini md-primary" aria-label="Stop location" ng-click="getStopLocation()">
                         <md-icon md-svg-icon="maps:pin_drop"></md-icon>
                     </md-button>
                 </div>

@@ -21,8 +21,6 @@ namespace Journey_2018.Models
 
         public List<Trip> Trips { get; set; }
 
-        public virtual User User { get; set; }
-
         public Vehicle()
         {
             Trips = new List<Trip>();

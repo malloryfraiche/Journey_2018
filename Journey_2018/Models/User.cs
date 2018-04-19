@@ -20,6 +20,8 @@ namespace Journey_2018.Models
         [Required]
         public string Password { get; set; }
 
+        public virtual Vehicle Vehicle { get; set; }
+
         public List<Trip> Trips { get; set; }
 
         public User()
