@@ -65,6 +65,30 @@ namespace Journey_2018.Controllers
                 return BadRequest();
             }
 
+
+
+
+
+
+            foreach (var defaultVehicle in db.Vehicles)
+            {
+                if (defaultVehicle.DefaultVehicle == true)
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+            }
+
+
+
+
+
+
+
+
             db.Entry(vehicle).State = EntityState.Modified;
 
             try
