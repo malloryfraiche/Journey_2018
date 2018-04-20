@@ -9,9 +9,7 @@ namespace Journey_2018.Migrations
     {
         public Configuration()
         {
-            //AutomaticMigrationsEnabled = false;
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "Journey_2018.DataAccess.DefaultDataContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Journey_2018.DataAccess.DefaultDataContext context)
