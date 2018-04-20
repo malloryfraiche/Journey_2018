@@ -23,6 +23,7 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public IQueryable<Vehicle> GetVehicles()
         {
+            
             return db.Vehicles;
         }
 
@@ -46,9 +47,11 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-
+            
             return Ok(vehicle);
         }
+
+        
 
         // PUT: api/Vehicles/5
         [HttpPut]
@@ -70,17 +73,17 @@ namespace Journey_2018.Controllers
 
 
 
-            foreach (var defaultVehicle in db.Vehicles)
-            {
-                if (defaultVehicle.DefaultVehicle == true)
-                {
-                    
-                }
-                else
-                {
-                    
-                }
-            }
+            //foreach (var defaultVehicle in db.Vehicles)
+            //{
+            //    if (defaultVehicle.DefaultVehicle == true)
+            //    {
+
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
 
 
 
@@ -122,9 +125,9 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-           
+
             db.Vehicles.Add(vehicle);
-            
+
             await db.SaveChangesAsync();
 
             return Ok(vehicle);

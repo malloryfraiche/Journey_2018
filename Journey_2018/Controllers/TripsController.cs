@@ -21,6 +21,7 @@ namespace Journey_2018.Controllers
         // GET: api/Trips
         public IQueryable<Trip> GetTrips()
         {
+
             return db.Trips;
         }
 
@@ -36,6 +37,29 @@ namespace Journey_2018.Controllers
 
             return Ok(trip);
         }
+
+
+
+        //// TODO:
+
+        //// GET: api/TripsByVehicle
+        //[HttpGet]
+        //[Route("api/TripsByVehicle")]
+        //public IQueryable<Trip> GetTripsByVehicle()
+        //{
+        //    List<Trip> listTrips = db.Trips
+        //           .Where(x => x.Vehicle.Id == vehicle.id)
+        //           .Include(x => x.Vehicle)
+        //           .ToList();
+        //    return Ok(listTrips);
+
+        //}
+
+
+
+
+
+
 
         // PUT: api/Trips/5
         [ResponseType(typeof(void))]
@@ -72,6 +96,8 @@ namespace Journey_2018.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+
         // POST: api/Trips
         [ResponseType(typeof(Trip))]
         public async Task<IHttpActionResult> PostTrip(Trip trip)
@@ -88,6 +114,10 @@ namespace Journey_2018.Controllers
             //return CreatedAtRoute("DefaultApi", new { id = trip.Id }, trip);
             return Ok(trip);
         }
+
+
+
+
 
         // DELETE: api/Trips/5
         [ResponseType(typeof(Trip))]

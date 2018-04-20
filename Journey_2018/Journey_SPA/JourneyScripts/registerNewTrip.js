@@ -1,13 +1,16 @@
-﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http) {
+﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http, $routeParams) {
+
+
 
     var tripApi = "http://localhost:54542/api/Trips";
     var vehicleApi = "http://localhost:54542/api/Vehicles";
 
     var dateVal = new Date();
-    
+    //var vehicleIdVal = $("#optionVehicleValue").val();
+
     // the JSON data.
     $scope.registerNewTrip = {
-        //vehicle_Id: $(".md-option [value='{{vehicle.Id}}']").val(),
+        //vehicle: vehicleIdVal,
         tripDate: dateVal,
         startKilometerReading: '',
         stopKilometerReading: '',
@@ -29,7 +32,7 @@
         });
     });
 
- 
+
     $scope.getStartLocation = function () {
         navigator.geolocation.getCurrentPosition(function (position, showError) {
             var geocoder = new google.maps.Geocoder();
@@ -89,7 +92,7 @@
         }
     }
 
-    
+
     // POST NEW TRIP - clicking the 'Save' button.
     $scope.saveNewTrip = function () {
         console.log($scope.registerNewTrip);
@@ -103,6 +106,7 @@
             }
         }).then(function (data) {
             console.log(data);
+            $route.reload();
         });
     };
 
@@ -112,5 +116,10 @@
     $scope.go = function (path) {
         $location.path(path);
     };
+
+
+
+
+
 });
 
