@@ -19,6 +19,8 @@ namespace Journey_2018.Providers
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+
             using (UserRepository _repo = new UserRepository())
             {
                 IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
