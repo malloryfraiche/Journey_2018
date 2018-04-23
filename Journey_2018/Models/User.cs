@@ -10,12 +10,18 @@ namespace Journey_2018.Models
     {
         public int Id { get; set; }
 
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
+
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "Username")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Required]
@@ -29,13 +35,16 @@ namespace Journey_2018.Models
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public virtual Vehicle Vehicle { get; set; }
+        //public virtual Vehicle Vehicle { get; set; }
 
-        public List<Trip> Trips { get; set; }
 
-        public User()
-        {
-            Trips = new List<Trip>();
-        }
+
+
+        //public List<Trip> Trips { get; set; }
+
+        //public User()
+        //{
+        //    Trips = new List<Trip>();
+        //}
     }
 }

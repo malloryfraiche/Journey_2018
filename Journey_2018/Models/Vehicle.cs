@@ -19,11 +19,13 @@ namespace Journey_2018.Models
         [Required]
         public bool DefaultVehicle { get; set; }
 
-        public List<Trip> Trips { get; set; }
+        public User User { get; set; }
 
-        public Vehicle()
-        {
-            Trips = new List<Trip>();
-        }
+        //public List<Trip> Trips { get; set; }
+
+        //public Vehicle()
+        //{
+        //    Trips = new List<Trip>();
+        //}
     }
 }

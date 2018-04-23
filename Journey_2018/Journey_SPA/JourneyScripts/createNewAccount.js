@@ -1,6 +1,6 @@
 ﻿angular.module('app').controller('createNewAccount', function ($scope, $location, $http) {
 
-    var userApi = "http://localhost:54542/api/Users";
+    var userApi = "https://localhost:44399/api/Users";
 
     $scope.createAccountInput = {
         firstName: '',

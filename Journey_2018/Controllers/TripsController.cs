@@ -37,7 +37,7 @@ namespace Journey_2018.Controllers
 
             return Ok(trip);
         }
-
+        
 
 
         //// TODO:
@@ -47,18 +47,13 @@ namespace Journey_2018.Controllers
         //[Route("api/TripsByVehicle")]
         //public IQueryable<Trip> GetTripsByVehicle()
         //{
-        //    List<Trip> listTrips = db.Trips
-        //           .Where(x => x.Vehicle.Id == vehicle.id)
-        //           .Include(x => x.Vehicle)
-        //           .ToList();
-        //    return Ok(listTrips);
-
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.
+        //    }
+            
         //}
-
-
-
-
-
+        
 
 
         // PUT: api/Trips/5
@@ -95,9 +90,7 @@ namespace Journey_2018.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
-
-
-
+        
         // POST: api/Trips
         [ResponseType(typeof(Trip))]
         public async Task<IHttpActionResult> PostTrip(Trip trip)
@@ -106,18 +99,13 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             db.Trips.Add(trip);
             
             await db.SaveChangesAsync();
 
-            //return CreatedAtRoute("DefaultApi", new { id = trip.Id }, trip);
             return Ok(trip);
         }
-
-
-
-
 
         // DELETE: api/Trips/5
         [ResponseType(typeof(Trip))]

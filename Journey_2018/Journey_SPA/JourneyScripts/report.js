@@ -2,7 +2,7 @@
 
     // maybe have this with $rootscope to reach it from registerNewTrip as well.
 
-    var vehicleApi = "http://localhost:54542/api/Vehicles";
+    var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     $http.get(vehicleApi).then(function (response) {
         $scope.vehicles = response.data;

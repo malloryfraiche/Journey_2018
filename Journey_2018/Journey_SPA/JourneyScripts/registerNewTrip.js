@@ -2,8 +2,8 @@
 
 
 
-    var tripApi = "http://localhost:54542/api/Trips";
-    var vehicleApi = "http://localhost:54542/api/Vehicles";
+    var tripApi = "https://localhost:44399/api/Trips";
+    var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     var dateVal = new Date();
     //var vehicleIdVal = $("#optionVehicleValue").val();
@@ -106,7 +106,7 @@
             }
         }).then(function (data) {
             console.log(data);
-            $route.reload();
+            //$route.reload();
         });
     };
 

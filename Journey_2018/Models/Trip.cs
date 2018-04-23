@@ -8,7 +8,6 @@ namespace Journey_2018.Models
 {
     public class Trip
     {
-
         public int Id { get; set; }
 
         [Required]
@@ -31,7 +30,22 @@ namespace Journey_2018.Models
 
         public string Notes { get; set; }
 
-        //public Vehicle Vehicle { get; set; }
+        public Vehicle Vehicle { get; set; }
 
+        public Trip() { }
+
+        public Trip(int id, DateTime tripDate, double startKilometerReading, double stopKilometerReading, string startAddress, string destinationAddress, string errand, string notes, Vehicle vehicle)
+        {
+            Id = id;
+            TripDate = tripDate;
+            StartKilometerReading = startKilometerReading;
+            StopKilometerReading = stopKilometerReading;
+            StartAddress = startAddress;
+            DestinationAddress = destinationAddress;
+            Errand = errand;
+            Notes = notes;
+            Vehicle = vehicle;
+        }
+        
     }
 }

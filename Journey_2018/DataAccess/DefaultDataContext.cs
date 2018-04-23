@@ -20,7 +20,7 @@ namespace Journey_2018.DataAccess
 
         public DbSet<Trip> Trips { get; set; }
 
-        public DbSet<UserVehicleHelper> UserVehicleHelpers { get; set; }
+        //public DbSet<UserVehicleHelper> UserVehicleHelpers { get; set; }
 
 
 

@@ -1,6 +1,6 @@
 ﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout, $http) {
 
-    var vehicleApi = "http://localhost:54542/api/Vehicles";
+    var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     $scope.showEditPromtDialog = function (ev, vehicle) {
         $mdDialog
@@ -75,7 +75,7 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
         $mdDialog.cancel();
     };
 
-    var vehicleApi = "http://localhost:54542/api/Vehicles";
+    var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     var registrationNumber = '';
     var active = true;

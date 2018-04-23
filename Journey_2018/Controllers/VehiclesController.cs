@@ -23,7 +23,6 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public IQueryable<Vehicle> GetVehicles()
         {
-            
             return db.Vehicles;
         }
 
@@ -67,12 +66,9 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest();
             }
-
-
-
-
-
-
+            
+            db.Entry(vehicle).State = EntityState.Modified;
+            
             //foreach (var defaultVehicle in db.Vehicles)
             //{
             //    if (defaultVehicle.DefaultVehicle == true)
@@ -84,16 +80,7 @@ namespace Journey_2018.Controllers
 
             //    }
             //}
-
-
-
-
-
-
-
-
-            db.Entry(vehicle).State = EntityState.Modified;
-
+            
             try
             {
                 await db.SaveChangesAsync();
@@ -133,10 +120,7 @@ namespace Journey_2018.Controllers
             return Ok(vehicle);
         }
 
-
-
-
-
+       
         // DELETE: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
         public async Task<IHttpActionResult> DeleteVehicle(int id)

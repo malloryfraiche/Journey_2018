@@ -19,7 +19,6 @@ namespace Journey_2018.Controllers
     public class UsersController : ApiController
     {
         private UserRepository _repo = null;
-
         public UsersController()
         {
             _repo = new UserRepository();
@@ -46,7 +45,7 @@ namespace Journey_2018.Controllers
             {
                 return errorResult;
             }
-            
+
             return Ok();
         }
 
@@ -78,6 +77,16 @@ namespace Journey_2018.Controllers
 
             return null;
         }
+
+
+
+
+
+
+
+
+
+
 
 
 
