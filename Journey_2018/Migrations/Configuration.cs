@@ -1,4 +1,4 @@
-namespace Journey_2018.Migrations
+﻿namespace Journey_2018.Migrations
 {
     using System;
     using System.Data.Entity;

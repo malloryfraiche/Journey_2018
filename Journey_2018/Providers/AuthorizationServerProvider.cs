@@ -14,7 +14,9 @@ namespace Journey_2018.Providers
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-           context.Validated();
+            
+            context.Validated();
+            //return Task.FromResult<object>(null);
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -30,7 +32,7 @@ namespace Journey_2018.Providers
                     return;
                 }
             }
-
+            
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim("user_name", context.UserName));
             identity.AddClaim(new Claim("role", "user"));

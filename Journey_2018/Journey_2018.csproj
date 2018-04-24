@@ -1121,7 +1121,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -1134,13 +1136,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804201343430_updatedwithIdentity.cs" />
-    <Compile Include="Migrations\201804201343430_updatedwithIdentity.Designer.cs">
-      <DependentUpon>201804201343430_updatedwithIdentity.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804230801574_update-database.cs" />
-    <Compile Include="Migrations\201804230801574_update-database.Designer.cs">
-      <DependentUpon>201804230801574_update-database.cs</DependentUpon>
+    <Compile Include="Migrations\201804240712158_Initial-Create.cs" />
+    <Compile Include="Migrations\201804240712158_Initial-Create.Designer.cs">
+      <DependentUpon>201804240712158_Initial-Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Trip.cs" />
@@ -1183,11 +1181,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804201343430_updatedwithIdentity.resx">
-      <DependentUpon>201804201343430_updatedwithIdentity.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804230801574_update-database.resx">
-      <DependentUpon>201804230801574_update-database.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804240712158_Initial-Create.resx">
+      <DependentUpon>201804240712158_Initial-Create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using Journey_2018.Migrations;
 using Journey_2018.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,12 +10,12 @@ using System.Web;
 
 namespace Journey_2018.DataAccess
 {
-    public class DefaultDataContext : DbContext
+    public class DefaultDataContext : IdentityDbContext<IdentityUser>
     {
         // Configuring the Entity Framework connection.
-        public DefaultDataContext() : base() { }
+        public DefaultDataContext() : base("Journey2018") { }
 
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
 
         public DbSet<Vehicle> Vehicles { get; set; }
 
