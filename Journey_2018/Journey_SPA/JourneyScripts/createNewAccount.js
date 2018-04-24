@@ -2,15 +2,13 @@
 
     var registerUserApi = "https://localhost:44399/api/Users/Register";
 
-    var emailUsername = '';
-
     $scope.createAccountInput = {
-        firstName: '',
-        lastName: '',
-        email: emailUsername,
-        userName: emailUsername,
-        password: '',
-        confirmPassword: ''
+        FirstName: '',
+        LastName: '',
+        Email: '',
+        UserName: '',
+        Password: '',
+        ConfirmPassword: ''
     };
 
     $scope.createAccount = function () {
@@ -19,13 +17,12 @@
             url: registerUserApi,
             data: $scope.createAccountInput,
             headers: {
-                //'Content-Type': 'application/x-www-form-urlencoded'
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }
         }).then(function (data) {
             console.log(data);
-            //$scope.createAccountInput.trigger("reset");
+            
         });
     };
 

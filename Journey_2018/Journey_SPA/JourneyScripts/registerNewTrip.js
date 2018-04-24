@@ -1,16 +1,12 @@
 ﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http, $routeParams) {
-
-
-
+    
     var tripApi = "https://localhost:44399/api/Trips";
     var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     var dateVal = new Date();
-    //var vehicleIdVal = $("#optionVehicleValue").val();
 
     // the JSON data.
     $scope.registerNewTrip = {
-        //vehicle: vehicleIdVal,
         tripDate: dateVal,
         startKilometerReading: '',
         stopKilometerReading: '',
@@ -106,7 +102,7 @@
             }
         }).then(function (data) {
             console.log(data);
-            //$route.reload();
+            // need to reload the page...or redirect somewhere?
         });
     };
 
