@@ -1,11 +1,14 @@
 ﻿angular.module('app').controller('createNewAccount', function ($scope, $location, $http) {
 
-    var userApi = "https://localhost:44399/api/Users";
+    var registerUserApi = "https://localhost:44399/api/Users/Register";
+
+    var emailUsername = '';
 
     $scope.createAccountInput = {
         firstName: '',
         lastName: '',
-        email: '',
+        email: emailUsername,
+        userName: emailUsername,
         password: '',
         confirmPassword: ''
     };
@@ -13,9 +16,10 @@
     $scope.createAccount = function () {
         $http({
             method: 'POST',
-            url: userApi,
+            url: registerUserApi,
             data: $scope.createAccountInput,
             headers: {
+                //'Content-Type': 'application/x-www-form-urlencoded'
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }
