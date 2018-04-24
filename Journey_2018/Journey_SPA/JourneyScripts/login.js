@@ -13,10 +13,13 @@
             token = response.data.access_token;
             console.log(token);
             $location.path("/start");
-        }, function (err, status) { console.log(err); });
+        }, function (err, status) {
+            console.log(err);
+            $scope.errorMessage = "The Username or Password is incorrect. Please try again.";
+            $timeout(function () { $scope.errorMessage = false; }, 3000)
+                .then(function () { location.reload(); });
+        });
     };
-
-
 
     
     $scope.go = function (path) {

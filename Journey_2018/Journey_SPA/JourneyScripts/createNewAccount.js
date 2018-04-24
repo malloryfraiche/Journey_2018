@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('createNewAccount', function ($scope, $location, $http) {
+﻿angular.module('app').controller('createNewAccount', function ($scope, $location, $http, $timeout) {
 
     var registerUserApi = "https://localhost:44399/api/Users/Register";
 
@@ -22,8 +22,12 @@
             }
         }).then(function (data) {
             console.log(data);
-            
+            $scope.successDiv = "Congrats! You have created an account. In 3 seconds you will be redirected back to the Login page.";
+            $timeout(function () { $scope.successDiv = false; }, 3000).then(function () { $location.path("/"); });
         });
+            //.then(function (err, status) {
+            //    console.log(err);
+            //});
     };
 
     

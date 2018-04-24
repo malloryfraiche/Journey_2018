@@ -6,13 +6,14 @@
 
     <md-content md-whiteframe="20" layout-padding>
 
-        <md-input-container class="md-block">
-            <!--<div ng-show="test==5">Detta ska synas</div>-->
+        <div ng-show="errorMessage">
+            <p layout="row" layout-align="center center" class="md-padding" style="color: red;">{{errorMessage}}</p>
+        </div>
 
+        <md-input-container class="md-block">
             <label>Username (E-mail):</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
             <input type="email" ng-model="login.userName" required />
-            <!-- have ng-messages div here for input errors... -->
         </md-input-container>
 
 
@@ -20,12 +21,10 @@
             <label>Password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
             <input type="password" ng-model="login.password" required />
-            <!-- have ng-messages div here for input errors... -->
         </md-input-container>
 
 
         <div>
-            <!-- need to check that user has account in database and the password matches -->
             <md-button type="submit" class="md-raised md-primary" ng-click="loginButton()">Login</md-button>
         </div>
 
@@ -48,14 +47,3 @@
 
 </div>
 
-
-
-
-
-
-<!--oninvalid="this.setCustomValidity('Please enter username in e-mail format.')"-->
-<!--<span ng-show="loginForm.inputEmail.$valid">{{emailErrorMessage}}</span>-->
-<!--<md-icon style="fill: lightgrey;" md-svg-icon="av:repeat"></md-icon>-->
-<!--<div style="display: inline-block;">
-    <small style="float: left"><input type="checkbox" />&nbsp;&nbsp;<label>Remember me!</label></small><br />
-</div>-->
