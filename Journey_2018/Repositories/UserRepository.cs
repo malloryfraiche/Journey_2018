@@ -14,7 +14,6 @@ namespace Journey_2018.Repositories
     public class UserRepository : IDisposable
     {
         private DefaultDataContext _ctx;
-        //private DbContext _ctx;
         private UserManager<IdentityUser> _userManager;
 
         public UserRepository()
@@ -28,7 +27,9 @@ namespace Journey_2018.Repositories
             IdentityUser user = new IdentityUser
             {
                 UserName = userModel.UserName
+                //Email = userModel.Email
             };
+            
             var result = await _userManager.CreateAsync(user, userModel.Password);
             return result;
         }

@@ -1,21 +1,34 @@
-﻿angular.module('app').controller('login', function ($scope, $location, $timeout) {
+﻿angular.module('app').controller('login', function ($scope, $location, $timeout, $http) {
 
-    $scope.login = "Login";
-
+   // $scope.login = "Login";
+    
     //$scope.test = 5;
-
     //$timeout(function () {
-
     //    $scope.test = 4;
-
     //}, 3000);
-
     //$scope.emailErrorMessage = "Please enter username in e-mail format.";
 
-    // on loginButton click you are redirected to start view.
-    // have this location change happen in the $ajax sumbit later after the login is allowed.
-    $scope.go = function (path) {
-        $location.path(path);
+
+    var token = '';
+
+    $scope.login = {
+        userName: '',
+        password: ''
+    };
+    $scope.loginButton = function () {
+        var data = "grant_type=password&username=" + $scope.login.userName + "&password=" + $scope.login.password;
+        console.log(data);
+        $http.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(function (response) {
+            token = response.data.access_token;
+            console.log(token);
+            //$location.path("/start");
+        }, function (err, status) { console.log(err); });
     };
 
+
+
+    
+    //$scope.go = function (path) {
+    //    $location.path(path);
+    //};
 });

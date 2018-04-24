@@ -11,7 +11,7 @@
 
             <label>Username (E-mail):</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
-            <input type="email" required />
+            <input type="email" ng-model="login.userName" required />
             <!-- have ng-messages div here for input errors... -->
         </md-input-container>
 
@@ -19,14 +19,14 @@
         <md-input-container class="md-block">
             <label>Password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
-            <input type="password" required />
+            <input type="password" ng-model="login.password" required />
             <!-- have ng-messages div here for input errors... -->
         </md-input-container>
 
 
         <div>
             <!-- need to check that user has account in database and the password matches -->
-            <md-button type="submit" class="md-raised md-primary" ng-click="go('/start')">Login</md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="loginButton()">Login</md-button>
         </div>
 
         <div style="display: inline-block;">

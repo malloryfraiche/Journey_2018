@@ -34,7 +34,7 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             IdentityResult result = await _repo.RegisterUser(userModel);
 
             if (result == null) return InternalServerError();
@@ -78,6 +78,39 @@ namespace Journey_2018.Controllers
             return null;
         }
 
+
+
+
+
+        //// POST: api/Users
+        //[ResponseType(typeof(User))]
+        //[HttpPost]
+        //[Route("api/Users")]
+        //public async Task<IHttpActionResult> PostUser(User user)
+        //{
+        //    var db = new DefaultDataContext();
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    var theUser = new User()
+        //    {
+        //        UserName = user.UserName,
+        //        FirstName = user.FirstName,
+        //        LastName = user.LastName,
+        //        Email = user.Email,
+        //    };
+
+        //    IdentityResult theUserResult = await .CreateAsync(theUser, user.Password);
+
+
+        //    //db.Users.Add(theUser);
+        //    //await db.SaveChangesAsync();
+
+        //    return Ok(user);
+        //}
 
 
 
