@@ -52,9 +52,6 @@
         }).then(function (response) {
             $scope.vehicles = response.data;
         });
-        //$http.get(vehicleApi).then(function (response) {
-        //    $scope.vehicles = response.data;
-        //});
     }
     ReloadPage();
 
@@ -71,12 +68,6 @@
             console.log(data);
             ReloadPage();
         });
-
-        //$http.delete(vehicleApi + '/' + vehicle.Id)
-        //    .then(function (data) {
-        //        console.log(data);
-        //        ReloadPage();
-        //    });
     };
 
     $scope.go = function (path) {
@@ -105,6 +96,7 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         registrationNumber: registrationNumber,
         active: active,
         defaultVehicle: defaultVehicle
+        //user_Id: ''
     };
 
     if (dataToPass) {
@@ -112,7 +104,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         $scope.vehicleModel.active = dataToPass.Active;
         $scope.vehicleModel.defaultVehicle = dataToPass.DefaultVehicle;
         $scope.vehicleModel.id = dataToPass.Id;
-        $scope.vehicleModel.user_Id = dataToPass.User_Id;
     }
 
     // Activate and inactivate vehicle with switch button.
@@ -135,11 +126,9 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         return defaultVehicle;
     };
 
-
     // ADD NEW VEHICLE - 'Save' button in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
-
-        $scope.vehicleModel.user_Id = parseInt($scope.vehicleListItem);
+        $scope.vehicleModel.user_id;
 
         console.log($scope.vehicleModel);
         $http({
@@ -174,6 +163,4 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
             $mdDialog.hide();
         });
     };
-
 }
-

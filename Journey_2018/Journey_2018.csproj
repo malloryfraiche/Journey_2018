@@ -1148,6 +1148,14 @@
     <Compile Include="Migrations\201804250704048_UpdatesInVehicleModel.Designer.cs">
       <DependentUpon>201804250704048_UpdatesInVehicleModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804251245488_NewUpdates.cs" />
+    <Compile Include="Migrations\201804251245488_NewUpdates.Designer.cs">
+      <DependentUpon>201804251245488_NewUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804251312169_update.cs" />
+    <Compile Include="Migrations\201804251312169_update.Designer.cs">
+      <DependentUpon>201804251312169_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\User.cs" />
@@ -1197,6 +1205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804250704048_UpdatesInVehicleModel.resx">
       <DependentUpon>201804250704048_UpdatesInVehicleModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804251245488_NewUpdates.resx">
+      <DependentUpon>201804251245488_NewUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804251312169_update.resx">
+      <DependentUpon>201804251312169_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

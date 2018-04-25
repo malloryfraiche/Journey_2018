@@ -9,7 +9,8 @@ namespace Journey_2018.Models
 {
     public class User
     {
-        public int Id { get; set; }
+        [Key]
+        public string Id { get; set; }
 
         [Required]
         [Display(Name = "Username")]
@@ -37,15 +38,6 @@ namespace Journey_2018.Models
         public string ConfirmPassword { get; set; }
 
         //public virtual Vehicle Vehicle { get; set; }
-
-
-
-
-        //public List<Trip> Trips { get; set; }
-
-        //public User()
-        //{
-        //    Trips = new List<Trip>();
-        //}
+        
     }
 }

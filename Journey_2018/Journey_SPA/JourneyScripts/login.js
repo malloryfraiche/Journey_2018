@@ -16,8 +16,8 @@
         }, function (err, status) {
             console.log(err);
             $scope.errorMessage = "The Username or Password is incorrect. Please try again.";
-            $timeout(function () { $scope.errorMessage = false; }, 5000)
-                .then(function () { location.reload(); });
+            $timeout(function () { $scope.errorMessage = false; }, 5000);
+                //.then(function () { location.reload(); });
         });
     };
 

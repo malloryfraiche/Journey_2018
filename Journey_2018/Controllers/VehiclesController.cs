@@ -6,11 +6,14 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Journey_2018.DataAccess;
 using Journey_2018.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Journey_2018.Controllers
 {
@@ -68,7 +71,7 @@ namespace Journey_2018.Controllers
             }
             
             db.Entry(vehicle).State = EntityState.Modified;
-            
+
             //foreach (var defaultVehicle in db.Vehicles)
             //{
             //    if (defaultVehicle.DefaultVehicle == true)
@@ -80,7 +83,7 @@ namespace Journey_2018.Controllers
 
             //    }
             //}
-            
+
             try
             {
                 await db.SaveChangesAsync();
@@ -106,6 +109,11 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
+            IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
+            vehicle.User_Id = user.Id;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

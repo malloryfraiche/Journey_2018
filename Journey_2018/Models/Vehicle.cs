@@ -20,10 +20,7 @@ namespace Journey_2018.Models
         [Required]
         public bool DefaultVehicle { get; set; }
 
-        [ForeignKey("User")]
-        public int User_Id { get; set; }
-
-        public User User { get; set; }
+        public string User_Id { get; set; }
         
     }
 }
