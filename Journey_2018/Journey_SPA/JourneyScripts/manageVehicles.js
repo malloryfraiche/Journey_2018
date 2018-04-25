@@ -96,7 +96,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         registrationNumber: registrationNumber,
         active: active,
         defaultVehicle: defaultVehicle
-        //user_Id: ''
     };
 
     if (dataToPass) {
@@ -128,8 +127,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
 
     // ADD NEW VEHICLE - 'Save' button in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
-        $scope.vehicleModel.user_id;
-
         console.log($scope.vehicleModel);
         $http({
             method: 'POST',

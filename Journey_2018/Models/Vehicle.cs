@@ -21,6 +21,5 @@ namespace Journey_2018.Models
         public bool DefaultVehicle { get; set; }
 
         public string User_Id { get; set; }
-        
     }
 }

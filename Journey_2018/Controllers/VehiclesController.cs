@@ -32,11 +32,20 @@ namespace Journey_2018.Controllers
         // GET: api/VehiclesByUser
         [HttpGet]
         [Route("api/VehiclesByUser")]
-        public IQueryable<Vehicle> GetVehiclesByUser()
+        public IQueryable<Vehicle> GetVehiclesByUser(Vehicle vehicle)
         {
             //TODO: Add filter for User
             //so i can get a List of the vehicles that are connected to the User.
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
+            IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
+            vehicle.User_Id = user.Id;
 
+            //var usersVehicles = new List<Vehicle>() {
+
+            //};
+
+            //return usersVehicles;
             return db.Vehicles;
         }
 
@@ -60,6 +69,11 @@ namespace Journey_2018.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutVehicle(int id, Vehicle vehicle)
         {
+            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
+            IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
+            vehicle.User_Id = user.Id;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
