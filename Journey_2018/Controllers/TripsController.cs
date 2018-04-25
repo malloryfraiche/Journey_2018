@@ -100,6 +100,7 @@ namespace Journey_2018.Controllers
                 return BadRequest(ModelState);
             }
             
+
             db.Trips.Add(trip);
             
             await db.SaveChangesAsync();

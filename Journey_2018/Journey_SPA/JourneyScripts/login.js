@@ -1,5 +1,6 @@
 ﻿angular.module('app').controller('login', function ($scope, $location, $timeout, $http) {
-    
+
+    // rootscope
     var token = '';
 
     $scope.login = {

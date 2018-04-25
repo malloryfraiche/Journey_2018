@@ -91,6 +91,7 @@
 
     // POST NEW TRIP - clicking the 'Save' button.
     $scope.saveNewTrip = function () {
+        $scope.registerNewTrip.vehicle_Id = parseInt($scope.selectVehicle);
         console.log($scope.registerNewTrip);
         $http({
             method: 'POST',

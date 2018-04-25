@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -29,6 +30,9 @@ namespace Journey_2018.Models
         public string Errand { get; set; }
 
         public string Notes { get; set; }
+
+        [ForeignKey("Vehicle")]
+        public int Vehicle_Id { get; set; }
 
         public Vehicle Vehicle { get; set; }
 

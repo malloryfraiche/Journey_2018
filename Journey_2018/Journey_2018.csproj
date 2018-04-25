@@ -1140,6 +1140,14 @@
     <Compile Include="Migrations\201804240712158_Initial-Create.Designer.cs">
       <DependentUpon>201804240712158_Initial-Create.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804250654285_UpdatesInTripModel.cs" />
+    <Compile Include="Migrations\201804250654285_UpdatesInTripModel.Designer.cs">
+      <DependentUpon>201804250654285_UpdatesInTripModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804250704048_UpdatesInVehicleModel.cs" />
+    <Compile Include="Migrations\201804250704048_UpdatesInVehicleModel.Designer.cs">
+      <DependentUpon>201804250704048_UpdatesInVehicleModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\User.cs" />
@@ -1183,6 +1191,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804240712158_Initial-Create.resx">
       <DependentUpon>201804240712158_Initial-Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250654285_UpdatesInTripModel.resx">
+      <DependentUpon>201804250654285_UpdatesInTripModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804250704048_UpdatesInVehicleModel.resx">
+      <DependentUpon>201804250704048_UpdatesInVehicleModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

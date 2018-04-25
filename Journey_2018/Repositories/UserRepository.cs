@@ -26,8 +26,8 @@ namespace Journey_2018.Repositories
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.UserName
-                //Email = userModel.Email
+                UserName = userModel.UserName,
+                Email = userModel.UserName
             };
             
             var result = await _userManager.CreateAsync(user, userModel.Password);
