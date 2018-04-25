@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout, $http) {
+﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout, $http, $rootScope) {
 
     var vehicleApi = "https://localhost:44399/api/Vehicles";
 
@@ -43,20 +43,40 @@
     };
 
     function ReloadPage() {
-        $http.get(vehicleApi).then(function (response) {
+        $http({
+            method: 'GET',
+            url: vehicleApi,
+            headers: {
+                'Authorization': 'Bearer ' + $rootScope.token
+            }
+        }).then(function (response) {
             $scope.vehicles = response.data;
         });
+        //$http.get(vehicleApi).then(function (response) {
+        //    $scope.vehicles = response.data;
+        //});
     }
     ReloadPage();
 
     // DELETE VEHICLE - when you click the garbage bin icon.
     $scope.deleteVehicle = function (vehicle) {
         //alert("Are you sure you want to delete?");
-        $http.delete(vehicleApi + '/' + vehicle.Id)
-            .then(function (data) {
-                console.log(data);
-                ReloadPage();
-            });
+        $http({
+            method: 'DELETE',
+            url: vehicleApi + '/' + vehicle.Id,
+            headers: {
+                'Authorization': 'Bearer ' + $rootScope.token
+            }
+        }).then(function (data) {
+            console.log(data);
+            ReloadPage();
+        });
+
+        //$http.delete(vehicleApi + '/' + vehicle.Id)
+        //    .then(function (data) {
+        //        console.log(data);
+        //        ReloadPage();
+        //    });
     };
 
     $scope.go = function (path) {
@@ -66,7 +86,7 @@
 
 
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.
-function DialogController($scope, $mdDialog, $http, dataToPass) {
+function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
 
     $scope.hide = function () {
         $mdDialog.hide();
@@ -92,6 +112,7 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
         $scope.vehicleModel.active = dataToPass.Active;
         $scope.vehicleModel.defaultVehicle = dataToPass.DefaultVehicle;
         $scope.vehicleModel.id = dataToPass.Id;
+        $scope.vehicleModel.user_Id = dataToPass.User_Id;
     }
 
     // Activate and inactivate vehicle with switch button.
@@ -117,12 +138,16 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
 
     // ADD NEW VEHICLE - 'Save' button in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
+
+        $scope.vehicleModel.user_Id = parseInt($scope.vehicleListItem);
+
         console.log($scope.vehicleModel);
         $http({
             method: 'POST',
             url: vehicleApi,
             data: $scope.vehicleModel,
             headers: {
+                'Authorization': 'Bearer ' + $rootScope.token,
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }
@@ -140,6 +165,7 @@ function DialogController($scope, $mdDialog, $http, dataToPass) {
             url: vehicleApi + '/' + $scope.vehicleModel.id,
             data: $scope.vehicleModel,
             headers: {
+                'Authorization': 'Bearer ' + $rootScope.token,
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }

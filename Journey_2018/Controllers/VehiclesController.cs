@@ -106,8 +106,6 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
-            //Vehicle vehicleToAdd = null;
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

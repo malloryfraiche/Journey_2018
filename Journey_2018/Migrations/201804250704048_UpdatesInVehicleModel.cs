@@ -9,7 +9,7 @@ namespace Journey_2018.Migrations
         {
             DropForeignKey("dbo.Vehicle", "User_Id", "dbo.User");
             DropIndex("dbo.Vehicle", new[] { "User_Id" });
-            AlterColumn("dbo.Vehicle", "User_Id", c => c.Int(nullable: true));
+            AlterColumn("dbo.Vehicle", "User_Id", c => c.Int(nullable: false));
             CreateIndex("dbo.Vehicle", "User_Id");
             AddForeignKey("dbo.Vehicle", "User_Id", "dbo.User", "Id", cascadeDelete: true);
         }

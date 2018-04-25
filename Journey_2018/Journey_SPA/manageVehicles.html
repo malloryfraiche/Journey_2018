@@ -12,7 +12,7 @@
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
 
-            <md-list-item ng-repeat="vehicle in vehicles | orderBy: '-Active' | orderBy: '-DefaultVehicle'">
+            <md-list-item ng-model="vehicleListItem" ng-repeat="vehicle in vehicles | orderBy: '-Active' | orderBy: '-DefaultVehicle'" value="{{vehicle.Id}}">
                 <p ng-if="vehicle.DefaultVehicle" class="defaultStyle">{{ vehicle.RegistrationNumber }}</p>
                 <p ng-if="!vehicle.DefaultVehicle">{{ vehicle.RegistrationNumber }}</p>
                 <span ng-if="vehicle.Active" class="dot activeDot"></span>

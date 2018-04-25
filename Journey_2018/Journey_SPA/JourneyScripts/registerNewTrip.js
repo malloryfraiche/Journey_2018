@@ -98,6 +98,7 @@
             url: tripApi,
             data: $scope.registerNewTrip,
             headers: {
+                //'Authorization': 'Bearer ' + $rootScope.token,
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }
