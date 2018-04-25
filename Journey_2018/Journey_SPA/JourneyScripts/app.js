@@ -41,7 +41,7 @@ angular.module('app').config(function ($mdIconProvider) {
 });
 
 
-angular.module('app').controller('navigationBar', function ($location) {
+angular.module('app').controller('navigationBar', function ($location, $scope) {
 
     // Navbar menu functionality.
     var originalEvent;
@@ -51,6 +51,12 @@ angular.module('app').controller('navigationBar', function ($location) {
     };
     this.go = function (path) {
         $location.path(path);
+    };
+
+    $scope.Logout = function () {
+        console.log("Logging out...");
+        //sessionStorage.removeItem('');
+        $location.path("/");
     };
 
 });

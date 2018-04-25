@@ -6,6 +6,12 @@
         $location.path(path);
     };
 
+    $scope.Logout = function () {
+        console.log("Logging out...");
+        //sessionStorage.removeItem('');
+        $location.path("/");
+    };
+
 })
     .config(function ($mdThemingProvider) {
 
