@@ -8,7 +8,7 @@
         method: 'GET',
         url: vehicleApi,
         headers: {
-            'Authorization': 'Bearer ' + $rootScope.token,
+            'Authorization': 'Bearer ' + $rootScope.token
         }
     }).then(function (response) {
         $scope.vehicles = response.data;

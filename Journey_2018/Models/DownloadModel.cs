@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journey_2018_PdfDocumentCreation.Models
+namespace Journey_2018.Models
 {
-    class DownloadModel
+    public class DownloadModel
     {
         public int VehicleId { get; set; }
 

@@ -1,5 +1,4 @@
 ﻿using Journey_2018.Controllers;
-using Journey_2018_PdfDocumentCreation.Models;
 using System.Web.Http;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +10,9 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
-namespace Journey_2018_PdfDocumentCreation.Helpers
+namespace Journey_2018.Helpers
 {
-    class PdfHelper
+    public class PdfHelper
     {
         public static string GetVehicleTripsPdfUrl(DownloadModel downloadModel)
         {
@@ -40,6 +39,7 @@ namespace Journey_2018_PdfDocumentCreation.Helpers
                 using (PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(internalPath + destination + fileSuffix, FileMode.Create)))
                 {
                     ////this event will trigger for each page in the document that gets created.
+                    ////have this event for the footer for the PDF.
                     //PageEvent pageEvent = new PageEvent();
                     //writer.PageEvent = pageEvent;
 
