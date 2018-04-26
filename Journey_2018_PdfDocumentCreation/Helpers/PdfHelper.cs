@@ -19,7 +19,7 @@ namespace Journey_2018_PdfDocumentCreation.Helpers
         {
             var vehicleTrips = TripsController.GetTripsByVehicleId(downloadModel.VehicleId);
             var vehicle = VehiclesController.GetVehicles().FirstOrDefault(x => x.Id == downloadModel.VehicleId);
-            var url = BuildPdfAndReturnUrl(vehicleTrips, vehicle, fromDate, toDate);
+            var url = BuildPdfAndReturnUrl(vehicleTrips, vehicle, downloadModel.FromDate, downloadModel.ToDate);
 
             return url;
         }
@@ -43,6 +43,7 @@ namespace Journey_2018_PdfDocumentCreation.Helpers
                     //PageEvent pageEvent = new PageEvent();
                     //writer.PageEvent = pageEvent;
 
+
                     // Creating the pdf-document.
                     document.Open();
 
@@ -62,8 +63,7 @@ namespace Journey_2018_PdfDocumentCreation.Helpers
                         PdfPCell cell = new PdfPCell(new Phrase("Trip Id Number: " + trip.Id));
                         cell.Colspan = 2;
                         cell.BackgroundColor = BaseColor.BLUE;
-
-                        // 0 = Left, 1 = Center, 2 = Right
+                        
                         cell.HorizontalAlignment = 1;
                         cell.Padding = 5;
                         table.AddCell(cell);
@@ -92,27 +92,28 @@ namespace Journey_2018_PdfDocumentCreation.Helpers
                     }
 
                     document.Close();
-
                 }
             }
 
+            // return a downloadable path to the generated pdf.
+            return string.Format("{0}{1}", destination, fileSuffix);
         }
 
-        // To add a footer to each page that is created in the document.
-        protected class PageEvent : PdfPageEventHelper
-        {
-            Font footerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.ITALIC);
+        //// To add a footer to each page that is created in the document.
+        //protected class PageEvent : PdfPageEventHelper
+        //{
+        //    Font footerFont = new Font(Font.FontFamily.HELVETICA, 10, Font.ITALIC);
 
-            public override void OnEndPage(PdfWriter writer, Document document)
-            {
-                //TODO: Have footer text here instead of Image.
+        //    public override void OnEndPage(PdfWriter writer, Document document)
+        //    {
+        //        //TODO: Have footer text here instead of Image.
 
-                PdfContentByte cb = writer.DirectContent;
-                var pageNumber = writer.CurrentPageNumber;
-                Phrase footer = new Phrase("JOURNEY 2018", footerFont);
+        //        PdfContentByte cb = writer.DirectContent;
+        //        var pageNumber = writer.CurrentPageNumber;
+        //        Phrase footer = new Phrase("JOURNEY 2018", footerFont);
                 
-            }
-        }
+        //    }
+        //}
 
 
 
