@@ -9,7 +9,7 @@
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <md-select ng-model="selectModel">
+            <md-select ng-model="reportCreation.selectModel">
                 <md-option ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
@@ -18,24 +18,28 @@
             <div flex-xs flex-gt-xs="50" layout="column">
                 <div class="centerStyle">
                     <label style="color: grey;">From:</label>
-                    <md-datepicker ng-model="fromDateValue" md-placeholder="Enter date"></md-datepicker>
+                    <md-datepicker ng-model="reportCreation.fromDate" md-placeholder="Enter date"></md-datepicker>
                 </div>
             </div>
             <div flex-xs flex-gt-xs="50" layout="column">
                 <div class="centerStyle">
                     <label style="color: grey;">To:</label>
-                    <md-datepicker ng-model="toDateValue" md-placeholder="Enter date"></md-datepicker>
+                    <md-datepicker ng-model="reportCreation.toDate" md-placeholder="Enter date"></md-datepicker>
                 </div>
             </div>
         </div>
 
-
-        <!-- insert doughnut and line-graph here -->
         <br /><br />
 
         <div class="centerStyle">
-            <md-button type="submit" class="md-raised md-primary">Create&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="generatePdf()">Generate&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
         </div>
+
+        <div class="centerStyle" ng-show="toDownloadThePdf">
+            <br /><br />
+                  <md-button class="md-raised" href="{{pdfUrl}}">Download and view&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
+        </div>
+
     </md-content>
 
 
