@@ -1,11 +1,11 @@
 ﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http, $routeParams) {
-    
+
     var tripApi = "https://localhost:44399/api/Trips";
     var vehicleApi = "https://localhost:44399/api/Vehicles";
 
     var dateVal = new Date();
 
-    // the JSON data.
+    // JSON data.
     $scope.registerNewTrip = {
         tripDate: dateVal,
         startKilometerReading: '',
@@ -16,19 +16,18 @@
         notes: ''
     };
 
-    // To have active vehicles as drop-down option.
-    $http.get(vehicleApi).then(function (response) {
+    // GET - active vehicles as drop-down options.
+    $http({
+        method: 'GET',
+        url: vehicleApi,
+        headers: {
+            'Authorization': 'Bearer ' + $rootScope.token,
+        }
+    }).then(function (response) {
         $scope.vehicles = response.data;
-
-        // 'vehicle' here is the value - 'Active' and 'RegistrationNumber' are keys...
-        angular.forEach($scope.vehicles, function (vehicle) {
-            if (vehicle.Active === true) {
-                //
-            }
-        });
     });
 
-
+    
     $scope.getStartLocation = function () {
         navigator.geolocation.getCurrentPosition(function (position, showError) {
             var geocoder = new google.maps.Geocoder();
@@ -98,26 +97,19 @@
             url: tripApi,
             data: $scope.registerNewTrip,
             headers: {
-                //'Authorization': 'Bearer ' + $rootScope.token,
+                'Authorization': 'Bearer ' + $rootScope.token,
                 'Accept': 'application/json; charset=utf-8',
                 'Content-Type': 'application/json; charset=utf-8'
             }
         }).then(function (data) {
             console.log(data);
-            // need to reload the page...or redirect somewhere?
+            location.reload();
         });
     };
-
-
-
-
+    
     $scope.go = function (path) {
         $location.path(path);
     };
-
-
-
-
 
 });
 

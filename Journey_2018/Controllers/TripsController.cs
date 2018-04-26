@@ -18,6 +18,19 @@ namespace Journey_2018.Controllers
     {
         private DefaultDataContext db = new DefaultDataContext();
 
+
+
+
+        // GET a list of trips done by a vehicle.
+        public List<Trip> GetTripsByVehicleId(int vehicleId)
+        {
+            return db.Trips.Where(x => x.Vehicle_Id == vehicleId).ToList();
+        }
+
+
+
+
+
         // GET: api/Trips
         public IQueryable<Trip> GetTrips()
         {
@@ -38,24 +51,6 @@ namespace Journey_2018.Controllers
             return Ok(trip);
         }
         
-
-
-        //// TODO:
-
-        //// GET: api/TripsByVehicle
-        //[HttpGet]
-        //[Route("api/TripsByVehicle")]
-        //public IQueryable<Trip> GetTripsByVehicle()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.
-        //    }
-            
-        //}
-        
-
-
         // PUT: api/Trips/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutTrip(int id, Trip trip)

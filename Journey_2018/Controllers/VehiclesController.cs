@@ -20,7 +20,7 @@ namespace Journey_2018.Controllers
     public class VehiclesController : ApiController
     {
         private DefaultDataContext db = new DefaultDataContext();
-
+        
         // GET: api/Vehicles
         [HttpGet]
         [Route("api/Vehicles")]
