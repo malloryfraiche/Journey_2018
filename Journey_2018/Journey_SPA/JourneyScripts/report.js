@@ -13,39 +13,19 @@
         }
     }).then(function (response) {
         $scope.vehicles = response.data;
-
-        // Just testing angularJs forEach loops in a GET...
-        angular.forEach(response.data, function (vehicle) {
-            if (vehicle.Active === true) {
-                console.log(vehicle.RegistrationNumber);
-            }
-            if (vehicle.DefaultVehicle === true) {
-                console.log("the default vehicle: " + vehicle.RegistrationNumber);
-            }
-        });
-
     });
 
+    // JSON data for the chart and pdf creation.
+    var fromDateVal = new Date();
+    var toDateVal = new Date();
+    $scope.reportCreation = {
+        vehicleId: '',
+        fromDate: fromDateVal,
+        toDate: toDateVal
+    };
 
-    $scope.getChart = function (isValid) {
-        // Make sure the fields are filled out.
-        if (!reportCreation.selectModel || !reportCreation.fromDate || !reportCreation.toDate) {
-            $scope.noSelectionMadeMessage = true;
-            return;
-        }
-        $scope.noSelectionMadeMessage = false;
-
-        var fromDateVal = new Date();
-        var toDateVal = new Date();
-        var selectedVal = $scope.reportCreation.selectModel;
-
-        // JSON data for the charts.
-        $scope.reportCreation = {
-            vehicleId: selectedVal,
-            fromDate: fromDateVal,
-            toDate: toDateVal
-        };
-
+    $scope.getChart = function () {
+        // POST - to post to the chart api and then get the information into the chart diagram.
         $http({
             method: 'POST',
             url: chartApi,
@@ -56,43 +36,23 @@
                 'Content-Type': 'application/json; charset=utf-8'
             }
         }).then(function (response) {
-            
-            
-            $scope.chartLabels = [];
-            $scope.chartData = [];
-            angular.forEach(response.data, function (trip, t) {
-
-                if ((trip.stopKilometerReading - trip.startKilometerReading) <= 20) {
-
+            var trips = response.data;
+            $scope.chartLabels = ["Trips between 0-20km", "Trips between 21-50km", "Trips between 51-200km"];
+            $scope.chartData = [0,0,0];
+            angular.forEach(response.data, function (trip) {
+                var totalKmValue = trip.StopKilometerReading - trip.StartKilometerReading;
+                if (totalKmValue <= 20) {
+                    $scope.chartData[0]++;
+                } else if (totalKmValue > 20 && totalKmValue <= 50) {
+                    $scope.chartData[1]++;
+                } else if (totalKmValue > 50) {
+                    $scope.chartData[2]++;
                 }
-
-                $scope.chartLabels.push("Trip Id: " + trip.id);
-                $scope.chartData.push();
-                
             }, function (error) { console.log(error); });
-
         });
-
     };
-
-
-
-
-
-
+    
     $scope.generatePdf = function () {
-
-        var fromDateVal = new Date();
-        var toDateVal = new Date();
-        var selectedVal = $scope.reportCreation.selectModel;
-
-        // JSON data (DownloadModel.cs).
-        $scope.reportCreation = {
-            vehicleId: selectedVal,
-            fromDate: fromDateVal,
-            toDate: toDateVal
-        };
-
         // POST - to generate the pdf and get the url to download it...
         $http({
             method: 'POST',
@@ -112,8 +72,7 @@
             console.log(error);
         });
     };
-
-
+    
     $scope.go = function (path) {
         $location.path(path);
     };

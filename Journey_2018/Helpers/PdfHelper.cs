@@ -28,7 +28,7 @@ namespace Journey_2018.Helpers
 
         private static string BuildPdfAndReturnUrl(List<Trip> vehicleTrips, Vehicle vehicle, DateTime fromDate, DateTime toDate)
         {
-            var destination = @"/documents";
+            var destination = @"/pdfDocuments";
             var fileSuffix = string.Format("/{0}_trips.pdf", vehicle.RegistrationNumber);
 
             //Create destination folder if it doesn't exist
@@ -37,7 +37,7 @@ namespace Journey_2018.Helpers
 
             using (Document document = new Document(PageSize.A4))
             {
-                var internalPath = @"C:\Temp";
+                var internalPath = @"C:\Users\Administratör\Desktop\Journey_2018\Journey_2018";
 
                 using (PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(internalPath + destination + fileSuffix, FileMode.Create)))
                 {
@@ -117,10 +117,6 @@ namespace Journey_2018.Helpers
                 
         //    }
         //}
-
-
-
-
-
+        
     }
 }

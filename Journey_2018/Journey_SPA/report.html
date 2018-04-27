@@ -9,7 +9,7 @@
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
-            <md-select ng-model="reportCreation.selectModel">
+            <md-select ng-model="reportCreation.vehicleId">
                 <md-option ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
@@ -31,7 +31,7 @@
 
         <br /><br />
         <div class="centerStyle">
-            <md-button type="submit" class="md-raised md-primary" ng-click="getChart($valid)">Get chart</md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="getChart()">Get chart</md-button>
             <br />
             <h4><span style="color:red;" ng-show="noSelectionMadeMessage">Please make a selection.</span></h4>
         </div>
