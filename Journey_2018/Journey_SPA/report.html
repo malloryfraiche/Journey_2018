@@ -31,10 +31,24 @@
 
         <br /><br />
         <div class="centerStyle">
-            <md-button type="submit" class="md-raised md-primary" ng-click="getChart()">Get chart</md-button>
+            <md-button type="submit" class="md-raised md-primary" ng-click="getChart($valid)">Get chart</md-button>
             <br />
             <h4><span style="color:red;" ng-show="noSelectionMadeMessage">Please make a selection.</span></h4>
         </div>
+
+
+
+        <div>
+            <canvas
+                    class="chart chart-doughnut"
+                    chart-data="chartData"
+                    chart-labels="chartLabels"
+                    chart-click="chartClick">
+            </canvas>
+        </div>
+
+
+
 
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="generatePdf()">Generate&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>

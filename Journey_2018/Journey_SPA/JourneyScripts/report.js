@@ -2,6 +2,7 @@
 
     var vehicleApi = "https://localhost:44399/api/Vehicles";
     var generatePdfApi = "https://localhost:44399/api/reports/generate";
+    var chartApi = "https://localhost:44399/api/chart";
 
     // GET - active vehicles as drop-down options.
     $http({
@@ -33,7 +34,45 @@
             return;
         }
         $scope.noSelectionMadeMessage = false;
-        
+
+        var fromDateVal = new Date();
+        var toDateVal = new Date();
+        var selectedVal = $scope.reportCreation.selectModel;
+
+        // JSON data for the charts.
+        $scope.reportCreation = {
+            vehicleId: selectedVal,
+            fromDate: fromDateVal,
+            toDate: toDateVal
+        };
+
+        $http({
+            method: 'POST',
+            url: chartApi,
+            data: $scope.reportCreation,
+            headers: {
+                'Authorization': 'Bearer ' + $rootScope.token,
+                'Accept': 'application/json; charset=utf-8',
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+        }).then(function (response) {
+            
+            
+            $scope.chartLabels = [];
+            $scope.chartData = [];
+            angular.forEach(response.data, function (trip, t) {
+
+                if ((trip.stopKilometerReading - trip.startKilometerReading) <= 20) {
+
+                }
+
+                $scope.chartLabels.push("Trip Id: " + trip.id);
+                $scope.chartData.push();
+                
+            }, function (error) { console.log(error); });
+
+        });
+
     };
 
 
@@ -42,6 +81,7 @@
 
 
     $scope.generatePdf = function () {
+
         var fromDateVal = new Date();
         var toDateVal = new Date();
         var selectedVal = $scope.reportCreation.selectModel;
@@ -73,7 +113,7 @@
         });
     };
 
-    
+
     $scope.go = function (path) {
         $location.path(path);
     };
