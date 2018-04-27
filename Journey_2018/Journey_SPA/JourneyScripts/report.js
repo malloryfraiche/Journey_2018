@@ -33,8 +33,7 @@
             return;
         }
         $scope.noSelectionMadeMessage = false;
-
-
+        
     };
 
 
@@ -43,7 +42,6 @@
 
 
     $scope.generatePdf = function () {
-
         var fromDateVal = new Date();
         var toDateVal = new Date();
         var selectedVal = $scope.reportCreation.selectModel;
@@ -73,9 +71,6 @@
             $scope.pdfUrl = "";
             console.log(error);
         });
-
-
-
     };
 
     

@@ -27,6 +27,12 @@ namespace Journey_2018.Controllers
             return db.Trips.Where(x => x.Vehicle_Id == vehicleId).ToList();
         }
 
+        // GET a list of trips by the vehicles id within a certain time sapn.
+        public List<Trip> GetTripsByDates(int vehicleId, DateTime fromDate, DateTime toDate)
+        {
+            return db.Trips.Where(x => x.Vehicle_Id == vehicleId && x.TripDate > fromDate && x.TripDate < toDate).ToList();
+        }
+
 
 
 

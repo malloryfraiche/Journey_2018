@@ -16,8 +16,11 @@ namespace Journey_2018.Helpers
     {
         public static string GetVehicleTripsPdfUrl(DownloadModel downloadModel)
         {
-            var vehicleTrips = TripsController.GetTripsByVehicleId(downloadModel.VehicleId);
-            var vehicle = VehiclesController.GetVehicles().FirstOrDefault(x => x.Id == downloadModel.VehicleId);
+            var tripsController = new TripsController();
+            var vehicleController = new VehiclesController();
+
+            var vehicleTrips = tripsController.GetTripsByVehicleId(downloadModel.VehicleId);
+            var vehicle = vehicleController.GetVehicles().FirstOrDefault(x => x.Id == downloadModel.VehicleId);
             var url = BuildPdfAndReturnUrl(vehicleTrips, vehicle, downloadModel.FromDate, downloadModel.ToDate);
 
             return url;

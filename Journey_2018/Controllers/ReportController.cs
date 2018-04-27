@@ -20,9 +20,15 @@ namespace Journey_2018.Controllers
             return Ok(url);
         }
 
-
-
-
-
+        // POST: api/chart
+        [Route("api/chart")]
+        [HttpPost]
+        public IHttpActionResult GenerateChart(DownloadModel selection)
+        {
+            var tripsController = new TripsController();
+            var vehicleTrips = tripsController.GetTripsByDates(selection.VehicleId, selection.FromDate, selection.ToDate);
+            return Ok(vehicleTrips);
+        }
+        
     }
 }
