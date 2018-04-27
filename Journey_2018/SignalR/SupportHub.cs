@@ -7,8 +7,10 @@ using Microsoft.AspNet.SignalR;
 
 namespace Journey_2018.SignalR
 {
+    [Authorize]
     public class SupportHub : Hub
     {
+        [Authorize]
         public void Send(string name, string message)
         {
             Clients.All.broadcastMessage(name, message);
@@ -20,6 +22,9 @@ namespace Journey_2018.SignalR
         {
             // trigger when someone connects to hub.
             // can have a function that shows a list of the connected users..
+            //var connectionId = Context.ConnectionId;
+            //var username = Context.QueryString["UserName"];
+
             return base.OnConnected();
         }
 
