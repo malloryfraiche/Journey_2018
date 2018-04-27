@@ -19,5 +19,10 @@ namespace Journey_2018.Controllers
             var url = PdfHelper.GetVehicleTripsPdfUrl(downloadModel);
             return Ok(url);
         }
+
+
+
+
+
     }
 }

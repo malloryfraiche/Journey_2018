@@ -30,14 +30,20 @@
         </div>
 
         <br /><br />
+        <div class="centerStyle">
+            <md-button type="submit" class="md-raised md-primary" ng-click="getChart()">Get vehicles trips</md-button>
+            <br />
+            <h4><span style="color:red;" ng-show="noSelectionMadeMessage">Please make a selection.</span></h4>
+        </div>
 
+        <br />
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="generatePdf()">Generate&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
         </div>
 
         <div class="centerStyle" ng-show="toDownloadThePdf">
             <br /><br />
-                  <md-button class="md-raised" href="{{pdfUrl}}">Download and view&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
+            <md-button class="md-raised" href="{{pdfUrl}}">Download and view&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
         </div>
 
     </md-content>

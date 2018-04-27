@@ -26,6 +26,21 @@
     });
 
 
+    $scope.getChart = function (isValid) {
+        // Make sure the fields are filled out.
+        if (!reportCreation.selectModel || !reportCreation.fromDate || !reportCreation.toDate) {
+            $scope.noSelectionMadeMessage = true;
+            return;
+        }
+        $scope.noSelectionMadeMessage = false;
+
+
+    };
+
+
+
+
+
 
     $scope.generatePdf = function () {
 
@@ -63,12 +78,7 @@
 
     };
 
-
-
-    // code here to take the chosen date span and get info..
-    //$scope.fromDateValue = "";
-    //$scope.toDateValue = "";
-
+    
     $scope.go = function (path) {
         $location.path(path);
     };
