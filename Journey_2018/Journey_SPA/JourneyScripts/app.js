@@ -7,7 +7,7 @@
     5. loggning
 */
 
-angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages']);
+angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages', 'chart.js']);
 
 angular.module('app').config(function ($routeProvider) {
     $routeProvider
