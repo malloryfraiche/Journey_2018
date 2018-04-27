@@ -65,7 +65,7 @@ namespace Journey_2018.Helpers
                         PdfPTable table = new PdfPTable(2);
                         PdfPCell cell = new PdfPCell(new Phrase("Trip Id Number: " + trip.Id));
                         cell.Colspan = 2;
-                        cell.BackgroundColor = BaseColor.BLUE;
+                        cell.BackgroundColor = BaseColor.CYAN;
                         
                         cell.HorizontalAlignment = 1;
                         cell.Padding = 5;

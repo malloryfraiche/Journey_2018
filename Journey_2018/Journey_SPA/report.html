@@ -36,9 +36,7 @@
             <h4><span style="color:red;" ng-show="noSelectionMadeMessage">Please make a selection.</span></h4>
         </div>
 
-
-
-        <div>
+        <div ng-show="showTheChart">
             <canvas
                     class="chart chart-doughnut"
                     chart-data="chartData"
@@ -46,9 +44,6 @@
                     chart-click="chartClick">
             </canvas>
         </div>
-
-
-
 
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="generatePdf()">Generate&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>

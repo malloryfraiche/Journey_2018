@@ -3,6 +3,7 @@
     var vehicleApi = "https://localhost:44399/api/Vehicles";
     var generatePdfApi = "https://localhost:44399/api/reports/generate";
     var chartApi = "https://localhost:44399/api/chart";
+    $scope.showTheChart = false;
 
     // GET - active vehicles as drop-down options.
     $http({
@@ -36,6 +37,7 @@
                 'Content-Type': 'application/json; charset=utf-8'
             }
         }).then(function (response) {
+            $scope.showTheChart = true;
             var trips = response.data;
             $scope.chartLabels = ["Trips between 0-20km", "Trips between 21-50km", "Trips between 51-200km"];
             $scope.chartData = [0,0,0];
