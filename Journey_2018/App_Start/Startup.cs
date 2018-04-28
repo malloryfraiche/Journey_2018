@@ -34,7 +34,26 @@ namespace Journey_2018.App_Start
 
             // Token generation.
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions()
+            {
+                Provider = new QueryStringOAuthBearerProvider()
+            });
         }
+
+        // Class to get Authorization together with SignalR.
+        public class QueryStringOAuthBearerProvider : OAuthBearerAuthenticationProvider
+        {
+            public override Task RequestToken(OAuthRequestTokenContext context)
+            {
+                var value = context.Request.Query.Get("access_token");
+                if (!string.IsNullOrEmpty(value))
+                {
+                    context.Token = value;
+                }
+                return Task.FromResult<object>(context);
+            }
+        }
+
+
     }
 }

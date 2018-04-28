@@ -1,6 +1,22 @@
 ﻿angular.module('app').controller('support', function ($scope, $location) {
 
-    
+    var connection = $.hubConnection();
+
+    //var token = authService.authentication.tokenBearer;
+    //connection.qs = { 'access_token': token };
+
+    var supportHubProxy = connection.createHubProxy('SupportHub');
+    supportHubProxy.on('broadcastMessage', function (name, message) {
+        var enteredName = $('<div />').text(name).html();
+        var enteredMsg = $('<div />').text(message).html();
+        $('#discussion').append('<li><strong>' + enteredName + '</strong>:&nbsp;&nbsp;' + enteredMsg + '</li>');
+    });
+    connection.start().done(function () {
+        $('#sendmessage').click(function () {
+            supportHubProxy.invoke('send', $('#displayname').val(), $('#message').val());
+            $('#message').val('').focus();
+        });
+    });
 
 
 

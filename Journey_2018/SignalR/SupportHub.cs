@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Journey_2018.Models;
 using Microsoft.AspNet.SignalR;
 
 namespace Journey_2018.SignalR
 {
-    [Authorize]
+    //[Authorize]
     public class SupportHub : Hub
     {
-        [Authorize]
+        //[Authorize]
         public void Send(string name, string message)
         {
             Clients.All.broadcastMessage(name, message);
         }
-
-
-
+        
         public override Task OnConnected()
         {
             // trigger when someone connects to hub.
             // can have a function that shows a list of the connected users..
-            //var connectionId = Context.ConnectionId;
-            //var username = Context.QueryString["UserName"];
-
+            var user = new User();
+            var connectionId = user.UserName;
+            var username = Context.QueryString["UserName"];
+            
             return base.OnConnected();
         }
 
