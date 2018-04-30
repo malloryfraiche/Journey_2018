@@ -14,9 +14,7 @@ namespace Journey_2018.Providers
     {
         public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            
             context.Validated();
-            //return Task.FromResult<object>(null);
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)

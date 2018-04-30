@@ -8,10 +8,10 @@ using Microsoft.AspNet.SignalR;
 
 namespace Journey_2018.SignalR
 {
-    //[Authorize]
+    [Authorize]
     public class SupportHub : Hub
     {
-        //[Authorize]
+        [Authorize]
         public void Send(string name, string message)
         {
             Clients.All.broadcastMessage(name, message);
@@ -20,11 +20,6 @@ namespace Journey_2018.SignalR
         public override Task OnConnected()
         {
             // trigger when someone connects to hub.
-            // can have a function that shows a list of the connected users..
-            var user = new User();
-            var connectionId = user.UserName;
-            var username = Context.QueryString["UserName"];
-            
             return base.OnConnected();
         }
 

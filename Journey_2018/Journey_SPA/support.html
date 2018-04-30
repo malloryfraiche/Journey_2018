@@ -6,15 +6,36 @@
 
 
 
+    
     <md-content md-whiteframe="20" layout-padding>
 
 
-        <div class="centerStyle">
-            <input type="text" id="message" />
-            <input type="button" id="sendmessage" value="Send" />
+        <!--<input type="hidden" id="displayname" />-->
+        <!--<div id="discussion"></div>-->
+
+        <!--<div ng-repeat="message in messages">-->
             <input type="hidden" id="displayname" />
-            <ul id="discussion"></ul>
-        </div>
+            <p id="discussion"></p>
+            
+        <!--</div>-->
+
+
+
+        <br /><br />
+        <md-content layout-gt-sm="row" layout-padding>
+            <md-input-container layout layout-align="center">
+                <div layout="row" flex>
+                    <div flex class="md-icon-float">
+                        <label></label>
+                        <input type="text" id="message">
+                    </div>
+                        <md-button type="button" class="md-fab md-mini md-raised" ng-click="sendMessage()">
+                            <md-icon md-svg-icon="content:send"></md-icon>
+                        </md-button>
+                </div>
+            </md-input-container>
+        </md-content>
+
 
 
     </md-content>
