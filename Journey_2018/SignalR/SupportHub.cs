@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using Journey_2018.Models;
@@ -14,7 +15,15 @@ namespace Journey_2018.SignalR
         [Authorize]
         public void Send(string name, string message)
         {
-            Clients.All.broadcastMessage(name, message);
+            Clients.All.broadcastMessage(GetUserName(), message);
+        }
+
+        public string GetUserName()
+        {
+            var identity = (ClaimsIdentity)Context.User.Identity;
+            // To get the user_name claim from the AuthorizationServerProvider.cs.
+            var name = identity.Claims.FirstOrDefault(x => x.Type.Equals("user_name")).Value;
+            return name;
         }
         
         public override Task OnConnected()

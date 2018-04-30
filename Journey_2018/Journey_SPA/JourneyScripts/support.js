@@ -1,18 +1,20 @@
 ﻿angular.module('app').controller('support', function ($scope, $location, $http, $rootScope) {
-    
+
+
+
+
+    $scope.supportWelcomeMessage = "Welcome! What would you like help with?";
+
     var connection = $.hubConnection();
     connection.qs = { 'access_token': $rootScope.token };
+    
     var supportHubProxy = connection.createHubProxy('SupportHub');
 
     supportHubProxy.on('broadcastMessage', function (name, message) {
-        var enteredName = $('<div />').text(name).html();
+        var inloggedUser = $('<div />').text(name).html().toUpperCase();
         var enteredMsg = $('<div />').text(message).html();
-        $('#discussion').append('<strong>' + enteredName + '</strong>:&nbsp;&nbsp;' + enteredMsg + '<md-divider></md-divider><br />');
+        $('#discussion').append('<strong>' + inloggedUser + '</strong>:&nbsp;&nbsp;' + enteredMsg + '<md-divider></md-divider><br />');
     });
-
-    $('#displayname').val(prompt('Enter your name:', ''));
-    $('#message').focus();
-
     connection.start().done(function () {
         $scope.sendMessage = function () {
             supportHubProxy.invoke('send', $('#displayname').val(), $('#message').val());

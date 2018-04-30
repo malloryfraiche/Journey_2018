@@ -81,6 +81,34 @@ namespace Journey_2018.Controllers
 
 
 
+        //// GET: api/User
+        //[Route("api/User")]
+        //[HttpGet]
+        //public async Task<IHttpActionResult> GetUser(User user)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    IdentityResult result = await _repo.RegisterUser(user);
+
+        //    if (result == null) return InternalServerError();
+
+        //    return Ok(user);
+        //}
+
+
+
+
+
+
+
+
+
+
+
+
 
         //// POST: api/Users
         //[ResponseType(typeof(User))]

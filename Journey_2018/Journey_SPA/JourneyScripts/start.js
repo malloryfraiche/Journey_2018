@@ -1,9 +1,13 @@
-﻿angular.module('app').controller('start', function ($scope, $location) {
+﻿angular.module('app').controller('start', function ($scope, $location, $rootScope) {
 
     $('#toolbar').show();
 
     $scope.go = function (path) {
-        $location.path(path);
+        if ($rootScope.token === '') {
+            $location.path("/");
+        } else {
+            $location.path(path);
+        }
     };
 
     $scope.Logout = function () {

@@ -4,22 +4,12 @@
 
     <h3 class="centerStyle">Support</h3><br />
 
-
-
-    
     <md-content md-whiteframe="20" layout-padding>
 
+        <h4 class="centerStyle">{{supportWelcomeMessage}}</h4>
 
-        <!--<input type="hidden" id="displayname" />-->
-        <!--<div id="discussion"></div>-->
-
-        <!--<div ng-repeat="message in messages">-->
-            <input type="hidden" id="displayname" />
-            <p id="discussion"></p>
-            
-        <!--</div>-->
-
-
+        <input type="hidden" id="displayname" />
+        <p id="discussion"></p>
 
         <br /><br />
         <md-content layout-gt-sm="row" layout-padding>
@@ -29,19 +19,14 @@
                         <label></label>
                         <input type="text" id="message">
                     </div>
-                        <md-button type="button" class="md-fab md-mini md-raised" ng-click="sendMessage()">
-                            <md-icon md-svg-icon="content:send"></md-icon>
-                        </md-button>
+                    <md-button type="button" class="md-fab md-mini md-raised" ng-click="sendMessage()">
+                        <md-icon md-svg-icon="content:send"></md-icon>
+                    </md-button>
                 </div>
             </md-input-container>
         </md-content>
 
-
-
     </md-content>
-
-
-
 
     <br />
     <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
