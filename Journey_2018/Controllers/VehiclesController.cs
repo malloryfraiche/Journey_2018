@@ -20,7 +20,7 @@ namespace Journey_2018.Controllers
     public class VehiclesController : ApiController
     {
         private DefaultDataContext db = new DefaultDataContext();
-        
+
         // GET: api/Vehicles
         [HttpGet]
         [Route("api/Vehicles")]
@@ -58,11 +58,11 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-            
+
             return Ok(vehicle);
         }
 
-        
+
 
         // PUT: api/Vehicles/5
         [HttpPut]
@@ -83,20 +83,15 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest();
             }
-            
+
             db.Entry(vehicle).State = EntityState.Modified;
 
-            //foreach (var defaultVehicle in db.Vehicles)
-            //{
-            //    if (defaultVehicle.DefaultVehicle == true)
-            //    {
-
-            //    }
-            //    else
-            //    {
-
-            //    }
-            //}
+            // To have only one vehicle in DB save as the default vehicle.
+            if (vehicle.DefaultVehicle == true)
+            {
+                List<Vehicle> otherVehicles = db.Vehicles.Where(x => x.DefaultVehicle == true).ToList();
+                otherVehicles.Select(x => { x.DefaultVehicle = false; return x; }).ToList();
+            }
 
             try
             {
@@ -140,7 +135,7 @@ namespace Journey_2018.Controllers
             return Ok(vehicle);
         }
 
-       
+
         // DELETE: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
         public async Task<IHttpActionResult> DeleteVehicle(int id)
