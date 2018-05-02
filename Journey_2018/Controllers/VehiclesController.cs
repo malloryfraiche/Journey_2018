@@ -21,6 +21,9 @@ namespace Journey_2018.Controllers
     {
         private DefaultDataContext db = new DefaultDataContext();
 
+        // log4net interface variabel.
+        private readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         // GET: api/Vehicles
         [HttpGet]
         [Route("api/Vehicles")]
@@ -34,18 +37,10 @@ namespace Journey_2018.Controllers
         [Route("api/VehiclesByUser")]
         public IQueryable<Vehicle> GetVehiclesByUser(Vehicle vehicle)
         {
-            //TODO: Add filter for User
-            //so i can get a List of the vehicles that are connected to the User.
             ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
             var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
             IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
             vehicle.User_Id = user.Id;
-
-            //var usersVehicles = new List<Vehicle>() {
-
-            //};
-
-            //return usersVehicles;
             return db.Vehicles;
         }
 
@@ -58,12 +53,10 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-
             return Ok(vehicle);
         }
 
-
-
+        
         // PUT: api/Vehicles/5
         [HttpPut]
         [ResponseType(typeof(void))]
@@ -73,26 +66,21 @@ namespace Journey_2018.Controllers
             var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
             IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
             vehicle.User_Id = user.Id;
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
             if (id != vehicle.Id)
             {
                 return BadRequest();
             }
-
             db.Entry(vehicle).State = EntityState.Modified;
-
             // To have only one vehicle in DB save as the default vehicle.
             if (vehicle.DefaultVehicle == true)
             {
                 List<Vehicle> otherVehicles = db.Vehicles.Where(x => x.DefaultVehicle == true).ToList();
                 otherVehicles.Select(x => { x.DefaultVehicle = false; return x; }).ToList();
             }
-
             try
             {
                 await db.SaveChangesAsync();
@@ -108,7 +96,6 @@ namespace Journey_2018.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 
@@ -118,23 +105,26 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
-            ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
-            var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
-            IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
-            vehicle.User_Id = user.Id;
-
-            if (!ModelState.IsValid)
+            // try-catch for log4net functionality.
+            try
             {
-                return BadRequest(ModelState);
+                ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+                var username = principal.Claims.Where(c => c.Type == "user_name").Single().Value;
+                IdentityUser user = db.Users.SingleOrDefault(u => u.UserName == username);
+                vehicle.User_Id = user.Id;
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                db.Vehicles.Add(vehicle);
+                await db.SaveChangesAsync();
             }
-
-            db.Vehicles.Add(vehicle);
-
-            await db.SaveChangesAsync();
-
+            catch (Exception ex)
+            {
+                _log.Error(ex);
+            }
             return Ok(vehicle);
         }
-
 
         // DELETE: api/Vehicles/5
         [ResponseType(typeof(Vehicle))]
@@ -145,10 +135,8 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-
             db.Vehicles.Remove(vehicle);
             await db.SaveChangesAsync();
-
             return Ok(vehicle);
         }
 
@@ -167,51 +155,3 @@ namespace Journey_2018.Controllers
         }
     }
 }
-
-
-
-
-
-//[ResponseType(typeof(Vehicle))]
-//[Route("api/Vehicles")]
-//public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
-//{
-//    Vehicle vehicleToUpdate = null;
-
-//    if (vehicle.Id > 0)
-//    {
-//        
-//        vehicleToUpdate = db.Vehicles.Include(x => x.Trips).First(i => i.Id == vehicle.Id);
-//    }
-//    else
-//    {
-//        // if not creates a new Vehicle instance.
-//        vehicleToUpdate = new Vehicle();
-//    }
-
-//    // data to be filled into the Model from the new instance.
-//    vehicleToUpdate.RegistrationNumber = vehicle.RegistrationNumber;
-//    foreach (var trip in db.Trips)
-//    {
-//        if (!vehicle.Trips.Any(item => item.Id == trip.Id))
-//        {
-//            vehicleToUpdate.Trips.Remove(trip);
-//        }
-//        else
-//        {
-//            vehicleToUpdate.Trips.Add((trip));
-//        }
-//    }
-
-//    if (vehicle.Id > 0)
-//    {
-//        db.Entry(vehicleToUpdate).State = EntityState.Modified;
-//    }
-//    else
-//    {
-//        db.Vehicles.Add(vehicleToUpdate);
-//    }
-
-//    await db.SaveChangesAsync();
-//    return Ok(vehicle);
-//}
