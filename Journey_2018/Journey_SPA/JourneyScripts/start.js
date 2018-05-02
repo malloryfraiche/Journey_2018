@@ -12,7 +12,9 @@
 
     $scope.Logout = function () {
         console.log("Logging out...");
-        //sessionStorage.removeItem('');
+        $rootScope.token = '';
+        console.log($rootScope.token);
+        console.log("EMPTY token.");
         $location.path("/");
     };
 

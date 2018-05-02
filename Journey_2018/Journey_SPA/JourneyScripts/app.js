@@ -42,7 +42,7 @@ angular.module('app').config(function ($mdIconProvider) {
 });
 
 
-angular.module('app').controller('navigationBar', function ($location, $scope) {
+angular.module('app').controller('navigationBar', function ($location, $scope, $rootScope) {
 
     // Navbar menu functionality.
     var originalEvent;
@@ -56,7 +56,9 @@ angular.module('app').controller('navigationBar', function ($location, $scope) {
 
     $scope.Logout = function () {
         console.log("Logging out...");
-        //sessionStorage.removeItem('');
+        $rootScope.token = '';
+        console.log($rootScope.token);
+        console.log("EMPTY token.");
         $location.path("/");
     };
 
