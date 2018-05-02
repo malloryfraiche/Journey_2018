@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('manageVehicles', function ($scope, $location, $mdDialog, $timeout, $http, $rootScope) {
+﻿angular.module('app').controller('manageVehicles', ['$scope', '$location', '$mdDialog', '$timeout', '$http', '$rootScope', function ($scope, $location, $mdDialog, $timeout, $http, $rootScope) {
 
     var vehicleApi = "https://localhost:44399/api/Vehicles";
 
@@ -73,7 +73,7 @@
     $scope.go = function (path) {
         $location.path(path);
     };
-});
+}]);
 
 
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.

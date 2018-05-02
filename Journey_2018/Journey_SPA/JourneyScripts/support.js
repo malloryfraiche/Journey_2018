@@ -1,8 +1,5 @@
-﻿angular.module('app').controller('support', function ($scope, $location, $http, $rootScope) {
-
-
-
-
+﻿angular.module('app').controller('support', ['$scope', '$location', '$http', '$rootScope', function ($scope, $location, $http, $rootScope) {
+    
     $scope.supportWelcomeMessage = "Welcome! What would you like help with?";
 
     var connection = $.hubConnection();
@@ -21,11 +18,8 @@
             $('#message').val('').focus();
         };
     });
-
-
-
-
+    
     $scope.go = function (path) {
         $location.path(path);
     };
-});
+}]);

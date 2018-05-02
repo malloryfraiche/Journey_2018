@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('start', function ($scope, $location, $rootScope) {
+﻿angular.module('app').controller('start', ['$scope', '$location', '$rootScope', function ($scope, $location, $rootScope) {
 
     $('#toolbar').show();
 
@@ -18,10 +18,10 @@
         $location.path("/");
     };
 
-})
-    .config(function ($mdThemingProvider) {
+}])
+    .config(['$mdThemingProvider', function ($mdThemingProvider) {
 
         $mdThemingProvider.theme('dark-grey').backgroundPalette('blue-grey');
         $mdThemingProvider.theme('backOrLogout').backgroundPalette('blue-grey').dark();
 
-    });
+    }]);

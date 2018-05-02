@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('report', function ($scope, $location, $http, $rootScope) {
+﻿angular.module('app').controller('report', ['$scope', '$location', '$http', '$rootScope', function ($scope, $location, $http, $rootScope) {
 
     var vehicleApi = "https://localhost:44399/api/Vehicles";
     var generatePdfApi = "https://localhost:44399/api/reports/generate";
@@ -85,4 +85,4 @@
     $scope.go = function (path) {
         $location.path(path);
     };
-});
+}]);

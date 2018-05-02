@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('registerNewTrip', function ($scope, $location, $rootScope, $http, $routeParams) {
+﻿angular.module('app').controller('registerNewTrip', ['$scope', '$location', '$rootScope', '$http', '$routeParams', function ($scope, $location, $rootScope, $http, $routeParams) {
 
     var tripApi = "https://localhost:44399/api/Trips";
     var vehicleApi = "https://localhost:44399/api/Vehicles";
@@ -111,5 +111,5 @@
         $location.path(path);
     };
 
-});
+}]);
 

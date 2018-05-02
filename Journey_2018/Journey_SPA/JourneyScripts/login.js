@@ -1,4 +1,4 @@
-﻿angular.module('app').controller('login', function ($scope, $rootScope, $location, $timeout, $http) {
+﻿angular.module('app').controller('login', ['$scope', '$rootScope', '$location', '$timeout', '$http', function ($scope, $rootScope, $location, $timeout, $http) {
 
     $rootScope.token = '';
 
@@ -30,4 +30,4 @@
     $scope.go = function (path) {
         $location.path(path);
     };
-});
+}]);

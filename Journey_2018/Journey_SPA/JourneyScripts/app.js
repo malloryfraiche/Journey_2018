@@ -4,12 +4,11 @@
     2. routing configuration
     3. mdIconProvider
     4. navbar controller
-    5. loggning
 */
 
 angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages', 'chart.js']);
 
-angular.module('app').config(function ($routeProvider) {
+angular.module('app').config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when("/", { templateUrl: "login.html", controller: "login" })
         .when("/createNewAccount", { templateUrl: "createNewAccount.html", controller: "createNewAccount" })
@@ -20,13 +19,9 @@ angular.module('app').config(function ($routeProvider) {
         .when("/manageVehicles", { templateUrl: "manageVehicles.html", controller: "manageVehicles" })
         .when("/support", { templateUrl: "support.html", controller: "support" })
         .otherwise({ redirectTo: "/" });
+}]);
 
-    // have a route to a newTrip with an id number...check the angular powerpoints...
-
-});
-
-
-angular.module('app').config(function ($mdIconProvider) {
+angular.module('app').config(['$mdIconProvider', function ($mdIconProvider) {
     $mdIconProvider
         .iconSet("social", "../Content/angular-material-icons/social.svg")
         .iconSet("communication", "../Content/angular-material-icons/communication.svg")
@@ -39,11 +34,9 @@ angular.module('app').config(function ($mdIconProvider) {
         .iconSet("pdf", "../Content/angular-material-icons/ic_picture_as_pdf_black_48px.svg")
         .iconSet("editor", "../Content/angular-material-icons/editor.svg")
         .iconSet("content", "../Content/angular-material-icons/content.svg");
-});
+}]);
 
-
-angular.module('app').controller('navigationBar', function ($location, $scope, $rootScope) {
-
+angular.module('app').controller('navigationBar', ['$location', '$scope', '$rootScope', function ($location, $scope, $rootScope) {
     // Navbar menu functionality.
     var originalEvent;
     this.openMainMenu = function ($mdMenu, event) {
@@ -53,7 +46,6 @@ angular.module('app').controller('navigationBar', function ($location, $scope, $
     this.go = function (path) {
         $location.path(path);
     };
-
     $scope.Logout = function () {
         console.log("Logging out...");
         $rootScope.token = '';
@@ -61,10 +53,4 @@ angular.module('app').controller('navigationBar', function ($location, $scope, $
         console.log("EMPTY token.");
         $location.path("/");
     };
-
-});
-
-
-
-
-
+}]);
