@@ -22,7 +22,7 @@ namespace Journey_2018.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

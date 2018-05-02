@@ -13,7 +13,18 @@
         $('#discussion').append('<strong>' + inloggedUser + '</strong>:&nbsp;&nbsp;' + enteredMsg + '<md-divider></md-divider><br />');
     });
     connection.start().done(function () {
+
+        //var input = document.getElementById("message");
+        //input.addEventListener('keyup', function (event) {
+        //    event.preventDefault();
+        //    if (event.keyCode === 13) {
+        //        supportHubProxy.invoke('send', $('#displayname').val(), $('#message').val());
+        //        $('#message').val('').focus();
+        //    }
+        //});
+
         $scope.sendMessage = function () {
+            
             supportHubProxy.invoke('send', $('#displayname').val(), $('#message').val());
             $('#message').val('').focus();
         };
