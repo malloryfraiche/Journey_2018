@@ -5,9 +5,7 @@
     3. mdIconProvider
     4. navbar controller
 */
-
 angular.module('app', ['ngRoute', 'ngMaterial', 'ngMessages', 'chart.js']);
-
 angular.module('app').config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when("/", { templateUrl: "login.html", controller: "login" })
@@ -20,7 +18,6 @@ angular.module('app').config(['$routeProvider', function ($routeProvider) {
         .when("/support", { templateUrl: "support.html", controller: "support" })
         .otherwise({ redirectTo: "/" });
 }]);
-
 angular.module('app').config(['$mdIconProvider', function ($mdIconProvider) {
     $mdIconProvider
         .iconSet("social", "../Content/angular-material-icons/social.svg")
@@ -35,7 +32,6 @@ angular.module('app').config(['$mdIconProvider', function ($mdIconProvider) {
         .iconSet("editor", "../Content/angular-material-icons/editor.svg")
         .iconSet("content", "../Content/angular-material-icons/content.svg");
 }]);
-
 angular.module('app').controller('navigationBar', ['$location', '$scope', '$rootScope', function ($location, $scope, $rootScope) {
     // Navbar menu functionality.
     var originalEvent;

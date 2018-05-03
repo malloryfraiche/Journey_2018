@@ -223,7 +223,6 @@
     <Content Include="Journey_SPA\JourneyScripts\start.js" />
     <Content Include="Journey_SPA\JourneyScripts\support.js" />
     <Content Include="Journey_SPA\login.html" />
-    <Content Include="Journey_SPA\main.html" />
     <Content Include="Journey_SPA\manageVehicles.html" />
     <Content Include="Journey_SPA\myTrips.html" />
     <Content Include="Journey_SPA\navigationToolbar.html" />

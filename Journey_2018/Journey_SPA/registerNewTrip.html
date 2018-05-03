@@ -1,11 +1,7 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
-
 <div ng-cloak class="withToolbarViewStyle">
-
     <h3 class="centerStyle">Register New Trip</h3><br />
-
     <md-content md-whiteframe="20" layout-padding>
-
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
@@ -13,28 +9,23 @@
                 <md-option id="optionVehicleValue" ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
-
         <label style="color: grey;">Date:</label>
         <md-datepicker ng-model="registerNewTrip.tripDate"></md-datepicker>
-
         <md-input-container class="md-block">
             <label>Kilometer reading (start)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
             <input type="text" ng-model="registerNewTrip.startKilometerReading" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Kilometer reading (stop)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
             <input type="text" ng-model="registerNewTrip.stopKilometerReading" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Total trip length (km)</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
             <input type="text" disabled placeholder="{{registerNewTrip.stopKilometerReading - registerNewTrip.startKilometerReading}}" />
         </md-input-container>
-
         <md-input-container layout layout-align="center" class="md-block">
             <div layout="row" flex>
                 <div flex class="md-icon-float md-block">
@@ -48,7 +39,6 @@
                 </div>
             </div>
         </md-input-container>
-
         <md-input-container layout layout-align="center" class="md-block">
             <div layout="row" flex>
                 <div flex class="md-icon-float md-block">
@@ -62,26 +52,20 @@
                 </div>
             </div>
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Errand</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
             <textarea type="text" ng-model="registerNewTrip.errand" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Notes</label>
             <md-icon md-svg-icon="action:assignment"></md-icon>
             <textarea type="text" ng-model="registerNewTrip.notes" />
         </md-input-container>
-
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="saveNewTrip()">Save</md-button>
         </div>
-
     </md-content>
-
     <br />
     <md-button class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>
-

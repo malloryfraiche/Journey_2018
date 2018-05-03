@@ -1,17 +1,12 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
-
 <div ng-cloak class="withToolbarViewStyle">
     <h3 class="centerStyle">Manage Vehicles</h3><br />
-
     <md-content md-whiteframe="20" layout-padding>
-
         <div ng-show="info">
             <b layout="row" layout-align="center center" class="md-padding">{{info}}</b>
         </div>
-
         <md-list>
             <md-subheader class="md-no-sticky">My Vehicles</md-subheader>
-
             <md-list-item ng-model="vehicleListItem" ng-repeat="vehicle in vehicles | orderBy: '-Active' | orderBy: '-DefaultVehicle'">
                 <p ng-if="vehicle.DefaultVehicle" class="defaultStyle">{{ vehicle.RegistrationNumber }}</p>
                 <p ng-if="!vehicle.DefaultVehicle">{{ vehicle.RegistrationNumber }}</p>
@@ -21,18 +16,14 @@
                 <md-button class="md-icon-button" ng-click="deleteVehicle(vehicle)"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
                 <md-divider></md-divider>
             </md-list-item>
-
             <br />
             <md-footer><small>*Default vehicle in bold.</small></md-footer>
         </md-list>
-
     </md-content>
-
     <br />
     <div class="centerStyle">
         <md-button type="button" class="md-primary md-raised" ng-click="showAddVehicleDialog($event)">Add new vehicle</md-button>
     </div>
-
     <br />
     <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>

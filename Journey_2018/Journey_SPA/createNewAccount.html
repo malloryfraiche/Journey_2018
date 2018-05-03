@@ -1,50 +1,37 @@
 ﻿<div ng-cloak class="createNewAccountViewStyle">
-
     <h3 class="centerStyle">Create New Account</h3><br />
-
     <md-content md-whiteframe="20" layout-padding>
-
         <div ng-show="successDiv">
             <b layout="row" layout-align="center center" class="md-padding" style="color: green;">{{successDiv}}</b>
         </div>
-
         <md-input-container class="md-block">
             <label>First Name:</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
             <input type="text" ng-model="createAccountInput.FirstName" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Last Name:</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
             <input type="text" ng-model="createAccountInput.LastName" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Enter username (e-mail):</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
             <input type="email" ng-model="createAccountInput.UserName" required />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
             <input type="password" ng-model="createAccountInput.Password" required /><br />
         </md-input-container>
-
         <md-input-container class="md-block">
             <label>Confirm password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
             <input type="password" ng-model="createAccountInput.ConfirmPassword" required />
         </md-input-container>
-
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="createAccount()">Create Account</md-button>
         </div>
-
     </md-content>
-
-
-
 </div>
 

@@ -1,7 +1,5 @@
 ﻿angular.module('app').controller('createNewAccount', ['$scope', '$location', '$http', '$timeout', function ($scope, $location, $http, $timeout) {
-    
     var registerUserApi = "https://localhost:44399/api/Users/Register";
-
     $scope.createAccountInput = {
         FirstName: '',
         LastName: '',
@@ -9,7 +7,6 @@
         Password: '',
         ConfirmPassword: ''
     };
-
     $scope.createAccount = function () {
         $scope.createAccountInput.Email = $scope.createAccountInput.UserName;
         $http({
@@ -28,6 +25,5 @@
                 console.log(err);
             });
     };
-    
 }]);
 

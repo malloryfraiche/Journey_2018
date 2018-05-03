@@ -115,6 +115,12 @@ namespace Journey_2018.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+                // To have only one vehicle in DB save as the default vehicle.
+                if (vehicle.DefaultVehicle == true)
+                {
+                    List<Vehicle> otherVehicles = db.Vehicles.Where(x => x.DefaultVehicle == true).ToList();
+                    otherVehicles.Select(x => { x.DefaultVehicle = false; return x; }).ToList();
+                }
                 db.Vehicles.Add(vehicle);
                 await db.SaveChangesAsync();
             }

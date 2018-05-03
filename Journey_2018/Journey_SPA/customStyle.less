@@ -1,23 +1,18 @@
 ﻿@spa-background-color: lightgrey;
-
 .spaBody {
     background-color: @spa-background-color;
     display: table;
     width: 100%;
 }
-
 h1, h3, small, md-card-title, h4, th {
     color: grey;
 }
-
 .centerStyle {
     text-align: center;
 }
-
 .defaultStyle {
     font-weight: 700;
 }
-
 .dot {
     height: 10px;
     width: 10px;
@@ -25,20 +20,27 @@ h1, h3, small, md-card-title, h4, th {
     border-radius: 50%;
     display: inline-block;
 }
-
 .activeDot {
     background-color: green;
 }
-
 /* adjusts the navbar menu content height */
 md-menu-content {
     max-height: 90vh;
 }
-
 md-icon {
     fill: lightsteelblue;
 }
-
+/* SPA container styling */
+.loginViewStyle, .createNewAccountViewStyle {
+    padding: 70px 25px;
+}
+/* rounded edges on all md-content */
+md-content {
+    border-radius: 5px;
+}
+.withToolbarViewStyle {
+    padding: 25px;
+}
 /* for AngularJS Material to look pretty */
 .material-icons {
     font-family: 'Material Icons';
@@ -60,26 +62,4 @@ md-icon {
     -moz-osx-font-smoothing: grayscale;
     /* Support for IE. */
     font-feature-settings: 'liga';
-}
-
-
-
-/* SPA container styling */
-.loginViewStyle, .createNewAccountViewStyle {
-    padding: 70px 25px;
-}
-
-.withToolbarViewStyle {
-    padding: 25px;
-}
-
-/* style in myTrips.html */
-.tripInProgressDiv {
-    border: solid thin;
-    padding: 10px;
-}
-
-/* rounded edges on all md-content */
-md-content {
-    border-radius: 5px;
 }

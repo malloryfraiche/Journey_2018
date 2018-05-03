@@ -34,6 +34,18 @@ md-menu-content {
 md-icon {
   fill: lightsteelblue;
 }
+/* SPA container styling */
+.loginViewStyle,
+.createNewAccountViewStyle {
+  padding: 70px 25px;
+}
+/* rounded edges on all md-content */
+md-content {
+  border-radius: 5px;
+}
+.withToolbarViewStyle {
+  padding: 25px;
+}
 /* for AngularJS Material to look pretty */
 .material-icons {
   font-family: 'Material Icons';
@@ -56,21 +68,4 @@ md-icon {
   -moz-osx-font-smoothing: grayscale;
   /* Support for IE. */
   font-feature-settings: 'liga';
-}
-/* SPA container styling */
-.loginViewStyle,
-.createNewAccountViewStyle {
-  padding: 70px 25px;
-}
-.withToolbarViewStyle {
-  padding: 25px;
-}
-/* style in myTrips.html */
-.tripInProgressDiv {
-  border: solid thin;
-  padding: 10px;
-}
-/* rounded edges on all md-content */
-md-content {
-  border-radius: 5px;
 }

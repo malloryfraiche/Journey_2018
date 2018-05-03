@@ -1,10 +1,8 @@
 ﻿angular.module('app').controller('report', ['$scope', '$location', '$http', '$rootScope', function ($scope, $location, $http, $rootScope) {
-
     var vehicleApi = "https://localhost:44399/api/Vehicles";
     var generatePdfApi = "https://localhost:44399/api/reports/generate";
     var chartApi = "https://localhost:44399/api/chart";
     $scope.showTheChart = false;
-
     // GET - active vehicles as drop-down options.
     $http({
         method: 'GET',
@@ -15,7 +13,6 @@
     }).then(function (response) {
         $scope.vehicles = response.data;
     });
-
     // JSON data for the chart and pdf creation.
     var fromDateVal = new Date();
     var toDateVal = new Date();
@@ -24,7 +21,6 @@
         fromDate: fromDateVal,
         toDate: toDateVal
     };
-
     $scope.getChart = function () {
         // POST - to post to the chart api and then get the information into the chart diagram.
         $http({
@@ -58,9 +54,7 @@
                 }
             };
         });
-
     };
-
     $scope.generatePdf = function () {
         // POST - to generate the pdf and get the url to download it...
         $http({
@@ -81,7 +75,6 @@
             console.log(error);
         });
     };
-
     $scope.go = function (path) {
         $location.path(path);
     };

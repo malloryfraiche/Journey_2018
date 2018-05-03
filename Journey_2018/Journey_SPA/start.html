@@ -1,40 +1,31 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
-
 <div ng-cloak class="withToolbarViewStyle">
-
     <div class="md-padding" layout-xs="column" layout="row">
-
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/registerNewTrip')">
                 <md-card-title class="centerStyle">
                     <md-card-title-text layout-align="center center" class="md-headline">REGISTER NEW TRIP</md-card-title-text>
                 </md-card-title>
             </md-card>
-
             <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/myTrips')">
                 <md-card-title>
                     <md-card-title-text layout-align="center center" class="md-headline">MY TRIPS</md-card-title-text>
                 </md-card-title>
             </md-card>
         </div>
-
         <div flex-xs flex-gt-xs="50" layout="column">
             <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/report')">
                 <md-card-title>
                     <md-card-title-text layout-align="center center" class="md-headline">REPORT</md-card-title-text>
                 </md-card-title>
             </md-card>
-
             <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/manageVehicles')">
                 <md-card-title class="centerStyle">
                     <md-card-title-text layout-align="center center" class="md-headline">MANAGE VEHICLES</md-card-title-text>
                 </md-card-title>
             </md-card>
         </div>
-
-
     </div>
-
     <div class="md-padding" flex-xs layout="column">
         <md-card md-theme="dark-grey" md-whiteframe="20">
             <md-card-actions layout="row" layout-align="center">
@@ -43,48 +34,4 @@
             </md-card-actions>
         </md-card>
     </div>
-
-
-    
-
-
-
-
-
-    <!--<div class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/support')">
-                <md-card-title>
-                    <md-card-title-text layout-align="center center" class="md-headline">SUPPORT</md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
-    </div>
-
-    <br />-->
-    <!--<div class="md-padding">
-        <md-button md-whiteframe="20" ng-click="go('/')">
-            Logout
-        </md-button>
-    </div>-->
-    <!--<div class="md-padding" layout-xs="column" layout="row">
-
-        <div layout-align="center" flex-xs flex-gt-xs="50" layout="row">
-            <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/support')">
-                <md-card-title>
-                    <md-card-title-text layout-align="center center" class="md-headline">SUPPORT</md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
-
-        <div layout-align="center" flex-xs flex-gt-xs="50" layout="row">
-            <md-card md-theme="backOrLogout" md-whiteframe="20" ng-click="go('/')">
-                <md-card-title>
-                    <md-card-title-text layout-align="center center" class="md-headline">LOGOUT</md-card-title-text>
-                </md-card-title>
-            </md-card>
-        </div>
-
-    </div>-->
-
 </div>

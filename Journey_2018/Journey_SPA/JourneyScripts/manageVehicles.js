@@ -1,7 +1,5 @@
 ﻿angular.module('app').controller('manageVehicles', ['$scope', '$location', '$mdDialog', '$timeout', '$http', '$rootScope', function ($scope, $location, $mdDialog, $timeout, $http, $rootScope) {
-
     var vehicleApi = "https://localhost:44399/api/Vehicles";
-
     $scope.showEditPromtDialog = function (ev, vehicle) {
         $mdDialog
             .show({
@@ -21,7 +19,6 @@
                 ReloadPage();
             });
     };
-
     $scope.showAddVehicleDialog = function (ev) {
         $mdDialog
             .show({
@@ -41,7 +38,6 @@
                 ReloadPage();
             });
     };
-
     function ReloadPage() {
         $http({
             method: 'GET',
@@ -54,7 +50,6 @@
         });
     }
     ReloadPage();
-
     // DELETE VEHICLE - when you click the garbage bin icon.
     $scope.deleteVehicle = function (vehicle) {
         //alert("Are you sure you want to delete?");
@@ -69,42 +64,33 @@
             ReloadPage();
         });
     };
-
     $scope.go = function (path) {
         $location.path(path);
     };
 }]);
-
-
 // to control the 'Edit' and 'Add New Vehicle' dialog boxes.
 function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
-
     $scope.hide = function () {
         $mdDialog.hide();
     };
     $scope.cancel = function () {
         $mdDialog.cancel();
     };
-
     var vehicleApi = "https://localhost:44399/api/Vehicles";
-
     var registrationNumber = '';
     var active = true;
     var defaultVehicle = false;
-
     $scope.vehicleModel = {
         registrationNumber: registrationNumber,
         active: active,
         defaultVehicle: defaultVehicle
     };
-
     if (dataToPass) {
         $scope.vehicleModel.registrationNumber = dataToPass.RegistrationNumber;
         $scope.vehicleModel.active = dataToPass.Active;
         $scope.vehicleModel.defaultVehicle = dataToPass.DefaultVehicle;
         $scope.vehicleModel.id = dataToPass.Id;
     }
-
     // Activate and inactivate vehicle with switch button.
     $scope.onActivationChange = function () {
         active = !active;
@@ -114,7 +100,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         }
         return active;
     };
-
     // Set vehicle as Default (or not) with switch button.
     $scope.onDefaultChange = function () {
         defaultVehicle = !defaultVehicle;
@@ -124,7 +109,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
         }
         return defaultVehicle;
     };
-
     // ADD NEW VEHICLE - 'Save' button in the addVehicle dialog box.
     $scope.addNewVehicle = function () {
         console.log($scope.vehicleModel);
@@ -142,7 +126,6 @@ function DialogController($scope, $mdDialog, $http, dataToPass, $rootScope) {
             $mdDialog.hide();
         });
     };
-
     // UPDATE VEHICLE - 'Update' button in the editVehicle dialog box.
     $scope.updateVehicle = function () {
         console.log($scope.vehicleModel);

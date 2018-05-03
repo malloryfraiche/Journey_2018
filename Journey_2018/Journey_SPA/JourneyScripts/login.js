@@ -1,7 +1,5 @@
 ﻿angular.module('app').controller('login', ['$scope', '$rootScope', '$location', '$timeout', '$http', function ($scope, $rootScope, $location, $timeout, $http) {
-
     $rootScope.token = '';
-
     $scope.login = {
         userName: '',
         password: ''
@@ -19,14 +17,9 @@
             $timeout(function () { $scope.errorMessage = false; }, 4000)
                 .then(function () {
                     location.reload();
-                    //$scope.login.userName = '';
-                    //$scope.login.password = '';
-                    //$location.path("/");
                 });
         });
     };
-
-    
     $scope.go = function (path) {
         $location.path(path);
     };

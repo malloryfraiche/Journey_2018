@@ -1,7 +1,5 @@
 ﻿angular.module('app').controller('myTrips', ['$scope', '$location', '$http', '$rootScope', function ($scope, $location, $http, $rootScope) {
-    
     var tripsApi = "https://localhost:44399/api/Trips";
-
     function ReloadList() {
         $http({
             method: 'GET',
@@ -14,7 +12,6 @@
         });
     }
     ReloadList();
-
     // DELETE a trip.
     $scope.deleteTrip = function (trip) {
         $http({
@@ -28,7 +25,6 @@
             ReloadList();
         });
     };
-    
     $scope.go = function (path) {
         $location.path(path);
     };

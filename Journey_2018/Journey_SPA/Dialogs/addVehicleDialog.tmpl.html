@@ -1,6 +1,5 @@
 ﻿<md-dialog aria-label="Add New Vehicle">
     <form ng-cloak>
-
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Add New Vehicle</h2>
@@ -10,33 +9,26 @@
                 </md-button>
             </div>
         </md-toolbar>
-
         <md-dialog-content>
             <div class="md-dialog-content">
-
                 <md-input-container class="md-block">
                     <label>Registration number</label>
                     <input type="text" ng-model="vehicleModel.registrationNumber" required />
                 </md-input-container>
-
                 <md-input-container class="md-block">
                     <md-switch class="md-primary" aria-label="Activate Switch" ng-model="vehicleModel.active" ng-change="onActivationChange()">
                         <small style="color: grey;">Activation status</small>
                     </md-switch>
                 </md-input-container>
-
                 <md-input-container class="md-block">
                     <md-switch class="md-primary" aria-label="Default Switch" ng-model="vehicleModel.defaultVehicle" ng-change="onDefaultChange()">
                         <small style="color: grey;">Set as default vehicle</small>
                     </md-switch>
                 </md-input-container>
-
             </div>
         </md-dialog-content>
-
         <md-dialog-actions layout="row">
             <md-button type="submit" class="md-primary" ng-click="addNewVehicle()">Save</md-button>
         </md-dialog-actions>
-
     </form>
 </md-dialog>

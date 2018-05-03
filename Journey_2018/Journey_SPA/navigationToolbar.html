@@ -2,42 +2,32 @@
     <div class="md-toolbar-tools" ng-controller="navigationBar as navBar" ng-cloak>
         <md-title><a href="/Journey_SPA/index.html#!/start">Journey</a></md-title>
         <md-menu>
-
             <md-button aria-label="Open Main Menu" class="md-icon-button" ng-click="navBar.openMainMenu($mdMenu, $event)" ng-mouseenter="$mdMenu.open()">
                 <md-icon md-menu-origin md-svg-icon="navigation:menu"></md-icon>
             </md-button>
-
             <md-menu-content width="2" ng-mouseleave="$mdMenu.close()">
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/start')">Start</md-button>
                 </md-menu-item>
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/myTrips')">My Trips</md-button>
                 </md-menu-item>
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/registerNewTrip')">Register New Trip</md-button>
                 </md-menu-item>
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/report')">Report</md-button>
                 </md-menu-item>
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/manageVehicles')">Manage Vehicles</md-button>
                 </md-menu-item>
-
                 <md-menu-item>
                     <md-button ng-click="navBar.go('/support')">Support</md-button>
                 </md-menu-item>
-
                 <md-menu-divider></md-menu-divider>
                 <md-menu-item>
                     <md-button ng-click="Logout()">Logout</md-button>
                 </md-menu-item>
-
             </md-menu-content>
         </md-menu>
     </div>

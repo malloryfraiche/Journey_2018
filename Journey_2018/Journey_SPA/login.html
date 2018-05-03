@@ -1,49 +1,31 @@
 ﻿<div ng-cloak class="loginViewStyle">
-
-
     <h1 class="centerStyle">JOURNEY</h1><br />
-
-
     <md-content md-whiteframe="20" layout-padding>
-
         <div ng-show="errorMessage">
             <p layout="row" layout-align="center center" class="md-padding" style="color: red;">{{errorMessage}}</p>
         </div>
-
         <md-input-container class="md-block">
             <label>Username (E-mail):</label>
             <md-icon md-svg-icon="action:account_circle"></md-icon>
             <input type="email" ng-model="login.userName" required />
         </md-input-container>
-
-
         <md-input-container class="md-block">
             <label>Password:</label>
             <md-icon md-svg-icon="notification:vpn_lock"></md-icon>
             <input type="password" ng-model="login.password" required />
         </md-input-container>
-
-
         <div>
             <md-button type="submit" class="md-raised md-primary" ng-click="loginButton()">Login</md-button>
         </div>
-
         <div style="display: inline-block;">
             <label class="checkbox-inline">
                 <small><input type="checkbox" />Remember me!</small>
             </label>
         </div>
-
         <small style="float: right"><a>Forgot Password?</a></small><br />
-
     </md-content>
-
     <br />
-
     <div class="centerStyle">
         <md-button type="button" class="md-primary" ng-click="go('/createNewAccount')">Create new account</md-button>
     </div>
-
-
 </div>
-

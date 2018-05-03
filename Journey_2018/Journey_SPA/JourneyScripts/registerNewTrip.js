@@ -1,10 +1,7 @@
 ﻿angular.module('app').controller('registerNewTrip', ['$scope', '$location', '$rootScope', '$http', '$routeParams', function ($scope, $location, $rootScope, $http, $routeParams) {
-
     var tripApi = "https://localhost:44399/api/Trips";
     var vehicleApi = "https://localhost:44399/api/Vehicles";
-
     var dateVal = new Date();
-
     // JSON data.
     $scope.registerNewTrip = {
         tripDate: dateVal,
@@ -15,7 +12,6 @@
         errand: '',
         notes: ''
     };
-
     // GET - active vehicles as drop-down options.
     $http({
         method: 'GET',
@@ -26,8 +22,6 @@
     }).then(function (response) {
         $scope.vehicles = response.data;
     });
-
-    
     $scope.getStartLocation = function () {
         navigator.geolocation.getCurrentPosition(function (position, showError) {
             var geocoder = new google.maps.Geocoder();
@@ -47,7 +41,6 @@
             });
         });
     };
-
     $scope.getStopLocation = function () {
         navigator.geolocation.getCurrentPosition(function (position, showError) {
             var geocoder = new google.maps.Geocoder();
@@ -67,8 +60,6 @@
             });
         });
     };
-
-
     // Geocoding error messages if can't find current position.
     function showError(error) {
         switch (error.code) {
@@ -86,8 +77,6 @@
                 break;
         }
     }
-
-
     // POST NEW TRIP - clicking the 'Save' button.
     $scope.saveNewTrip = function () {
         $scope.registerNewTrip.vehicle_Id = parseInt($scope.selectVehicle);
@@ -103,14 +92,10 @@
             }
         }).then(function (data) {
             console.log(data);
-            //location.reload();
             $location.path("/myTrips");
         });
     };
-    
     $scope.go = function (path) {
         $location.path(path);
     };
-
 }]);
-
