@@ -1,11 +1,8 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
 
 <div ng-cloak class="withToolbarViewStyle">
-
     <h3 class="centerStyle">Report</h3><br />
-
     <md-content md-whiteframe="20" layout-padding>
-
         <md-input-container class="md-block">
             <label>Choose Vehicle</label>
             <md-icon md-svg-icon="maps:directions_car"></md-icon>
@@ -13,7 +10,6 @@
                 <md-option ng-repeat="vehicle in vehicles | filter:{Active:true}" value="{{vehicle.Id}}">{{vehicle.RegistrationNumber}}</md-option>
             </md-select>
         </md-input-container>
-
         <div layout-xs="column" layout="row">
             <div flex-xs flex-gt-xs="50" layout="column">
                 <div class="centerStyle">
@@ -28,35 +24,27 @@
                 </div>
             </div>
         </div>
-
         <br /><br />
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="getChart()">Get chart</md-button>
             <br />
             <h4><span style="color:red;" ng-show="noSelectionMadeMessage">Please make a selection.</span></h4>
         </div>
-
         <div ng-show="showTheChart">
-            <canvas
-                    class="chart chart-doughnut"
+            <canvas class="chart chart-doughnut"
                     chart-data="chartData"
                     chart-labels="chartLabels"
-                    chart-click="chartClick">
-            </canvas>
+                    chart-click="chartClick"></canvas>
         </div>
-
         <div class="centerStyle">
             <md-button type="submit" class="md-raised md-primary" ng-click="generatePdf()">Generate&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
         </div>
 
         <div class="centerStyle" ng-show="toDownloadThePdf">
             <br /><br />
-            <md-button class="md-raised" href="{{pdfUrl}}">Download and view&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button>
+            <a href="{{pdfUrl}}" target="_blank"><md-button class="md-raised">Download and view&nbsp;&nbsp;<md-icon md-svg-icon="pdf:pdf_lg"></md-icon></md-button></a>
         </div>
-
     </md-content>
-
-
     <br />
     <md-button type="button" class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
 </div>

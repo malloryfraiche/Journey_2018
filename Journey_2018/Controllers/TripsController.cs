@@ -31,6 +31,8 @@ namespace Journey_2018.Controllers
         }
         
         // GET: api/Trips
+        [HttpGet]
+        [Route("api/Trips")]
         public IQueryable<Trip> GetTrips()
         {
             return db.Trips;
@@ -80,6 +82,8 @@ namespace Journey_2018.Controllers
         }
         
         // POST: api/Trips
+        [HttpPost]
+        [Route("api/Trips")]
         [ResponseType(typeof(Trip))]
         public async Task<IHttpActionResult> PostTrip(Trip trip)
         {

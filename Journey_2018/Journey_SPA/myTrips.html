@@ -1,26 +1,27 @@
 ﻿<div ng-include="'navigationToolbar.html'"></div>
-
 <div ng-cloak class="withToolbarViewStyle">
-
     <h3 class="centerStyle">My Trips</h3><br />
-
     <div class="md-padding">
         <md-content layout-padding md-whiteframe="20">
-            <h4>Current trip:</h4>
-            <p>{{tripProgress()}}</p>
+            <md-list>
+                <md-list-item>
+                    <small>Distance(km)</small>
+                    <md-divider></md-divider>
+                </md-list-item>
+                <md-list-item ng-model="tripListModel" ng-repeat="trip in trips | orderBy: 'Vehicle_Id'">
+                    <p>{{ (trip.StopKilometerReading)-(trip.StartKilometerReading) }}</p>
+                    <p><strong>Vehicle Id:</strong> {{ trip.Vehicle_Id }}</p>
+                    <md-button class="md-icon-button" ng-click="deleteTrip(trip)"><md-icon md-svg-icon="action:delete"></md-icon></md-button>
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
         </md-content>
     </div>
-
-    <!-- to disable the card to be clicked and shows a message 'need to complete ongoing trip before beginning a new one'... -->
-    <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="cardClicked || go('/registerNewTrip')" ng-disabled="cardClicked">
+    <md-card md-theme="dark-grey" md-whiteframe="20" ng-click="go('/registerNewTrip')">
         <md-card-title>
             <md-card-title-text layout-align="center center" class="md-headline">Create New Trip</md-card-title-text>
         </md-card-title>
     </md-card>
-
-
-
     <br /><br />
     <md-button class="md-primary" ng-click="go('/start')">Back to Start Page</md-button>
-
 </div>

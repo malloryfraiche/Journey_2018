@@ -103,7 +103,8 @@
             }
         }).then(function (data) {
             console.log(data);
-            location.reload();
+            //location.reload();
+            $location.path("/myTrips");
         });
     };
     
