@@ -20,7 +20,6 @@ namespace Journey_2018.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
-
             using (UserRepository _repo = new UserRepository())
             {
                 IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
@@ -30,7 +29,6 @@ namespace Journey_2018.Providers
                     return;
                 }
             }
-            
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);
             identity.AddClaim(new Claim("user_name", context.UserName));
             identity.AddClaim(new Claim("role", "user"));

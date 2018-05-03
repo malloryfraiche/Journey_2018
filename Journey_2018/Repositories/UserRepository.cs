@@ -15,7 +15,6 @@ namespace Journey_2018.Repositories
     {
         private DefaultDataContext _ctx;
         private UserManager<IdentityUser> _userManager;
-
         public UserRepository()
         {
             _ctx = new DefaultDataContext();
@@ -29,12 +28,10 @@ namespace Journey_2018.Repositories
                 UserName = userModel.UserName,
                 Email = userModel.UserName
             };
-            
             var result = await _userManager.CreateAsync(user, userModel.Password);
             return result;
         }
-
-
+        
         public async Task<IdentityUser> FindUser(string userName, string password)
         {
             IdentityUser user = await _userManager.FindAsync(userName, password);

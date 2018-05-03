@@ -17,10 +17,7 @@ namespace Journey_2018.Controllers
     public class TripsController : ApiController
     {
         private DefaultDataContext db = new DefaultDataContext();
-
-
-
-
+        
         // GET a list of trips done by a vehicle.
         public List<Trip> GetTripsByVehicleId(int vehicleId)
         {
@@ -32,15 +29,10 @@ namespace Journey_2018.Controllers
         {
             return db.Trips.Where(x => x.Vehicle_Id == vehicleId && x.TripDate > fromDate && x.TripDate < toDate).ToList();
         }
-
-
-
-
-
+        
         // GET: api/Trips
         public IQueryable<Trip> GetTrips()
         {
-
             return db.Trips;
         }
 
@@ -53,7 +45,6 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-
             return Ok(trip);
         }
         
@@ -65,14 +56,11 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             if (id != trip.Id)
             {
                 return BadRequest();
             }
-
             db.Entry(trip).State = EntityState.Modified;
-
             try
             {
                 await db.SaveChangesAsync();
@@ -88,7 +76,6 @@ namespace Journey_2018.Controllers
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
         
@@ -100,12 +87,8 @@ namespace Journey_2018.Controllers
             {
                 return BadRequest(ModelState);
             }
-            
-
             db.Trips.Add(trip);
-            
             await db.SaveChangesAsync();
-
             return Ok(trip);
         }
 
@@ -118,10 +101,8 @@ namespace Journey_2018.Controllers
             {
                 return NotFound();
             }
-
             db.Trips.Remove(trip);
             await db.SaveChangesAsync();
-
             return Ok(trip);
         }
 

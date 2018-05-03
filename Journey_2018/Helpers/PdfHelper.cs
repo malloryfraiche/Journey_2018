@@ -18,11 +18,9 @@ namespace Journey_2018.Helpers
         {
             var tripsController = new TripsController();
             var vehicleController = new VehiclesController();
-
             var vehicleTrips = tripsController.GetTripsByVehicleId(downloadModel.VehicleId);
             var vehicle = vehicleController.GetVehicles().FirstOrDefault(x => x.Id == downloadModel.VehicleId);
             var url = BuildPdfAndReturnUrl(vehicleTrips, vehicle, downloadModel.FromDate, downloadModel.ToDate);
-
             return url;
         }
 
@@ -45,7 +43,6 @@ namespace Journey_2018.Helpers
                     ////have this event for the footer for the PDF.
                     //PageEvent pageEvent = new PageEvent();
                     //writer.PageEvent = pageEvent;
-
 
                     // Creating the pdf-document.
                     document.Open();
@@ -93,11 +90,9 @@ namespace Journey_2018.Helpers
                         table.SpacingAfter = 10;
                         document.Add(table);
                     }
-
                     document.Close();
                 }
             }
-
             // return a downloadable path to the generated pdf.
             return string.Format("{0}{1}", destination, fileSuffix);
         }

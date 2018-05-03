@@ -10,16 +10,12 @@ namespace Journey_2018.Models
     public class Vehicle
     {
         public int Id { get; set; }
-
         [Required]
         public string RegistrationNumber { get; set; }
-
         [Required]
         public bool Active { get; set; }
-
         [Required]
         public bool DefaultVehicle { get; set; }
-
         public string User_Id { get; set; }
     }
 }

@@ -29,6 +29,5 @@ namespace Journey_2018.Controllers
             var vehicleTrips = tripsController.GetTripsByDates(selection.VehicleId, selection.FromDate, selection.ToDate);
             return Ok(vehicleTrips);
         }
-        
     }
 }

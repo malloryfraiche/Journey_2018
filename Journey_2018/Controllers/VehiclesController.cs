@@ -21,7 +21,7 @@ namespace Journey_2018.Controllers
     {
         private DefaultDataContext db = new DefaultDataContext();
 
-        // log4net interface variabel.
+        // log4net interface variable.
         private readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         // GET: api/Vehicles
@@ -55,7 +55,6 @@ namespace Journey_2018.Controllers
             }
             return Ok(vehicle);
         }
-
         
         // PUT: api/Vehicles/5
         [HttpPut]
@@ -105,7 +104,7 @@ namespace Journey_2018.Controllers
         [Route("api/Vehicles")]
         public async Task<IHttpActionResult> PostVehicle(Vehicle vehicle)
         {
-            // try-catch for log4net functionality.
+            // try-catch for an example of log4net functionality.
             try
             {
                 ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;

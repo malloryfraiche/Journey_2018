@@ -18,7 +18,6 @@ namespace Journey_2018.App_Start
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
-
             app.MapSignalR();
         }
 
@@ -53,7 +52,5 @@ namespace Journey_2018.App_Start
                 return Task.FromResult<object>(context);
             }
         }
-
-
     }
 }
